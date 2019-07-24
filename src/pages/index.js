@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import './style.css'
+import TopicCard from '../components/TopicCard/TopicCard'
 
 class TopicsIndex extends React.Component {
   render() {
@@ -16,21 +17,25 @@ class TopicsIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        <ul>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            console.log(node.frontmatter)
+            const accent = node.frontmatter.accentColor || ''
+            return (
+              <TopicCard
+                key={node.fields.slug}
+                headingLevel="2"
+                accentColor={accent}
+                showButton
+                linkUrl={node.fields.slug}
+                topic={{
+                  title: title,
+                }}
+              />
+            )
+          })}
+        </ul>
       </Layout>
     )
   }
@@ -54,6 +59,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            accentColor
+            keyTakeaways
           }
         }
       }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import cardStyle from './topiccard.module.css'
 
 class TopicCard extends Component {
@@ -19,7 +20,7 @@ class TopicCard extends Component {
   }
 
   render() {
-    const { topic, headingLevel, accentColor, header } = this.props
+    const { topic, headingLevel, accentColor, header, linkUrl } = this.props
     const Tag = 'h' + headingLevel
     return (
       <div
@@ -32,7 +33,7 @@ class TopicCard extends Component {
         </div>
         {header ? null : (
           <div className={cardStyle.buttons}>
-            <Link to={`/topics/${topic.id}`}>
+            <Link to={linkUrl}>
               <button className={cardStyle.actionButton}>Let's go</button>
             </Link>
           </div>

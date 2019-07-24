@@ -12,16 +12,24 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
-
-    console.log(post.frontmatter)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <TopicCard
+          topic={{
+            title: post.frontmatter.displayTitle,
+            keyTakeaways: post.frontmatter.keyTakeaways,
+          }}
+          accentColor={post.frontmatter.accentColor}
+          headingLevel="1"
+          showButton={false}
+          header
+        />
         <MDXRenderer scope={{ ButtonBox, Gist, ReadingList, TopicCard }}>
           {post.code.body}
         </MDXRenderer>
+        <ReadingList items={post.frontmatter.readingList} />
       </Layout>
     )
   }
@@ -42,6 +50,13 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
+        displayTitle
+        accentColor
+        keyTakeaways
+        readingList {
+          url
+          description
+        }
       }
       code {
         body

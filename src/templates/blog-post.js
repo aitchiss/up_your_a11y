@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import ButtonBox from '../components/ButtonBox'
+import ButtonBox from '../components/ButtonBox/ButtonBox'
 import Gist from 'super-react-gist'
 import ReadingList from '../components/ReadingList/ReadingList'
+import TopicCard from '../components/TopicCard/TopicCard'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,9 +19,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <MDXRenderer scope={{ ButtonBox, Gist, ReadingList }}>
+        <MDXRenderer scope={{ ButtonBox, Gist, ReadingList, TopicCard }}>
           {post.code.body}
         </MDXRenderer>
       </Layout>
@@ -44,7 +42,6 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
       }
       code {
         body

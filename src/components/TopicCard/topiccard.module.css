@@ -1,0 +1,31 @@
+.topicContainer {
+  border: 2px solid black;
+  border-top-width: 3px;
+  border-right-width: 4px;
+  margin-top: 20px;
+  max-width: 750px;
+  padding: 10px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description {
+  padding-bottom: 15px;
+}
+
+.buttons {
+  margin-left: auto;
+  margin-top: auto;
+  padding: 5px;
+}
+
+.actionButton {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 8px;
+  width: 175px;
+  align-self: right;
+}

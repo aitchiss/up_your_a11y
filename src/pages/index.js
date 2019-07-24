@@ -26,7 +26,7 @@ class TopicsIndex extends React.Component {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
+
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </div>
           )
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx {
       edges {
         node {
           excerpt
@@ -53,7 +53,6 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
             title
           }
         }

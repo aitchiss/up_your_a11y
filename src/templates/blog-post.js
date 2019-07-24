@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
-
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
+import ButtonBox from '../components/ButtonBox'
+import Gist from 'super-react-gist'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -17,7 +18,7 @@ class BlogPostTemplate extends React.Component {
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+        <MDXRenderer scope={{ ButtonBox, Gist }}>{post.code.body}</MDXRenderer>
         <hr />
         <Bio />
 

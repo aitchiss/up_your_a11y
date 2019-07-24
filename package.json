@@ -34,6 +34,7 @@
     "react-helmet": "^5.2.0",
     "react-live": "^1.12.0",
     "react-typography": "^0.16.13",
+    "super-react-gist": "^1.0.4",
     "typeface-merriweather": "0.0.43",
     "typeface-montserrat": "0.0.43",
     "typography": "^0.16.17",

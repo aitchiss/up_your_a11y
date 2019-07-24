@@ -1,0 +1,43 @@
+---
+title: 'UYA: Repetitive calls to action'
+date: '2015-05-01T22:12:03.284Z'
+---
+
+## Repetitive calls to action
+
+In this section:
+
+- Re-using components with header elements
+- Repetitive calls to action
+
+It's tempting when re-using a React component for multiple items in a list to have the same CTA button or link text on each. For example, a simple boxed button element might look like:
+
+<Gist url="https://gist.github.com/aitchiss/91321e638c575991fc4eeb5b7e9ea3c0" />
+
+Turn your screen reader on and consider the example button boxes list created using the above component. Tab through the call to
+action buttons and note the screen reader output:
+
+<div className="repetitive-buttons-wrapper">
+  <ButtonBox description="Apply for a loan" buttonText="Find out more" />
+  <ButtonBox
+    description="Apply for a savings account"
+    buttonText="Find out more"
+  />
+</div>
+
+Did the screen reader announce anything useful to you? Without the
+visual context of the "Apply for... " titles, the buttons don't make
+a lot of sense on their own, so it's important to add a more
+descriptive label for screen reader users. This can either be
+accomplished by adding text and displaying off-screen (using CSS),
+or simply by wrapping the button description with an aria-label. For example, the ButtonBox element above can be updated to:
+
+<Gist url="https://gist.github.com/aitchiss/5bc564d142a0b9c13f7ce4f013a7c30e" />
+
+Using your screen reader, now tab to the button below and notice the button/call to action text is now much more descriptive and allow users to easily distinguish between the actions attached to each item in the list:
+
+<ButtonBox
+  description="Apply for a savings account - accessibly!"
+  buttonAriaLabel="Find out more about savings accounts"
+  buttonText="Find out more"
+/>

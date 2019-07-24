@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
-import { rhythm, scale } from '../utils/typography'
 import MenuHeader from './MenuHeader'
+import layoutStyle from './layoutStyle.module.css'
 
 class Layout extends React.Component {
   render() {
@@ -18,7 +16,7 @@ class Layout extends React.Component {
     return (
       <div>
         {header}
-        {children}
+        <div className={layoutStyle.container}>{children}</div>
       </div>
     )
   }

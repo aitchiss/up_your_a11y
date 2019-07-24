@@ -1,19 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog MDX`,
-    author: `Matt Hagner`,
-    description: `An extension of the gatsby starter blog, with support for MDX`,
+    title: `Up Your A11y`,
+    author: `Suzanne Aitchison`,
+    description: `Notes and tips for improving your web accessibility`,
     siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
     social: {
-      twitter: `mattinthecouch`,
+      twitter: `s_aitchison`,
     },
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content/topics`,
+        name: `topic`,
       },
     },
     {
@@ -122,8 +122,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Up Your A11y`,
+        short_name: `UYA`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

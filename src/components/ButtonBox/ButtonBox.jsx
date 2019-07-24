@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import './style.scss';
+import buttonboxStyles from './buttonbox.module.css'
 
 class ButtonBox extends Component {
   render() {
@@ -10,9 +10,9 @@ class ButtonBox extends Component {
       description,
     } = this.props
     return (
-      <div className={`button-wrapper ${wrapperClassName}`}>
-        <p>{description}</p>
-        <button className="cta-btn">
+      <div className={`${buttonboxStyles.buttonWrapper} ${wrapperClassName}`}>
+        <p className={buttonboxStyles.boxText}>{description}</p>
+        <button className={buttonboxStyles.bbButton}>
           <span aria-label={buttonAriaLabel}>{buttonText}</span>
         </button>
       </div>

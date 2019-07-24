@@ -1,0 +1,11 @@
+.readingList {
+  border: 2px solid black;
+  box-shadow: -5px 10px #fdbfaf;
+  border-bottom-width: 3px;
+  border-left-width: 4px;
+  margin-top: 20px;
+  max-width: 750px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}

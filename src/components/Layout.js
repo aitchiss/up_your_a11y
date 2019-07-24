@@ -14,10 +14,12 @@ class Layout extends React.Component {
       header = header = <MenuHeader />
     }
     return (
-      <div>
+      <React.Fragment>
         {header}
-        <div className={layoutStyle.container}>{children}</div>
-      </div>
+        <main>
+          <div className={layoutStyle.container}>{children}</div>
+        </main>
+      </React.Fragment>
     )
   }
 }

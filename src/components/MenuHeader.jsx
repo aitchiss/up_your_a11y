@@ -1,6 +1,6 @@
 import React from 'react'
 import menuHeaderStyle from './menuheader.module.css'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, Link } from 'gatsby'
 
 function MenuHeader(props) {
   return (
@@ -18,11 +18,21 @@ function MenuHeader(props) {
         return (
           <header>
             <div className={menuHeaderStyle.header}>
-              <img
-                src={logoSrc}
-                alt="Up your accessibility logo"
-                className={logoStyle}
-              />
+              {!expanded ? (
+                <Link to="/" aria-label="Back to home page">
+                  <img
+                    src={logoSrc}
+                    alt="Up your accessibility logo"
+                    className={logoStyle}
+                  />
+                </Link>
+              ) : (
+                <img
+                  src={logoSrc}
+                  alt="Up your accessibility logo"
+                  className={logoStyle}
+                />
+              )}
             </div>
           </header>
         )

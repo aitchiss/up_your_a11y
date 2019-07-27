@@ -19,6 +19,15 @@ class TopicCard extends Component {
     }
   }
 
+  headingRef = React.createRef()
+
+  componentDidMount() {
+    const { header } = this.props
+    if (header) {
+      this.headingRef.current.focus()
+    }
+  }
+
   render() {
     const {
       topic,
@@ -36,6 +45,13 @@ class TopicCard extends Component {
       >
         <div className={cardStyle.description}>
           <Tag>{topic.title}</Tag>
+          <Tag
+            ref={this.headingRef}
+            tabIndex="-1"
+            className={cardStyle.accessibilityHeader}
+          >
+            {topic.title}
+          </Tag>
           {TopicCard.getMainContent(topic, header)}
         </div>
         {header ? null : (

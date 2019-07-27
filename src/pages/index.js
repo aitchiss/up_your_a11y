@@ -5,7 +5,52 @@ import SEO from '../components/seo'
 import './style.css'
 import TopicCard from '../components/TopicCard/TopicCard'
 
+const CategoryListHeaders = {
+  reactPitfalls: 'Common React Pitfalls',
+  fundamentals: 'Getting the fundamentals right',
+  lists: 'Handling lists',
+}
+
 class TopicsIndex extends React.Component {
+  static getListSections(posts) {
+    const categories = Object.keys(CategoryListHeaders)
+    const items = categories.map(category => {
+      const matchingPosts = posts.filter(({ node }) => {
+        const safeCategory = node.frontmatter.category || ''
+        return safeCategory === category
+      })
+
+      const listEntries = matchingPosts.map(({ node }) => {
+        const displayTitle = node.frontmatter.displayTitle || node.fields.slug
+        const accent = node.frontmatter.accentColor || ''
+        const description = node.frontmatter.description || ''
+        return (
+          <li key={`topic-list-item-${node.fields.slug}`}>
+            <TopicCard
+              key={node.fields.slug}
+              headingLevel="3"
+              accentColor={accent}
+              showButton
+              linkUrl={node.fields.slug}
+              linkAriaLabel={`Link to ${displayTitle}`}
+              topic={{
+                title: displayTitle,
+                description: description,
+              }}
+            />
+          </li>
+        )
+      })
+      return (
+        <React.Fragment key={`category-section-${category}`}>
+          <h2>{CategoryListHeaders[category]}</h2>
+          <ul className="plainList">{listEntries}</ul>
+        </React.Fragment>
+      )
+    })
+    return items
+  }
+
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -17,31 +62,7 @@ class TopicsIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <ul className="plainList">
-          {posts.map(({ node }) => {
-            const displayTitle =
-              node.frontmatter.displayTitle || node.fields.slug
-            console.log(node.frontmatter)
-            const accent = node.frontmatter.accentColor || ''
-            const description = node.frontmatter.description || ''
-            return (
-              <li>
-                <TopicCard
-                  key={node.fields.slug}
-                  headingLevel="2"
-                  accentColor={accent}
-                  showButton
-                  linkUrl={node.fields.slug}
-                  linkAriaLabel={`Link to ${displayTitle}`}
-                  topic={{
-                    title: displayTitle,
-                    description: description,
-                  }}
-                />
-              </li>
-            )
-          })}
-        </ul>
+        {TopicsIndex.getListSections(posts)}
       </Layout>
     )
   }
@@ -66,6 +87,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             displayTitle
+            category
             accentColor
             keyTakeaways
             description

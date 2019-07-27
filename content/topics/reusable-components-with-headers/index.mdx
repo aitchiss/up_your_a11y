@@ -1,0 +1,50 @@
+---
+title: 'UYA: Reusable components with headers'
+displayTitle: 'Heading levels in reusable components'
+description: "React empowers us to re-use components across our apps, but it's important to consider how component re-use could affect accessibility. This topic demonstrates an easy way to build flexible components that don't compromise heading level structure."
+category: 'react-pitfalls'
+accentColor: '#BFE3D2'
+keyTakeaways:
+  - 'Make the most of your re-usable React components, without compromising accessibility'
+  - 'Ensure your content is clearly structured while taking full advantage of re-usable React compoonents'
+  - 'Learn a neat trick to create DOM elements dynamically in React'
+readingList:
+  - url: 'https://www.w3.org/WAI/tutorials/page-structure/headings/'
+    description: 'W3: Headings and page structure'
+---
+
+One of the key reasons React is so popular is the ability to define a component, pass it some simple props, and then re-use it in a variety of places without having to write duplicate HTML throughout your app. When creating a re-usable component, there are always a few things to consider - e.g. what should be customisable via props, and what should be an integral part of the component itself.
+
+## What’s the problem?
+
+Consider a simple version of the TopicCard component used on this site in the topics list, and at the topic of each topic page:
+
+<Gist url="https://gist.github.com/aitchiss/85de272b6e984f2d9986fd305ab8ec4b" />
+
+This simple version of the TopicCard component receives in props:
+
+- The title for the card to display
+- The description content to display
+- Button properties that can shown or hidden depending on whether a link has been specified
+
+At first glance we have a nice reusable component that I can start placing throughout my app. However, we have one sneaky problem - the ‘h2’ element.
+
+As discussed in Accessibility 101 [link forthcoming!***], heading levels in HTML are not simply about sizing and styling your header text; they provide semantic information about the organisation and importance of your content. Heading levels should always increase in a logical order, and only by 1 step at a time.
+
+The version of the TopicCard above defines an h2 element, that’s going to appear wherever I re-use this component, which means I can only use it on a page where there is already an ‘h1’ title, and where being an ‘h2’ makes logical sense for the flow of my page. Given the power of React is flexible re-use of components, it seems there is some refactoring required.
+
+## Passing a heading level in props
+
+The problem can be easily solved with a simple trick that allows you to dynamically set the heading level according to the props passes in. See the upgraded version of the TopicCard:
+
+<Gist url="https://gist.github.com/aitchiss/cdb5091a55af0cd0090bf746088b7f41" />
+
+As you can see, the component now receives the heading level (e.g. 'h1') in props and dynamically creates the correct heading element to render in the TopicCard. Note in the example above that ’Title’ is title-cased - this is essential otherwise React will not recognise it as a DOM element.
+
+## Final tweaks and considerations
+
+While dynamically creating DOM elements based on props like this is very powerful, it could also yield some unwanted behaviour if the expected prop types aren’t passed in. I’d recommend when using this approach also making sure you complete some kind of props validation before attempting to create the Title element. There’s a variety of ways to achieve this, but a very simple implementation would lead us to:
+
+<Gist url="https://gist.github.com/aitchiss/6bb5fc90523d6ca299155eb95b12afef" />
+
+So now if an appropriate heading level isn’t passed in, we default to creating a basic paragraph element instead. Great! So now I can use my TopicCard as a list item with ‘h2’s, or as the header to my page with an ‘h1’.

@@ -19,7 +19,8 @@ class TopicsIndex extends React.Component {
         />
         <ul className="plainList">
           {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
+            const displayTitle =
+              node.frontmatter.displayTitle || node.fields.slug
             console.log(node.frontmatter)
             const accent = node.frontmatter.accentColor || ''
             const description = node.frontmatter.description || ''
@@ -32,7 +33,7 @@ class TopicsIndex extends React.Component {
                   showButton
                   linkUrl={node.fields.slug}
                   topic={{
-                    title: title,
+                    title: displayTitle,
                     description: description,
                   }}
                 />
@@ -63,6 +64,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            displayTitle
             accentColor
             keyTakeaways
             description

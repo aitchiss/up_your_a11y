@@ -7,3 +7,9 @@
     padding: 25px 150px 25px 150px;
   }
 }
+
+blockquote {
+  padding: 5px 0 5px 25px;
+  border-left: 8px solid #fdbfaf;
+  background: #f4f2f2;
+}

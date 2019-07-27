@@ -1,0 +1,59 @@
+---
+title: 'Handling Page Titles'
+displayTitle: 'Handling page titles in React'
+category: 'reactPitfalls'
+description: 'Without explicitly managing it, the page title in your React app will never change. Find out how this affects diverse users, and a simple method to manage your page titles.'
+accentColor: '#BFE3D2'
+keyTakeaways:
+  - 'Understand the importance of the page title to users of assistive technology'
+  - 'Manage page titles throughout your React application'
+  - 'Decide what your page titles should be'
+readingList:
+  - url: 'https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html'
+    description: 'WCAG: Understanding page title requirement'
+  - url: 'https://www.w3.org/WAI/WCAG21/Techniques/general/G88.html'
+    description: 'WCAG: Providing descriptive titles for web pages'
+  - url: 'https://github.com/gaearon/react-document-title'
+    description: 'React Document Title'
+---
+
+## Why is the page title important?
+
+The short answer to this is that the page title is immediately available to a user without entering or navigating your page content. To get a feel for the accessibility implication of this, try turning on your screen reader now. You should find that the title of this page is immediately announced to you, along with any other relevant browser information. If you have other tabs open, try tabbing or clicking through them and see how useful the titles are in understanding whether that tab contains the content you are looking for.
+
+It’s clear that a concise, descriptive page title can be vital in surfacing your content to screen reader users.
+
+## How to title your pages
+
+W3 has some excellent [simple tips](https://www.w3.org/WAI/WCAG21/Techniques/general/G88.html) on this:
+
+The title of each Web page should:
+
+- Identify the subject of the Web page
+- Make sense when read out of context, for example by a screen reader or in a site map or list of search results
+- Be short
+  It may also be helpful for the title to
+- Identify the site or other resource to which the Web page belongs
+- Be unique within the site or other resource to which the Web page belongs
+
+It’s also usually preferred that the most important/specific information comes first, e.g.
+
+> Handling Page Titles: Up Your A11y
+
+Rather than:
+
+> Up Your A11y: Handling Page Titles
+
+## Setting the title in React
+
+Given that React produces single page applications, unless it’s explicitly managed, the page title never changes. This leaves your users with few clues to the page that they’re currently viewing without entering and reading your content. The great news though is that managing the page title is super simple via the [React Document Title](https://github.com/gaearon/react-document-title) component.
+
+For each page in your app, simply wrap the rendered components in the DocumentTitle component, and pass in the page title, e.g.
+
+<Gist url="https://gist.github.com/aitchiss/1a37dacf15548e73b1d8db73af428924" />
+
+You can even tie the page title to a property in your component’s state if need be, e.g. if you need to load the page title from an API or elsewhere when the component mounts.
+
+<Gist url="https://gist.github.com/aitchiss/95c02217626d73542bea7699c4f5bfc9" />
+
+This simple solution will help a whole range of users browse your apps, as well as giving your pages a professional look and feel.

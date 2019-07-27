@@ -6,8 +6,8 @@ import './style.css'
 import TopicCard from '../components/TopicCard/TopicCard'
 
 const CategoryListHeaders = {
-  reactPitfalls: 'Common React Pitfalls',
   fundamentals: 'Getting the fundamentals right',
+  reactPitfalls: 'Common React Pitfalls',
   lists: 'Handling lists',
 }
 
@@ -59,8 +59,15 @@ class TopicsIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+          title="Home"
+          keywords={[
+            `accessibility`,
+            `react`,
+            `a11y`,
+            `web`,
+            `tutorial`,
+            `blog`,
+          ]}
         />
         {TopicsIndex.getListSections(posts)}
       </Layout>

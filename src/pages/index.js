@@ -17,22 +17,26 @@ class TopicsIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <ul>
+        <ul className="plainList">
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             console.log(node.frontmatter)
             const accent = node.frontmatter.accentColor || ''
+            const description = node.frontmatter.description || ''
             return (
-              <TopicCard
-                key={node.fields.slug}
-                headingLevel="2"
-                accentColor={accent}
-                showButton
-                linkUrl={node.fields.slug}
-                topic={{
-                  title: title,
-                }}
-              />
+              <li>
+                <TopicCard
+                  key={node.fields.slug}
+                  headingLevel="2"
+                  accentColor={accent}
+                  showButton
+                  linkUrl={node.fields.slug}
+                  topic={{
+                    title: title,
+                    description: description,
+                  }}
+                />
+              </li>
             )
           })}
         </ul>
@@ -61,6 +65,7 @@ export const pageQuery = graphql`
             title
             accentColor
             keyTakeaways
+            description
           }
         }
       }

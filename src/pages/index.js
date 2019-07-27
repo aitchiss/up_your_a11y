@@ -32,6 +32,7 @@ class TopicsIndex extends React.Component {
                   accentColor={accent}
                   showButton
                   linkUrl={node.fields.slug}
+                  linkAriaLabel={`Link to ${displayTitle}`}
                   topic={{
                     title: displayTitle,
                     description: description,

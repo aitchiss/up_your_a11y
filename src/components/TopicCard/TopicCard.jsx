@@ -20,7 +20,14 @@ class TopicCard extends Component {
   }
 
   render() {
-    const { topic, headingLevel, accentColor, header, linkUrl } = this.props
+    const {
+      topic,
+      headingLevel,
+      accentColor,
+      header,
+      linkUrl,
+      linkAriaLabel,
+    } = this.props
     const Tag = 'h' + headingLevel
     return (
       <div
@@ -33,8 +40,12 @@ class TopicCard extends Component {
         </div>
         {header ? null : (
           <div className={cardStyle.buttons}>
-            <Link to={linkUrl}>
-              <button className={cardStyle.actionButton}>Let's go</button>
+            <Link
+              to={linkUrl}
+              className={cardStyle.actionButton}
+              aria-label={linkAriaLabel}
+            >
+              Let's go
             </Link>
           </div>
         )}

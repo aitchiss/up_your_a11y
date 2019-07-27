@@ -25,7 +25,8 @@
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
-  padding: 8px;
-  width: 175px;
-  align-self: right;
+  padding: 8px 15px 8px 15px;
+  float: right;
+  min-width: 125px;
+  text-align: center;
 }

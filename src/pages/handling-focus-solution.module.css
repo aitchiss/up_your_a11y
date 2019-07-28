@@ -1,0 +1,3 @@
+.focusableHeader:focus {
+  outline: none;
+}

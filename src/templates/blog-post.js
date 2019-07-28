@@ -11,25 +11,38 @@ import TopicCard from '../components/TopicCard/TopicCard'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
+    const category = post.frontmatter.category
     const siteTitle = this.props.data.site.siteMetadata.title
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
-        <TopicCard
-          topic={{
-            title: post.frontmatter.displayTitle,
-            keyTakeaways: post.frontmatter.keyTakeaways,
-          }}
-          accentColor={post.frontmatter.accentColor}
-          headingLevel="1"
-          showButton={false}
-          header
-        />
-        <MDXRenderer scope={{ ButtonBox, Gist, ReadingList, TopicCard }}>
-          {post.code.body}
-        </MDXRenderer>
-        <ReadingList items={post.frontmatter.readingList} />
+        {category === 'demo' ? (
+          <MDXRenderer
+            scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link }}
+          >
+            {post.code.body}
+          </MDXRenderer>
+        ) : (
+          <React.Fragment>
+            <TopicCard
+              topic={{
+                title: post.frontmatter.displayTitle,
+                keyTakeaways: post.frontmatter.keyTakeaways,
+              }}
+              accentColor={post.frontmatter.accentColor}
+              headingLevel="1"
+              showButton={false}
+              header
+            />
+            <MDXRenderer
+              scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link }}
+            >
+              {post.code.body}
+            </MDXRenderer>
+            <ReadingList items={post.frontmatter.readingList} />
+          </React.Fragment>
+        )}
       </Layout>
     )
   }
@@ -51,6 +64,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         displayTitle
+        category
         accentColor
         keyTakeaways
         readingList {

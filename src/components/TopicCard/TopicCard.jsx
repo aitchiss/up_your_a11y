@@ -44,11 +44,10 @@ class TopicCard extends Component {
         style={{ boxShadow: `5px -10px ${accentColor}` }}
       >
         <div className={cardStyle.description}>
-          <Tag>{topic.title}</Tag>
           <Tag
             ref={this.headingRef}
             tabIndex="-1"
-            className={cardStyle.accessibilityHeader}
+            className={cardStyle.focusableHeader}
           >
             {topic.title}
           </Tag>

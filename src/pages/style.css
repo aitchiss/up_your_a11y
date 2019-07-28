@@ -17,3 +17,14 @@ body {
 .plainList li {
   padding: 0;
 }
+
+.topicHeader {
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .topicHeader {
+    margin: 35px -75px 30px -75px;
+  }
+}

@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import './style.css'
 import TopicCard from '../components/TopicCard/TopicCard'
+import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
 
 const CategoryListHeaders = {
   fundamentals: 'Getting the fundamentals right',
@@ -43,7 +44,7 @@ class TopicsIndex extends React.Component {
       })
       return (
         <React.Fragment key={`category-section-${category}`}>
-          <h2>{CategoryListHeaders[category]}</h2>
+          <h2 className="topicHeader">{CategoryListHeaders[category]}</h2>
           <ul className="plainList">{listEntries}</ul>
         </React.Fragment>
       )
@@ -69,6 +70,7 @@ class TopicsIndex extends React.Component {
             `blog`,
           ]}
         />
+        <HomePageAbout />
         {TopicsIndex.getListSections(posts)}
       </Layout>
     )

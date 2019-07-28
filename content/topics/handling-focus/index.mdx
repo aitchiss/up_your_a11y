@@ -18,7 +18,7 @@ readingList:
 
 To boil it down to its simplest level, server-side rendering means that when you navigate to a new route e.g. upyoura11y.com/reusable-components-with-headers, the server is contacted to request the page to display, and a whole new page is presented in the browser. Client-side rendering, on the other hand, means that upyoura11y.com and upyoura11y.com/reusable-components-with-headers are actually the same page (index.html), but the client app decides which content to drop into index.html at runtime.
 
-In reality, there is a lot more to it than that, especially with new server-side rendering technique, but the key to understanding focus management in React is to understand that when a user clicks a link to go to another route in your app, the DOM is manipulated at runtime, and the content of your single webpage is altered.
+In reality, there is a lot more to it than that, especially with new server-side rendering techniques, but the key to understanding focus management in React is to understand that when a user clicks a link to go to another route in your app, the DOM is manipulated at runtime, and the content of your single webpage is altered.
 
 There are a few accessibility concerns this causes. One relates to the page title and is covered in another article on <Link to="/page-titles">Handling page titles in React</Link>, and another is the way focus is handled for users of assistive technology.
 

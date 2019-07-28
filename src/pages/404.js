@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 
@@ -9,7 +9,10 @@ class NotFoundPage extends React.Component {
       <Layout location={this.props.location}>
         <SEO title="404: Not Found" />
         <h1>Not Found</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+        <p>Sorry, we couldn't find the page you're looking for.</p>
+        <Link to="/">
+          To view all available topics, go back to the Home Page
+        </Link>
       </Layout>
     )
   }

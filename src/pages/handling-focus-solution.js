@@ -12,7 +12,7 @@ class HandlingFocusSolution extends React.Component {
 
   render() {
     return (
-      <Layout location={{ pathname: '/handling-focus-solution' }}>
+      <Layout location={this.props.location}>
         <h1
           ref={this.headingRef}
           className={solutionStyle.focusableHeader}

@@ -1,0 +1,73 @@
+---
+title: 'Accessibility 101'
+displayTitle: 'Accessibility 101: Who, Why, How'
+category: 'fundamentals'
+description: 'This topic considers the who, why and how of accessibility and offers a Quick Start guide for how to develop accessible content.'
+accentColor: '#7EB6D7'
+keyTakeaways:
+  - 'Understand web accessibility requirements'
+  - 'Consider who can benefit from improving the accessibility of your content'
+  - 'Think about who in your organisation should be involved in making your content accessible'
+  - 'Get started with some quick fundamentals'
+readingList:
+  - url: 'https://www.w3.org/WAI/fundamentals/accessibility-principles/'
+    description: 'WCAG: Accessibility Principles'
+  - url: 'https://www.w3.org/WAI/fundamentals/accessibility-intro/'
+    description: 'WCAG: Introduction to Web Accessibility'
+  - url: 'https://www.w3.org/WAI/WCAG21/quickref/'
+    description: 'How to Meet WCAG: Quick Reference'
+  - url: 'https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction'
+    description: 'GOV.UK: Meeting Government Accessibility Requirements'
+---
+
+## Start with the ‘why?’
+
+If you’re reading this article, you’ve already identified the need for your web content to be accessible (yay!). However to be an effective advocate for accessible development in your organisation it’s helpful to be able to articulate **why** accessibility is important.
+
+You’ll likely have your own feelings about why it’s important to you, but if you’re developing products for use by the public, there are some universal business concerns:
+
+- Your service may be in breach of the [Equality Act](https://www.gov.uk/service-manual/helping-people-to-use-your-service/making-your-service-accessible-an-introduction) if it isn’t accessible to everyone who needs it - this means meeting level AA of the [WCAG Web Content Accessibility Guidelines](https://www.gov.uk/service-manual/helping-people-to-use-your-service/understanding-wcag-20)
+- If you operate a for-profit service, having poor accessibility will reduce your potential user pool and revenue
+- If you have a strong brand reputation, an inaccessible website could compromise it
+- If you or your organisation builds products on behalf of other businesses (e.g. an agency or freelancer), being able to evidence a high standard of accessibility in your deliverables will encourage repeat-business
+
+## What kind of users are benefitted by accessible web content?
+
+Often when first thinking about web accessibility, the tendency is focus in on visually impaired users, but there are a whole range of diverse users who may need your content to be more accessible, or might engage with your content using assistive technology.
+
+This may include disabilities that are:
+
+- Auditory
+- Cognitive
+- Neurological
+- Physical
+- Speech
+- Visual
+
+It’s also important to keep in mind that a user doesn’t need to have a disability to prefer to engage with your site using accessible methods, e.g. screen magnification. For example, older people, people with small screens, etc.
+
+WCAG have [a great article](https://www.w3.org/WAI/people-use-web/tools-techniques/) that breaks down examples of tools, preferences, and the type of adjustments users require for different purposes.
+
+## Who is responsible for accessibility in your organisation?
+
+Up Your A11y is a resource for developers, but it’s worth highlighting that accessibility is a concern for everyone in your team, and part of the challenge as a developer is knowing when to ask questions and when to challenge a requirement or design. With your technical knowledge, you are well placed to be an accessibility advocate in your organisation, and help others (e.g. UX designers, product owners/managers) understand how to eliminate barriers to engaging with your product.
+
+## Quick start guide
+
+If you’re ready to upping the accessibility of your content, here’s a quick overview of [WCAG’s Accessibility Principles](https://www.w3.org/WAI/fundamentals/accessibility-principles/):
+
+- **Make sure you have text alternatives for non-text content**, e.g. alternative text on images/icons, labels for form controls, descriptions of other media (e.g. video, audio)
+
+- **Make sure your text can be magnified**: always use relative font sizes (rem) instead of fixed sizes like px and ake sure any text containers can resize to hold the larger text size without overflowing and clipping
+
+- **Make sure your content is easy to distinguish and read**, including checking your colour contrast and ensure that meaning is never conveyed by colour alone (e.g. a red surround on a form input should also be accompanied by error text)
+
+- **Give users control of timed activities**, for example ensuring any activity that can timeout can be easily extended
+
+- **Make your content follow a logical flow**: place elements so that important information is announced on screen readers before ancillary information (e.g. prevent a side panel of external links being read before your main content)
+
+- **Help your users understand the context of the page** by updating your page titles, using meaningful headings and button/link text, and utilising semantic HTML elements
+
+- **Allow potentially ‘unfriendly’ content to be stopped**. This includes being minduful of content that could cause physical reactions such as seizures. Avoid flashing content if possible, or at a minimum warn your users and let them opt out of viewing it
+
+Phew! That’s just a few of the things you can do to help your users. Be sure to browse the other Up Your A11y topics for more detailed guidance, tutorials and example implementations. Bear in mind that most fixes and tweaks are super simple and quick to implement, but will make a big difference to your users.

@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import ContactForm from '../components/ContactForm/ContactForm'
+import './style.css'
 
 class Contact extends React.Component {
   render() {

@@ -34,3 +34,9 @@
 .focusableHeader:focus {
   outline: none;
 }
+
+@media only screen and (max-width: 768px) {
+  .topicContainer {
+    flex-direction: column;
+  }
+}

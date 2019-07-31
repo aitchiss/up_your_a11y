@@ -9,9 +9,9 @@ class Layout extends React.Component {
     let header
 
     if (location.pathname === rootPath) {
-      header = <MenuHeader expanded />
+      header = <MenuHeader expanded location={location} />
     } else {
-      header = header = <MenuHeader />
+      header = header = <MenuHeader location={location} />
     }
     return (
       <React.Fragment>

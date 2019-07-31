@@ -1,6 +1,7 @@
 import React from 'react'
 import menuHeaderStyle from './menuheader.module.css'
 import { graphql, StaticQuery, Link } from 'gatsby'
+import Navigation from './Navigation/Navigation'
 
 function MenuHeader(props) {
   return (
@@ -8,7 +9,7 @@ function MenuHeader(props) {
       query={headerQuery}
       render={data => {
         const { logoLarge, logoSmall } = data
-        const { expanded } = props
+        const { expanded, location } = props
         const logoStyle = expanded
           ? menuHeaderStyle.logoLarge
           : menuHeaderStyle.logoSmall
@@ -18,21 +19,26 @@ function MenuHeader(props) {
         return (
           <header>
             <div className={menuHeaderStyle.header}>
-              {!expanded ? (
-                <Link to="/" aria-label="Back to home page">
+              <div className={menuHeaderStyle.logoSection}>
+                {!expanded ? (
+                  <Link to="/" aria-label="Back to home page">
+                    <img
+                      src={logoSrc}
+                      alt="Up your accessibility logo"
+                      className={logoStyle}
+                    />
+                  </Link>
+                ) : (
                   <img
                     src={logoSrc}
                     alt="Up your accessibility logo"
                     className={logoStyle}
                   />
-                </Link>
-              ) : (
-                <img
-                  src={logoSrc}
-                  alt="Up your accessibility logo"
-                  className={logoStyle}
-                />
-              )}
+                )}
+              </div>
+              <div className={menuHeaderStyle.navigation}>
+                <Navigation location={location} />
+              </div>
             </div>
           </header>
         )

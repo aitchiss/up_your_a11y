@@ -1,15 +1,21 @@
 ---
-title: 'Page Layout'
-displayTitle: 'Page Layout'
+title: 'Accessible Page Layouts'
+displayTitle: 'Accessible Page Layouts'
 category: 'lists'
-description: 'PLACEHOLDER'
+description: 'The structure of a given page is more than just a visual consideration. This topic explores how heading levels, semantic HTML, and the order in which you declare and label your elements can all be leveraged to improve the experience of your assistive technology users'
 accentColor: '#F8F3A3'
 keyTakeaways:
-  - 'PLACEHOLDER'
+  - 'Assess whether your current page content is well structured for your users'
+  - 'Understand how declaration order impacts keyboard and screen reader users'
+  - 'Implement semantic HTML elements for better user experience'
 
 readingList:
-  - url: 'https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html'
-    description: 'PLACEHOLDER'
+  - url: 'https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html'
+    description: 'W3: Aria Landmarks'
+  - url: 'https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#Good_semantics'
+    description: 'MDN Web Docs: Good Semantics'
+  - url: 'https://www.w3.org/WAI/tutorials/page-structure/'
+    description: 'W3: Page Structure Concepts Tutorial'
 ---
 
 ## Layout isn’t only visual
@@ -52,39 +58,31 @@ Our starting point is a very basic page, which you can visit via the link below.
 
 Before moving on, go back to the starter demo page and inspect the elements in your browser's developer tools, and you will be able to see how this confusing behaviour has been caused.
 
-## Some basic reorganisation
-
-Some quick fixes are needed:
+## Some quick fixes and basic reorganisation
 
 ### A shuffle of the declaration order is needed
 
-We can change this to match the order we want the content to be announced: header > main content > side panel > footer. The CSS can be adjusted to make sure the items stay in the desired positions on the page
+We can change this to match the order we want the content to be announced: header > main content > side panel > footer. This fixes problems 1, 3 and 5 all in one swoop. The CSS can be adjusted to make sure the items stay in the desired positions on the page.
 
-<—— Gist ——>
-
-This fixes problems 1, 3 and 5
+<Gist url="https://gist.github.com/aitchiss/a0d260abbe15899965f2d4be3010f379" />
 
 ### An audit of the heading levels shows we were missing an h1 tag for our main heading
 
-Adding this in makes sure it’s included when screen reader users skip to headings
+Adding this in makes sure it’s included when screen reader users skip to headings, and fixes problem 2.
 
-<—— Gist ——>
-
-This fixes problem 2.
+<Gist url="https://gist.github.com/aitchiss/88e8a985b58ad59cb0a06b39233f080a" />
 
 ### Our side panel link boxes are converted into an unordered list
 
-CSS can be easily used to remove any default list styling so the look is the same. This fixes
+This fixes problem 4, and CSS can be easily used to remove any default list styling so the look is the same.
 
-<— Gist —>
-
-This fixes problem 4.
+<Gist url="https://gist.github.com/aitchiss/21bd3990bfaf343137f6ef3c5ca3cada" />
 
 ### And as a final step
 
 We can change the header and footer elements from a div to their corresponding HTML5 tags, to clearly mark them out to screen readers, and similarly our main content can be wrapped in a main tag.
 
-<— Gist —>
+<Gist url="https://gist.github.com/aitchiss/e67d4fa86bcda52d7866ab121945eccc" />
 
 Visit the resulting page via the link below and follow the same steps you took on the starter page. See how the experience has been improved with just these simple tweaks.
 
@@ -96,17 +94,17 @@ Visit the resulting page via the link below and follow the same steps you took o
 
 The power of semantic HTML doesn’t end there; there are other elements we can make use of in our page if we want to give it an extra boost. The link in our header is a navigation element, so let’s wrap it in a nav:
 
-<— Gist —>
+<Gist url="https://gist.github.com/aitchiss/00d08fc748f1f703d76347f1195525b0" />
 
 The side panel isn’t really part of our main content, as it’s ‘extra’ supplementary links, so let’s use the aside element. This will automatically assign it the landmark role of “supplementary” which is exactly what this set of links is!
 
-<— Gist —>
+<Gist url="https://gist.github.com/aitchiss/ca4a9b335676edcdcd233d324ee5b1d5" />
 
 And finally, we can change our main content div to a section and give it a title. This will automatically assign it with the landmark role of “region” and the screen reader will announce its title. It’s a little overkill for the small demo page, but I’ve included it so you can see how this works, and how it may be useful on a larger page with several sections.
 
 NB: A section will only be assigned a landmark role of “region” if it has one of the following properties: title, aria-label or aria-labelledby
 
-<— Gist —>
+<Gist url="https://gist.github.com/aitchiss/e81af7bb3a5c3742a6f847669b76c717" />
 
 See the full resulting page via the link below, and follow the same steps to read through the content with your screen reader:
 
@@ -114,8 +112,8 @@ See the full resulting page via the link below, and follow the same steps to rea
   Go to the enhanced, final version of the demo page
 </Link>
 
-As you can see, our content is now clear for a wider range of our users! <span role="img" aria-hidden>&#x1F389;</span>
+As you can see (and hear), our content is now clear for a wider range of our users! <span role="img" aria-hidden>&#x1F389;</span>
 
 ## A final note before you go
 
-The starter demo page might seem like a very extreme example, but it’s incredibly common for pages to be confusing in terms of header structure, and element order. Take a look at [this example from an Amazon product page](https://www.amazon.co.uk/GUND-Bear-Suit-Soft-Toy/dp/B00DQN034Q/ref=sr_1_3?keywords=cute+dog&qid=1564846127&s=gateway&sr=8-3) (promise I’m not sponsored by the maker of this cute teddy). Try to navigate the page by headings, and you’ll see that the first one announced is an h5 for “Other sellers on Amazon”. Have an explore on some other major websites, and see if they fare any better.
+The starter demo page might seem like a very extreme example, but it’s incredibly common for pages to be confusing in terms of header structure, and element order. Take a look at <a href="https://www.amazon.co.uk/GUND-Bear-Suit-Soft-Toy/dp/B00DQN034Q/ref=sr_1_3?keywords=cute+dog&qid=1564846127&s=gateway&sr=8-3" target="_blank">this example from an Amazon product page</a> (promise I’m not sponsored by the maker of this cute teddy). Try to navigate the page by headings, and you’ll see that the first one announced is an h5 for “Other sellers on Amazon”. Have an explore on some other major websites, and see if they fare any better.

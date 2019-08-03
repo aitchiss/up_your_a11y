@@ -7,9 +7,9 @@ import TopicCard from '../components/TopicCard/TopicCard'
 import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
 
 const CategoryListHeaders = {
-  fundamentals: 'Getting the fundamentals right',
+  fundamentals: 'Getting the Fundamentals Right',
   reactPitfalls: 'Common React Pitfalls',
-  lists: 'Handling lists',
+  lists: 'Structures and layout',
 }
 
 class TopicsIndex extends React.Component {

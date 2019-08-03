@@ -1,0 +1,43 @@
+.header {
+  height: 125px;
+  background-color: #fdbfaf;
+  display: flex;
+  align-items: flex-end;
+}
+
+section h1 {
+  font-size: 2rem;
+}
+
+.headerLink {
+  padding: 25px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidePanel {
+  padding: 25px;
+  width: 175px;
+}
+
+.sidePanelList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidePanelList li {
+  padding-bottom: 0;
+}
+
+.infoLink {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.articleContent {
+  width: 100%;
+  padding: 25px;
+}

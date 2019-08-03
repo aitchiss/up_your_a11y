@@ -1,0 +1,35 @@
+.header {
+  height: 125px;
+  background-color: #fdbfaf;
+  display: flex;
+  align-items: flex-end;
+}
+
+.headerLink {
+  padding: 25px;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sidePanel {
+  padding: 25px;
+  width: 175px;
+}
+
+.infoLink {
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.articleContent {
+  width: 100%;
+  padding: 25px;
+}
+
+.titleText {
+  font-size: 2rem;
+  font-weight: bold;
+}

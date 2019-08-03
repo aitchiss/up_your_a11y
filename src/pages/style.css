@@ -26,9 +26,3 @@ li {
   margin-top: 35px;
   margin-bottom: 30px;
 }
-
-@media only screen and (min-width: 768px) {
-  .topicHeader {
-    margin: 35px -100px 30px -100px;
-  }
-}

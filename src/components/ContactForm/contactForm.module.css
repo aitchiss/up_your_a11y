@@ -1,6 +1,5 @@
 .errorAlertBox {
-  border: 2px solid black;
-  padding: 0 25px 5px 25px;
+  padding: 0 25px 5px 0;
 }
 
 .formWrapper {

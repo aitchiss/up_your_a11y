@@ -66,9 +66,10 @@ class ContactForm extends React.Component {
     const showErrors = errors.length > 0
     return (
       <React.Fragment>
+        <h2>Contact Form</h2>
         {showErrors ? (
           <div role="alert" className={contactFormStyle.errorAlertBox}>
-            <h2>Looks like there are some errors in your form...</h2>
+            <h3>Looks like there are some errors in your form...</h3>
             {this.getErrorsList()}
           </div>
         ) : null}

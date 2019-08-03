@@ -5,11 +5,14 @@ import layoutStyle from './pageLayoutsStarter.module.css'
 class PageLayoutsStarter extends React.Component {
   render() {
     return (
-      <div>
+      <div className={layoutStyle.wrapper}>
         <div className={layoutStyle.header}>
-          <Link to="" className={layoutStyle.headerLink}>
+          <Link to="/page-layout" className={layoutStyle.headerLink}>
             Back to the article
           </Link>
+        </div>
+        <div className={layoutStyle.footer}>
+          <a href="">Example footer link</a>
         </div>
         <div className={layoutStyle.contentContainer}>
           <div className={layoutStyle.sidePanel}>

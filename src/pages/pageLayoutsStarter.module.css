@@ -5,6 +5,17 @@
   align-items: flex-end;
 }
 
+.wrapper {
+  position: relative;
+  height: 90vh;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding-left: 25px;
+}
+
 .headerLink {
   padding: 25px;
 }

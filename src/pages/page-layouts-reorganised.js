@@ -6,17 +6,16 @@ import layoutStyle from './pageLayoutsReorganised.module.css'
 class PageLayoutsReorganised extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <div className={layoutStyle.wrapper}>
         <SEO title="Page Layouts Reorganised" />
         <header className={layoutStyle.header}>
-          <Link to="" className={layoutStyle.headerLink}>
+          <Link to="/page-layout" className={layoutStyle.headerLink}>
             Back to the article
           </Link>
         </header>
         <main className={layoutStyle.contentContainer}>
           <div className={layoutStyle.articleContent}>
             <h1>Page Layouts Demo Page</h1>
-
             <p>
               Hi there! This is a short demo page to highlight some
               accessibility considerations with structure.
@@ -50,7 +49,10 @@ class PageLayoutsReorganised extends React.Component {
             </ul>
           </div>
         </main>
-      </React.Fragment>
+        <footer className={layoutStyle.footer}>
+          <a href="">Example footer link</a>
+        </footer>
+      </div>
     )
   }
 }

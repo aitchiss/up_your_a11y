@@ -1,0 +1,121 @@
+---
+title: 'Page Layout'
+displayTitle: 'Page Layout'
+category: 'lists'
+description: 'PLACEHOLDER'
+accentColor: '#F8F3A3'
+keyTakeaways:
+  - 'PLACEHOLDER'
+
+readingList:
+  - url: 'https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html'
+    description: 'PLACEHOLDER'
+---
+
+## Layout isn’t only visual
+
+It’s easy to find yourself focusing purely on the visual when creating the basic structure of your page content, after all, in the majority of cases the task at hand is recreating a beautiful design that you’ve either taken time and thought to create yourself, or have received from a client or your design team. Depending on the design, it’s also often a very challenging task to make it look just right. However, to make sure our content is readable and accessible for other users we also need to consider how keyboard and screen reader users will interpret our efforts.
+
+As a quick recap from Getting Started With Keyboard Navigation and Screen Readers, at a minimum we should consider what happens when we:
+
+- Traverse the page using only the keyboard to tab between actions
+- Navigate the page by heading levels (Ctrl + Alt + Cmd + h on Mac VoiceOver)
+- Read through each section of the page with the screen reader
+
+## Our starting point
+
+In this article we’re going to step through a very simple layout, re-organise it to make it more accessible to our users, and then finally add some extra enhancements with HTML5 semantic elements.
+
+Our starting point is a very basic page, which you can visit via the link below. Visit the page, tab through the interactive items, and then read through the page with the screen reader on. Make a note of the issues you find, and what you think might be causing them.
+
+<Link to="/page-layouts-starter">Go to the starter demo page</Link>
+
+**Our demo page can be considered in four basic sections:**
+
+- A header section with a simple navigation link
+- The main content area
+- A side panel with some extra links
+- A footer
+
+**Some of the issues we have at the moment are:**
+
+1. When we tab through the links, the order is header link > footer link > further info links. Our footer should be the last element we tab to, since usually it would be static throughout the site and not related to the current topic specifically
+2. Navigating the page via headers shows that our main heading isn’t actually a heading at all and is being skipped
+3. Navigating by headings we also see that the side panel h2 is read out before the main content h2.
+4. Our side panel links aren’t read out as a list, so a screen reader user would not know how many to expect, or skip over them easily
+5. Reading through the page the order is header > footer > side panel > main content, when you would expect it to be header > main content > side panel > footer
+
+**All of these issues are caused by two key things:**
+
+- Lack of use of semantic HTML elements
+- Declaring the DOM elements out of order
+
+Before moving on, go back to the starter demo page and inspect the elements in your browser's developer tools, and you will be able to see how this confusing behaviour has been caused.
+
+## Some basic reorganisation
+
+Some quick fixes are needed:
+
+### A shuffle of the declaration order is needed
+
+We can change this to match the order we want the content to be announced: header > main content > side panel > footer. The CSS can be adjusted to make sure the items stay in the desired positions on the page
+
+<—— Gist ——>
+
+This fixes problems 1, 3 and 5
+
+### An audit of the heading levels shows we were missing an h1 tag for our main heading
+
+Adding this in makes sure it’s included when screen reader users skip to headings
+
+<—— Gist ——>
+
+This fixes problem 2.
+
+### Our side panel link boxes are converted into an unordered list
+
+CSS can be easily used to remove any default list styling so the look is the same. This fixes
+
+<— Gist —>
+
+This fixes problem 4.
+
+### And as a final step
+
+We can change the header and footer elements from a div to their corresponding HTML5 tags, to clearly mark them out to screen readers, and similarly our main content can be wrapped in a main tag.
+
+<— Gist —>
+
+Visit the resulting page via the link below and follow the same steps you took on the starter page. See how the experience has been improved with just these simple tweaks.
+
+<Link to="/page-layouts-reorganised">
+  Go to the reorganised version of the demo page
+</Link>
+
+## But we can do more!
+
+The power of semantic HTML doesn’t end there; there are other elements we can make use of in our page if we want to give it an extra boost. The link in our header is a navigation element, so let’s wrap it in a nav:
+
+<— Gist —>
+
+The side panel isn’t really part of our main content, as it’s ‘extra’ supplementary links, so let’s use the aside element. This will automatically assign it the landmark role of “supplementary” which is exactly what this set of links is!
+
+<— Gist —>
+
+And finally, we can change our main content div to a section and give it a title. This will automatically assign it with the landmark role of “region” and the screen reader will announce its title. It’s a little overkill for the small demo page, but I’ve included it so you can see how this works, and how it may be useful on a larger page with several sections.
+
+NB: A section will only be assigned a landmark role of “region” if it has one of the following properties: title, aria-label or aria-labelledby
+
+<— Gist —>
+
+See the full resulting page via the link below, and follow the same steps to read through the content with your screen reader:
+
+<Link to="/page-layouts-enhanced">
+  Go to the enhanced, final version of the demo page
+</Link>
+
+As you can see, our content is now clear for a wider range of our users! <span role="img" aria-hidden>&#x1F389;</span>
+
+## A final note before you go
+
+The starter demo page might seem like a very extreme example, but it’s incredibly common for pages to be confusing in terms of header structure, and element order. Take a look at [this example from an Amazon product page](https://www.amazon.co.uk/GUND-Bear-Suit-Soft-Toy/dp/B00DQN034Q/ref=sr_1_3?keywords=cute+dog&qid=1564846127&s=gateway&sr=8-3) (promise I’m not sponsored by the maker of this cute teddy). Try to navigate the page by headings, and you’ll see that the first one announced is an h5 for “Other sellers on Amazon”. Have an explore on some other major websites, and see if they fare any better.

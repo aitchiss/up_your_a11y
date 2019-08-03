@@ -5,12 +5,27 @@
   align-items: flex-end;
 }
 
+.wrapper {
+  height: 90vh;
+  position: relative;
+}
+
+.footer {
+  position: absolute;
+  padding-left: 25px;
+  bottom: 0;
+}
+
 section h1 {
   font-size: 2rem;
 }
 
 .headerLink {
   padding: 25px;
+}
+
+.nav {
+  padding-bottom: 25px;
 }
 
 .contentContainer {

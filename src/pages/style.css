@@ -18,6 +18,10 @@ body {
   padding: 0;
 }
 
+li {
+  padding-bottom: 8px;
+}
+
 .topicHeader {
   margin-top: 35px;
   margin-bottom: 30px;

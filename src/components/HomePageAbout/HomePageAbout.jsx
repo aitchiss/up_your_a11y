@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import aboutStyle from './homepageabout.module.css'
 
 class HomePageAbout extends React.Component {
@@ -16,7 +17,8 @@ class HomePageAbout extends React.Component {
         </p>
         <p>
           Articles are organised into sections below, and please don't hesitate
-          to Contact Me with suggestions for current and future content.
+          to <Link to="/contact">Contact Me</Link> with suggestions for current
+          and future content.
         </p>
       </div>
     )

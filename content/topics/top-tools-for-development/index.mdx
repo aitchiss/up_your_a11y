@@ -10,25 +10,25 @@ keyTakeaways:
   - 'Check your color combinations for contrast'
   - 'Discover which elements/attributes are supported by which assistive technologies'
 readingList:
-  - url: 'https://www.w3.org/WAI/fundamentals/accessibility-principles/'
-    description: 'PLACEHOLDER'
+  - url: 'https://www.w3.org/WAI/ER/tools/'
+    description: 'WCAG Web Accessibility Evaluation Tools List'
+  - url: 'https://a11yproject.com/resources/'
+    description: "The A11y Project's pick of resources"
 ---
 
 ## 5 great tools for accessible development
 
-Writing accessible code can be made so much easier by leveraging some popular tools. This topic covers 5 favourites, plus a few more that you might like to try out. If there’s a great tool you think is missing, please do get in touch! \*\*\* link
+Writing accessible code can be made so much easier by leveraging some popular tools. This topic covers 5 favourites, plus a few more that you might like to try out. If there’s a great tool you think is missing, please do <Link to="/contact">get in touch</Link>!
 
 ### 1. ESLint JSX A11y Plugin
-
-https://www.npmjs.com/package/eslint-plugin-jsx-a11y
 
 Chances are you’re already using ESLint in your JS projects, and adding this plugin to your project/ESLint config is a very quick and effective way to build accessibility into your workflow.
 
 The plugin is great at picking up certain types of errors, e.g. a missing label for a form field, an aria-role value that isn’t valid, and so on. It’s a thorough initial check on your code that will save plenty time in testing down the line. The best part is, if you use a CI tool like Jenkins or Bitbucket Pipelines, you can easily ensure that the lint is run as part of your CI process, making sure that no errors make their way into your production code.
 
-### 2. Axe Chrome Extension
+<a href="https://www.npmjs.com/package/eslint-plugin-jsx-a11y">Visit the NPM repository for JSX A11y</a>
 
-https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd
+### 2. Axe Chrome Extension
 
 Axe is an excellent tool to follow on from linting with jsx-a11y. The Axe extension can be used during development in Chrome, and analyses the current page for accessibility issues. It’s great for picking up issues like lack of page landmarks, contrast issues, heading levels increasing inconsistently, and so on.
 
@@ -36,11 +36,11 @@ Happily, it also provides tips on how to fix the issues found, as well as linkin
 
 Bear in mind that Axe checks the DOM as it exists at that point in time; if you have multiple states to check, you will need to manipulate them and re-run the tool.
 
+<a href="https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd">Download the Axe Chrome Extension</a>
+
 ![Axe Lint Chrome Extension](./AxeLint.png)
 
 ### 3. Wave Chrome Extension
-
-https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh
 
 Wave is a similar tool to Axe, developed by WebAIM.org. I’ve included it separately to Axe on this list, as both tools have different strengths, and there’s value in having a quick check of your code in both.
 
@@ -50,11 +50,11 @@ As well as marking up the page, you can view a list breaking down the features o
 
 Errors are listed with suggestions for fixes, and it also has a nice built-in tool for checking color combination contrast without having to leave the page.
 
+<a href="https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh">Download the Wave Chrome Extension</a>
+
 ![Wave Chrome Extension](./WaveHeaders.png)
 
 ### 4. Contrast Checker
-
-https://contrastchecker.com/
 
 Using Wave or Axe, it’s likely you’ll come across some color contrast issues from time to time, and this Contrast Checker is one of many tools that will check your color combinations against the WCAG 2.0 guidelines.
 
@@ -62,24 +62,26 @@ This tool is particularly recommended, as unlike many other contrast checkers it
 
 The output is really nice and clear, outlining how your color combination fares at different font sizes against WCAG AA and AAA.
 
+<a href="https://contrastchecker.com/">Visit the Contrast Checker website</a>
+
 ![Contrast Checker Tool](./ContrastChecker.png)
 
 ### 5. Accessibility Support
 
-https://a11ysupport.io/
+Accessibility Support is very similar in principle to the much used <a href="https://caniuse.com/">Can I Use</a>, only for accessibility specifically. You can search for a particular element or attribute, and get a quick rundown of which assistive technologies are known to support it. It's a great time saver to prevent cross-platform issues, e.g. if a feature is supported in VoiceOver on MacOS but not on NVDA/Windows. The project is community-drive and open-source, so it’s easy to raise an issue or contribute if you can.
 
-Accessibility Support is very similar in principle to the much used https://caniuse.com/, only for accessibility specifically. You can search for a particular element or attribute, and get a quick rundown of which assistive technologies are known to support it. It's a great time saver to prevent cross-platform issues, e.g. if a feature is supported in VoiceOver on MacOS but not on NVDA/Windows. The project is community-drive and open-source, so it’s easy to raise an issue or contribute if you can.
+<a href="https://a11ysupport.io/">Visit the A11y Support Page</a>
 
 ### And some extras…
 
 #### Firefox Accessibility Tree Inspector
 
-This facility is available in Chrome also, but Firefox takes the win for most friendly UI. To view a page’s accessibility tree, simply open the developer tools and click on the Accessibility tab. The accessibility tree gives you a nice overview of how assistive technology is going to traverse your page, and the relevant information for each element e.g. what state an element is in or what role it has. There’s a great summary on Mozilla Hacks explaining the uses for accessibility trees. https://hacks.mozilla.org/2019/06/how-accessibility-trees-inform-assistive-tech/
+This facility is available in Chrome also, but Firefox takes the win for most friendly UI. To view a page’s accessibility tree, simply open the developer tools and click on the Accessibility tab. The accessibility tree gives you a nice overview of how assistive technology is going to traverse your page, and the relevant information for each element e.g. what state an element is in or what role it has. There’s a great summary on Mozilla Hacks explaining [the uses for accessibility trees](https://hacks.mozilla.org/2019/06/how-accessibility-trees-inform-assistive-tech/). 
 
 ![Firefox Accessibility Tree Example](./FirefoxTree.png)
 
 ### Color Oracle
 
-https://colororacle.org/
-
 A free color blindness simulator for Mac users, that will allow you to see how users with common types of color blindness will view your site. Not something you will need for day to day development, but certainly interesting to check out, especially given as many as 8 percent of men (and 0.5 percent of women) have some form of color blindness.
+
+<a href="https://colororacle.org/">Download Color Oracle for Mac</a>

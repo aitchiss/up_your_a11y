@@ -25,32 +25,33 @@ readingList:
 
 All content in your app should be navigable by keyboard alone - this is absolutely key for a range of users including people with motor disabilities and visual impairments.
 
-How should keyboard navigation behave?
+### How should keyboard navigation behave?
 
 - When on your site, you should be able to move through all the interactive items (e.g. buttons, links, form inputs) with the Tab key
-- Non-Interactive items (e.g. paragraphs, images) should not receive focus when Tabbing through the page
-- The focused element should be clearly highlighted as you Tab through items
-- The order in which you Tab through the items should make sense. Usually, this means it simply follows the same order that you would conventionally read the screen, e.g. top to bottom, and in most cases, left to right
+- Non-Interactive items (e.g. paragraphs, images) should not receive focus when tabbing through the page
+- The focused element should be clearly highlighted as you tab through items
+- The order in which you tab through the items should make sense. Usually, this means it simply follows the same order that you would conventionally read the screen, e.g. top to bottom, and in most cases, left to right
 
-Depending on your content, good keyboard navigation can be achieved in your app fairly easily without much additional effort. Areas which will need your particular attention will be:
+Depending on your content, good keyboard navigation can be achieved in your app fairly easily without much additional effort. Areas which will need your particular attention are likely to be:
 
-- The order in which you declare your components/HTML elements will dictate the order in which they appear when Tabbing. Pay particular attention to elements that appear horizontally next to each other on your page - for example, if you have a side panel with ancillary links, declare it last, so it doesn’t interrupt the Tabbing order of your more important elements
-- Don’t remove default focused states in your CSS without replacing them with another clear focus indicator. Often the ‘out of the box’ focus style won’t be right for your brand or needs, but make sure it’s replaced with another style that meets the needs of keyboard users
-- If you have created a custom Component which is interactive, make sure it receives focus when Tabbing. If you have created your own component using HTML elements that are not normally in the Tab order (e.g. a plain div element), you will need to insert it into the Tab order by adding the attribute ’tabindex=0’. This inserts it into the tab order according to the order your component has been declared.
+- **The order in which you declare your components/HTML elements will dictate the order in which they appear when tabbing**. Pay particular attention to elements that appear horizontally next to each other on your page - for example, if you have a side panel with ancillary links, declare it last, so it doesn’t interrupt the tabbing order of your more important elements. See our article on <Link to="/page-layout">Accessible Page Layouts</Link> for more detail.
+- **Don’t remove default focused states in your CSS without replacing them with another clear focus indicator**. Often the ‘out of the box’ focus style won’t be right for your brand or needs, but make sure it’s replaced with another style that meets the needs of keyboard users
+- **If you have created a custom Component which is interactive, make sure it receives focus when tabbing**. If you have created your own component using HTML elements that are not normally in the tab order (e.g. a plain div element), you will need to insert it into the tab order by adding the attribute ’tabIndex=0’. This inserts it into the tab order according to where your component has been declared.
 
 ## Screen readers
 
 If you’re not familiar with using the screen reader on your development machine, it is a great idea to get some practice. Understanding how the screen reader works and checking your code with it regularly will help ensure your visually impaired users are able to understand and read your content easily.
 
-How you activate your screen reader and the commands to use it will depend on what operating system you use. Many screen readers are available for download, some carrying a purchase fee (e.g. the very popular JAWS [link]).
+How you activate your screen reader and the commands to use it will depend on what operating system you use. Many screen readers are available for download, some carrying a purchase fee (e.g. [the very popular JAWS](https://www.freedomscientific.com/products/software/jaws/)).
 
-Mac OS X users can get started with VoiceOver, which comes pre-installed on your computer. Activate and deactivate using Command + F5, and find the full list of commands for reading and interacting with content here: https://www.apple.com/voiceover/info/guide/_1124.html
+Mac OS X users can get started with VoiceOver, which comes pre-installed on your computer. Activate and deactivate using Command + F5, and find the full list of commands for reading and interacting with content here: [VoiceOver Basics](https://www.apple.com/voiceover/info/guide/_1124.html)
 
-Windows users can download for free and follow instructions for the widely used screen reader NVDA here: https://www.nvaccess.org/about-nvda/
+Windows users can download for free and follow instructions for the widely used screen reader [NVDA](https://www.nvaccess.org/about-nvda/)
 
 Take some time to set up your screen reader and get used to its controls. Many of the articles on this site will advise you to read portions of content with your screen reader, so that you can understand how small tweaks to your code can positively impact the experience of your screen reader users. At a minimum, you should aim to learn:
 
 - How to step inside the web content and read portions of the page at a time
+- How to navigate the page via heading levels
 - How to interact with elements - e.g. click buttons - using only the screen reader and keyboard controls
 
 Screen readers are designed to be intuitive and easy to use, so although it might feel strange to begin with, you’re sure to get the hang of it in no time!

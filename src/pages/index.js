@@ -9,7 +9,8 @@ import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
 const CategoryListHeaders = {
   fundamentals: 'Getting the Fundamentals Right',
   reactPitfalls: 'Common React Pitfalls',
-  lists: 'Structures and layout',
+  lists: 'Structures and Layout',
+  forms: 'Forms and User Input',
 }
 
 class TopicsIndex extends React.Component {

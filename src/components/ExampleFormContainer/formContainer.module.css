@@ -1,0 +1,26 @@
+.wrapper {
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 20px 10px;
+}
+
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper form input {
+  max-width: 350px;
+}
+
+.wrapper form fieldset {
+  border: none;
+}
+
+.wrapper form fieldset legend {
+  font-weight: bold;
+}
+
+.wrapper form fieldset label {
+  font-weight: normal;
+}

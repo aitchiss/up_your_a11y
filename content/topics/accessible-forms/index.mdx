@@ -1,0 +1,129 @@
+---
+title: 'Accessible Forms 101'
+displayTitle: 'Accessible Forms 101'
+category: 'forms'
+description: 'This topic introduces the key concepts to creating simple, accessible forms including labelling & describing inputs, organising your form and alerting your users to any errors in their input.'
+accentColor: '#FFE1F4'
+keyTakeaways:
+  - 'Label and describe your form inputs clearly'
+  - 'Make your forms as easy to use as possible for a wide range of users'
+  - 'Alert your users to errors in their input in a user-friendly way'
+readingList:
+  - url: 'https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/'
+    description: 'PLACEHOLDER'
+
+---
+
+## Step 1: Make sure your inputs are labelled
+
+Getting back to basics, the most fundamental building block of an accessible form is clearly labelled form inputs. Every input in your form should have a corresponding label. Even though you may have placed descriptive text directly above or next to the input, there is no guarantee a screen reader user will read the content, as they will usually tab directly to the form input itself. Turn on your screen reader and consider the following example: 
+
+<ExampleFormContainer>
+  <form>
+    <p style={{fontWeight: 'bold'}}>First Name:</p>
+    <input id="firstName" type="text" />
+  </form>
+</ExampleFormContainer>
+
+This can easily be remedied by using the appropriate label element, and ‘for’ tag:
+
+<Gist url="https://gist.github.com/aitchiss/80cbc9724601f3c42b36df7644cfa767"/>
+
+You can turn on your screen reader and hear the difference below:
+
+<ExampleFormContainer>
+  <form>
+    <label for="first-name">First Name:</label>
+    <input id="first-name" type="text" />
+  </form>
+</ExampleFormContainer>
+
+### Designs without labels
+
+It is often the case that you may want to use the placeholder attribute to communicate the purpose of the input, for example:
+
+<ExampleFormContainer>
+  <form>
+    <input id="firstName" type="text" placeholder="First Name" />
+  </form>
+</ExampleFormContainer>
+
+As you will hear if you switch on your screen reader and tab to the above input, a placeholder is not automatically communicated to a screen reader user. The above effect can easily be achieved accessibly however, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
+
+<Gist url="https://gist.github.com/aitchiss/8ab191b55bfb991d847ad7f20c30a6e7"/>
+
+Turning on your screen reader and tabbing to the input below will show that the aria-label is read out to the screen reader user, keeping both the design and the user experience intact.
+
+<ExampleFormContainer>
+  <form>
+    <input id="first-name-with-placeholder" type="text" placeholder="First Name" aria-label="First Name" />
+  </form>
+</ExampleFormContainer>
+
+## Step 2: Take the guess-work out wherever possible
+
+Labels clearly communicate to the user what kind of information is expected in a given input, but often we have other requirements that might not be immediately obvious, for example:
+
+* A field that is required
+* A maximum or minimum length on a text input
+* A password creation input that requires special characters
+* A phone number input that shouldn’t include any spaces
+
+While it can be easier for sighted users to quickly consume validation error messages and correct mistakes, it is better user experience for everyone to have the information to avoid errors in the first place.
+
+For required fields, you can simply add the “required” attribute to your input which lets screen readers know to inform the user this field must be completed:
+
+<Gist url="https://gist.github.com/aitchiss/091b96e9a70d9d48f044395d1bfc0bcb"/>
+
+Consider adding descriptive text alongside your label/input communicating clearly any special requirements for the user input. For example:
+
+<Gist url="https://gist.github.com/aitchiss/a56bb0a5f21e0561233bcce389ff6c87"/>
+
+Notice in the example above, the “aria-describedBy” attribute has been used. This ensures that the descriptive text is read out to screen reader users along with the input's label. You can switch on your screen reader and test drive the example below:
+
+<ExampleFormContainer>
+  <form>
+    <label for="email">Email</label>
+    <p id="email-description" style={{marginTop: '0px'}}>Your email should be in the format e.g. user@example.com</p>
+    <input id="email" type="text" aria-describedBy="email-description" />
+  </form>
+</ExampleFormContainer>
+
+## Step 3: Get organised
+
+Large forms can be difficult to consume for all types of users, especially those using assistive technology. You can ease the burden by splitting your form into groups of related details using the fieldset and legend elements, helping the user to understand when they have reached a new section of the form.
+
+These groupings become even more essential when input types such as radio are considered. For example, a basic form might have a set of radio options, e.g.
+
+<ExampleFormContainer>
+  <form>
+    <fieldset style={{display: 'flex'}}>
+    <legend>Your marketing preferences:</legend>
+    <div style={{padding: '5px'}}>
+      <input id="email-marketing" type="radio"  value="email" style={{marginRight: '10px'}} />
+      <label for="email-marketing" >Email only</label>
+    </div>
+    <div style={{padding: '5px'}}>
+      <input id="postal-marketing" type="radio"  value="post" style={{marginRight: '10px'}} />
+      <label for="postal-marketing" >Post only</label>
+    </div>
+    </fieldset>
+  </form>
+</ExampleFormContainer>
+
+While each input has its own label describing the value of the radio button, all of the inputs relate to each other and need to be understood as options under a particular question - “Your marketing preferences". Using fieldset and legend allows us to label the group, as well as the individual inputs:
+
+<Gist url="https://gist.github.com/aitchiss/16bcc40c5bbbc3f6657551637caefe50" />
+
+## Step 4: Keep it simple
+
+A simple form is always going to be easier for users to complete with minimal effort, and it’s therefore worth considering carefully before adding any extra bells and whistles. For example, many form designs include the use of tooltips instead of placing descriptive text clearly on the page (as in Step 2 above).
+
+Tooltips might be visually appealing (although the question is open as to whether your sighted users would actually prefer not to have to hover over an element for details), but if you add them to your form you will need to ensure:
+
+* The tooltip is keyboard accessible - i.e. a user can trigger the appearance of the tooltip text by focusing the item with the keyboard instead of hovering with the mouse
+* Your screen reader users can easily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedBy attribute as per Step 2 above.
+
+## Next steps
+
+Now you have the basics in place, keep an eye out for more advanced Form topics on Up Your A11y coming soon, including accessible ways to validate input and notify your users of errors. In the meantime, check out the further reading suggestions below.

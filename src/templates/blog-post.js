@@ -7,6 +7,7 @@ import ButtonBox from '../components/ButtonBox/ButtonBox'
 import Gist from 'super-react-gist'
 import ReadingList from '../components/ReadingList/ReadingList'
 import TopicCard from '../components/TopicCard/TopicCard'
+import ExampleFormContainer from '../components/ExampleFormContainer/ExampleFormContainer'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,7 +20,7 @@ class BlogPostTemplate extends React.Component {
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         {category === 'demo' ? (
           <MDXRenderer
-            scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link }}
+            scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link, ExampleFormContainer }}
           >
             {post.code.body}
           </MDXRenderer>
@@ -36,7 +37,7 @@ class BlogPostTemplate extends React.Component {
               header
             />
             <MDXRenderer
-              scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link }}
+              scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link, ExampleFormContainer }}
             >
               {post.code.body}
             </MDXRenderer>

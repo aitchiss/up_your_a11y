@@ -9,8 +9,14 @@ keyTakeaways:
   - 'Make your forms as easy to use as possible for a wide range of users'
   - 'Alert your users to errors in their input in a user-friendly way'
 readingList:
-  - url: 'https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/'
-    description: 'PLACEHOLDER'
+  - url: 'https://webaim.org/techniques/forms/'
+    description: 'WebAIM: Creating Accessible Forms'
+  - url: 'https://webaim.org/techniques/forms/advanced'
+    description: 'WebAIM: Advanced Form Labelling'
+  - url: 'https://www.w3.org/WAI/tutorials/forms/'
+    description: 'WCAG Tutorials: Forms Concepts'
+  - url: 'https://bbc.github.io/a11y-tutorials/forms/'
+    description: 'BBC A11y Tutorials: Accessible Form Fields'
 
 ---
 
@@ -44,15 +50,17 @@ It is often the case that you may want to use the placeholder attribute to commu
 
 <ExampleFormContainer>
   <form>
-    <input id="firstName" type="text" placeholder="First Name" />
+    <input id="first-name-placeholder" type="text" placeholder="First Name" />
   </form>
 </ExampleFormContainer>
 
-As you will hear if you switch on your screen reader and tab to the above input, a placeholder is not automatically communicated to a screen reader user. The above effect can easily be achieved accessibly however, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
+If you switch on your screen reader and tab to the above input, you’ll notice that the placeholder text is read aloud, so it may seem like this is enough for screen reader users. However as soon as you have entered text into the field, the placeholder disappears and there is no longer any label or information about what the text field is for. 
+
+The above effect can easily be achieved accessibly however, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
 
 <Gist url="https://gist.github.com/aitchiss/8ab191b55bfb991d847ad7f20c30a6e7"/>
 
-Turning on your screen reader and tabbing to the input below will show that the aria-label is read out to the screen reader user, keeping both the design and the user experience intact.
+Turning on your screen reader and tabbing to the input below will show that the aria-label is read out to the screen reader user, regardless of whether text has already been entered in the field or not; keeping both the design and the user experience intact.
 
 <ExampleFormContainer>
   <form>

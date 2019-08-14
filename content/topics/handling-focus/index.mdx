@@ -5,7 +5,7 @@ category: 'reactPitfalls'
 description: 'Any client-side route rendering can result in confusion and loss of context for assistive technology users. This article describes and demonstrates the problem, along with a quick solution that can easily be implemented in your apps, so you can make sure that all users can engage with your content.'
 accentColor: '#BFE3D2'
 keyTakeaways:
-  - 'Understand some of the focus problems caused by client-side routing'
+  - 'Understand some of the focus problems caused by client-side rendering'
   - 'Learn a simple technique to restore context for assistive technology users'
 readingList:
   - url: 'https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/'
@@ -16,9 +16,19 @@ readingList:
 
 ## Server side vs Client side rendering
 
-To boil it down to its simplest level, server-side rendering means that when you navigate to a new route e.g. upyoura11y.com/reusable-components-with-headers, the server is contacted to request the page to display, and a whole new page is presented in the browser. Client-side rendering, on the other hand, means that upyoura11y.com and upyoura11y.com/reusable-components-with-headers are actually the same page (index.html), but the client app decides which content to drop into index.html at runtime.
+At its simplest level, server-side rendering means that when you navigate to a new route e.g:
 
-In reality, there is a lot more to it than that, especially with new server-side rendering techniques, but the key to understanding focus management in React is to understand that when a user clicks a link to go to another route in your app, the DOM is manipulated at runtime, and the content of your single webpage is altered.
+> upyoura11y.com/example 
+
+the server is contacted to request the page to display, and a whole new page is presented in the browser. Client-side rendering, on the other hand, means that both:
+
+> upyoura11y.com,  and 
+
+> upyoura11y.com/example 
+
+are actually the same page (index.html), but the client app decides what content to drop into that single page at runtime.
+
+In reality, there is a bit more to it than that, especially with new server-side rendering techniques, but the key to understanding focus management in React is to understand that when a user clicks a link to go to another route in your app, the DOM is manipulated at runtime, and the content of your single page is altered. Your user never actually "leaves" the page.
 
 There are a few accessibility concerns this causes. One relates to the page title and is covered in another article on <Link to="/page-titles">Handling page titles in React</Link>, and another is the way focus is handled for users of assistive technology.
 
@@ -26,7 +36,12 @@ There are a few accessibility concerns this causes. One relates to the page titl
 
 Imagine the following scenario - as a screen reader user, you read a link to another page. You click the link using the keyboard commands. What do you expect to happen?
 
-In “server-side rendering” land, what would happen is an entirely new page would be loaded into the browser, the focus of the page would be reset, and the new page would be announced. But as we know, with client-side rendering like in React, we won’t receive a new page.
+In “server-side rendering” land, what would happen is:
+- An entirely new page would be loaded into the browser 
+- The focus of the page would be reset 
+- The new page would be announced 
+
+But as we know, with client-side rendering like in React, we won’t receive a new page.
 
 To demonstrate what does happen, turn your screen reader on, tab to this link and click on it using the keyboard. Try to then use your screen reader to navigate other content on that page. (Please come back to this page when you’re done!)
 
@@ -39,11 +54,13 @@ To demonstrate what does happen, turn your screen reader on, tab to this link an
 - Your screen reader did not announce anything to you about the new content
 - The focus remained on the link on this page, even though it was no longer visible
 
-Try to imagine just how disorientating this would be for a user with a visual impairment. How can they know where to begin on this new page of content? How can you be sure that they are consuming your content in the way you intended when you carefully put the page together? There is clearly a problem to be solved.
+Try to imagine just how disorientating this would be for a user with a visual impairment. How can they know where to begin on this new page of content? How can you be sure that they are consuming your content in the way you intended?
 
 ## Potential solutions
 
-There are a few ways to attempt to “solve” this problem, all involving manually manipulating the focus on the page when the new content loads. The question is then, where do we set the focus when the new ‘page' loads? Recently, [GatsbyJS posted a really interesting article summarising some user-testing of these techniques](https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/). I recommended reading their post in full, but spoiler alert:
+There are a few ways to attempt to solve this problem, all involving manually manipulating the focus on the page when the new content loads. The question then is: where do we set the focus when the new ‘page' loads? 
+
+Recently, GatsbyJS posted [an interesting article](https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/) summarising some user-testing of these techniques. I recommended reading their post in full, but spoiler alert:
 
 > Focusing on a heading was found to be the best experience as it would save time and make it clear what happened
 

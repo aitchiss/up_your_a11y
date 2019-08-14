@@ -14,6 +14,7 @@
   text-decoration: none;
   color: #263238;
   transition: transform 0.5s ease-in-out;
+  border-bottom: none;
 }
 
 .activePage {

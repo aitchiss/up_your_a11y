@@ -8,6 +8,12 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+  border-bottom: 3px solid #fdbfaf;
+}
+
 h1, h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;

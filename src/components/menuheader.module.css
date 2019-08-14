@@ -6,6 +6,10 @@
   padding-right: 25px;
 }
 
+.logo-section a {
+  border-bottom: none;
+}
+
 @media only screen and (max-width: 768px) {
   .header {
     background-color: #fdbfaf;

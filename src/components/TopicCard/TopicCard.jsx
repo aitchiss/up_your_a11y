@@ -60,7 +60,7 @@ class TopicCard extends Component {
               className={cardStyle.actionButton}
               aria-label={linkAriaLabel}
             >
-              Let's go
+              Visit Topic
             </Link>
           </div>
         )}

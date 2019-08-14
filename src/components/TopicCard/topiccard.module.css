@@ -19,14 +19,17 @@
 }
 
 .actionButton {
-  background-color: black;
-  color: white;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
   font-size: 1.2rem;
-  font-weight: bold;
-  padding: 8px 15px 8px 15px;
+  margin: 8px 15px 8px 15px;
+  padding: 3px;
   float: right;
-  min-width: 125px;
+  white-space: nowrap;
   text-align: center;
+  text-decoration: none;
+  border-bottom: 5px solid #fdbfaf;
 }
 
 .focusableHeader:focus {

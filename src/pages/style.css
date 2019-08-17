@@ -24,6 +24,10 @@ h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+p {
+  line-height: 1.5rem;
+}
+
 .plainList {
   list-style: none;
   padding: 0;

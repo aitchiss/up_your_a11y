@@ -1,47 +1,84 @@
 ---
-title: 'Repetitive calls to action'
-displayTitle: 'Repetitive calls to action'
-description: 'Do you have multiple buttons with the same text repeating in your list items? This topic considers how screen readers interpret repetitive buttons and how to easily distinguish them.'
+title: 'Lists with Repeating Calls to Action'
+displayTitle: 'Lists with Repeating Calls to Action'
+description: 'Often when we create lists of UI elements, they may have similar or even identical text labels. This topic considers how screen reader users interact with this kind of content, and what we can do to improve their accessibility. It also explores how we can create flexible React components suitable for reuse in this way.'
 category: 'lists'
 accentColor: '#F8F3A3'
 keyTakeaways:
-  - 'Make the most of your re-usable React components, without compromising accessibility'
-  - 'Ensure screen reader users can engage with your content when multiple similar selections are available'
+  - 'Understand how screen reader users interact with your content when many similar actions are presented'
+  - 'Identify a quick fix to apply when mapping data to HTML elements'
+  - 'Apply the same approach to developing flexible and accessible React components'
 readingList:
   - url: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute'
     description: 'MDN web docs: Using the aria-label attribute'
 ---
 
-## Considering component re-use
+## Using multiple similar items in a view
 
-It's tempting when re-using a React component for multiple items in a list to have the same CTA button or link text on each. For example, a simple boxed button element might look like:
+In web applications there will often be a need to map a list of data to a number of similar HTML elements with a particular call to action. This topic inspects a very simple example - a list of product options with a ‘find out more’ button (the button on the current page does nothing, but you can imagine it would e.g. expand further product details elsewhere in the page, open a modal, etc):
 
-<Gist url="https://gist.github.com/aitchiss/91321e638c575991fc4eeb5b7e9ea3c0" />
 
-Turn your screen reader on and consider the example button boxes list created using the above component. Tab through the call to
-action buttons and note the screen reader output:
+<ul style={{display: 'flex', justifyContent: 'center', listStyle: 'none', paddingLeft: '0'}}>
+  <li>
+    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
+      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Interest-free Loans</p>
+      <button>Find out more</button>
+    </div>
+  </li>
+  <li>
+    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
+      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Savings Accounts</p>
+      <button>Find out more</button>
+    </div>
+  </li>
+</ul>
 
-<div className="repetitive-buttons-wrapper">
-  <ButtonBox description="Apply for a loan" buttonText="Find out more" />
-  <ButtonBox
-    description="Apply for a savings account"
-    buttonText="Find out more"
-  />
-</div>
+The list items above can be created with a simple map (the example is given in a React component, but the principle applies to any element mapping):
 
-Did the screen reader announce anything useful to you? Without the
-visual context of the "Apply for... " titles, the buttons don't make
-a lot of sense on their own, so it's important to add a more
-descriptive label for screen reader users. This can either be
-accomplished by adding text and displaying off-screen (using CSS),
-or simply by wrapping the button description with an aria-label. For example, the ButtonBox element above can be updated to:
+<Gist url="https://gist.github.com/aitchiss/a3ccace981909819b63de6cabeceafd4" />
 
-<Gist url="https://gist.github.com/aitchiss/5bc564d142a0b9c13f7ce4f013a7c30e" />
+### Why is this example an issue for accessibility?
 
-Using your screen reader, now tab to the button below and notice the button/call to action text is now much more descriptive and allow users to easily distinguish between the actions attached to each item in the list:
+On first glance, this example looks fine! However, it’s important to bear in mind that many screen reader users will tab directly to interactive items on your page (see [Getting Started with Keyboard Navigation and Screen Readers](screen-reader-keyboard-navigation)). Try turning on your screen reader and tabbing to the buttons above. Was the output useful?
 
-<ButtonBox
-  description="Apply for a savings account - accessibly!"
-  buttonAriaLabel="Find out more about savings accounts"
-  buttonText="Find out more"
-/>
+Having multiple calls to action (links, buttons, an interactive item) with the same text/label leads to loss of context and potential confusion.
+
+Without the visual context of the “Apply for…” titles, the buttons don’t make a lot of sense on their own. The user is invited to “Find out more” but without any clue as to what they are finding out more about.
+
+## Create your mapped elements with accessibility in mind
+
+The example above is easy to tweak to achieve the same result but in a more accessible way. We can add a more descriptive label for our screen reader users by simply by adding an aria-label to the button. For example:
+
+<Gist url="https://gist.github.com/aitchiss/7ba25430c902bb098ccc6e050dfd419b" />
+
+Try turning on your screen reader again and tabbing to the buttons in our new list below. Notice the call to action on each list item is now much more descriptive and allows users to easily distinguish between the actions attached to each item in the list
+
+<ul style={{display: 'flex', justifyContent: 'center', listStyle: 'none', paddingLeft: '0'}}>
+  <li>
+    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
+      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Interest-free Loans</p>
+      <button aria-label="Find out more about Interest-free Loans">Find out more</button>
+    </div>
+  </li>
+  <li>
+    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
+      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Savings Accounts</p>
+      <button aria-label="Find out more about Savings Accounts">Find out more</button>
+    </div>
+  </li>
+</ul>
+
+
+## Applying the approach to React components
+
+React developers will often find themselves performing a similar mapping exercise between list items and React components, and by coding these reusable components with accessibility in mind, we can adopt the same approach very easily.
+
+When creating a React component that may be used as list items, we can simply ensure that a prop can be passed in to apply to the aria-label attribute as above. The list in our example above could look like this:
+
+<Gist url="https://gist.github.com/aitchiss/3eac78405cdf5a6df54576d4b81dda8f" />
+
+## Final thoughts
+
+This very simple tweak is easy to make, and makes a big difference to our screen reader users. It’s also one of the accessibility issues that our linting tools will not pick up for us, and demonstrates the importance of conducting manual screen reader passes of your content from time to time.
+
+For React developers, the example above also shows that when we create reusable components, we need to actively consider the multiple contexts in which they might be used, and what props we need to define to make sure our components are sufficiently flexible. For some recommended next reading, a similar consideration is explored in Heading Levels in Reusable Components.

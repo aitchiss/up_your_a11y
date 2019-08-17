@@ -126,7 +126,7 @@ module.exports = {
         short_name: `UYA`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#000`,
+        theme_color: `#fdbfaf`,
         display: `minimal-ui`,
         icon: `static/UYA_fav.png`,
       },

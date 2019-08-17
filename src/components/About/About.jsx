@@ -24,8 +24,7 @@ class About extends React.Component {
                   <h1>About</h1>
                   <p>
                     Hi! My name's Suzanne and I'm a software engineer based in
-                    Edinburgh. At the moment the majority of my frontend work is
-                    in React, although when I initially started out I was more
+                    Edinburgh. Working for <a href="http://bemo.co">Bemo</a>, I help develop applications for a wide range of clients ranging from small companies to major national brands. At the moment a lot of my work is in React, although previously I was more
                     focused on Android development.
                   </p>
                   <p>
@@ -60,7 +59,7 @@ class About extends React.Component {
                   be mindful of in web development
                 </li>
                 <li>
-                  Almost no-one in my engineering team was confident in how our
+                  Almost everyone in my engineering team felt they could learn more about how our
                   apps should perform in terms of keyboard and screen reader
                   usage
                 </li>
@@ -68,11 +67,11 @@ class About extends React.Component {
               <p>
                 I soon fell down a rabbit hole of learning, and found lots of
                 great resources online, many of which you'll find referenced
-                throughout this site. My eyes have been gradually opened, and I
+                throughout this site. My eyes were gradually opened, and I
                 started collecting notes and examples to more easily refer back
-                to them later. I decided to write up these notes into short
+                to them later. These notes became a "lunch and learn" session for my colleagues, and later I decided to write up these notes into short
                 articles and tutorials, in large part for my own learning and
-                reference, but I'm also sharing them with the world here on Up
+                reference, but also to share here on Up
                 Your A11y, in the hope that it will help someone else in a
                 similar position to me.
               </p>
@@ -91,7 +90,7 @@ class About extends React.Component {
                 I’ve therefore given UYA a React bias, partly because it's what
                 I know, and partly because it's those React/SPA specific topics
                 that represented the biggest 'Aha!' moments for me. While the
-                React docs are great, for myself at least, I think it's useful
+                React docs are great, I think it's useful
                 to gather those React-specific considerations together alongside
                 more general accessibility principles and tutorials.
               </p>

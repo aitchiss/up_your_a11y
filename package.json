@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "up-your-a11y",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A web accessibility toolkit for developers, with a React focus",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Suzanne Aitchison <suzanne.aitchison@gmail.com>",
   "dependencies": {
     "@mdx-js/mdx": "^0.16.6",
     "@mdx-js/tag": "^0.16.6",
@@ -45,15 +42,18 @@
     "eslint-plugin-react": "^7.11.1",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "http://upyoura11y.com",
   "keywords": [
-    "gatsby"
+    "react",
+    "a11y",
+    "accessibility",
+    "web development"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "https://github.com/aitchiss/up_your_a11y"
   },
   "scripts": {
     "dev": "gatsby develop",

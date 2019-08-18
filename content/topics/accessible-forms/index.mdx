@@ -17,23 +17,26 @@ readingList:
     description: 'WCAG Tutorials: Forms Concepts'
   - url: 'https://bbc.github.io/a11y-tutorials/forms/'
     description: 'BBC A11y Tutorials: Accessible Form Fields'
-
+keywords:
+  - 'forms'
+  - 'form input'
+  - 'form label'
 ---
 
 ## Step 1: Make sure your inputs are labelled
 
-Getting back to basics, the most fundamental building block of an accessible form is clearly labelled form inputs. Every input in your form should have a corresponding label. Even though you may have placed descriptive text directly above or next to the input, there is no guarantee a screen reader user will read the content, as they will usually tab directly to the form input itself. Turn on your screen reader and consider the following example: 
+Getting back to basics, the most fundamental building block of an accessible form is clearly labelled form inputs. Every input in your form should have a corresponding label. Even though you may have placed descriptive text directly above or next to the input, there is no guarantee a screen reader user will read the content, as they will usually tab directly to the form input itself. Turn on your screen reader and consider the following example:
 
 <ExampleFormContainer>
   <form>
-    <p style={{fontWeight: 'bold'}}>First Name:</p>
+    <p style={{ fontWeight: 'bold' }}>First Name:</p>
     <input id="firstName" type="text" />
   </form>
 </ExampleFormContainer>
 
 This can easily be remedied by using the appropriate label element, and ‘for’ tag:
 
-<Gist url="https://gist.github.com/aitchiss/80cbc9724601f3c42b36df7644cfa767"/>
+<Gist url="https://gist.github.com/aitchiss/80cbc9724601f3c42b36df7644cfa767" />
 
 You can turn on your screen reader and hear the difference below:
 
@@ -54,17 +57,22 @@ It is often the case that you may want to use the placeholder attribute to commu
   </form>
 </ExampleFormContainer>
 
-If you switch on your screen reader and tab to the above input, you’ll notice that the placeholder text is read aloud, so it may seem like this is enough for screen reader users. However as soon as you have entered text into the field, the placeholder disappears and there is no longer any label or information about what the text field is for. 
+If you switch on your screen reader and tab to the above input, you’ll notice that the placeholder text is read aloud, so it may seem like this is enough for screen reader users. However as soon as you have entered text into the field, the placeholder disappears and there is no longer any label or information about what the text field is for.
 
 The above effect can easily be achieved accessibly however, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
 
-<Gist url="https://gist.github.com/aitchiss/8ab191b55bfb991d847ad7f20c30a6e7"/>
+<Gist url="https://gist.github.com/aitchiss/8ab191b55bfb991d847ad7f20c30a6e7" />
 
 Turning on your screen reader and tabbing to the input below will show that the aria-label is read out to the screen reader user, regardless of whether text has already been entered in the field or not; keeping both the design and the user experience intact.
 
 <ExampleFormContainer>
   <form>
-    <input id="first-name-with-placeholder" type="text" placeholder="First Name" aria-label="First Name" />
+    <input
+      id="first-name-with-placeholder"
+      type="text"
+      placeholder="First Name"
+      aria-label="First Name"
+    />
   </form>
 </ExampleFormContainer>
 
@@ -72,27 +80,29 @@ Turning on your screen reader and tabbing to the input below will show that the 
 
 Labels clearly communicate to the user what kind of information is expected in a given input, but often we have other requirements that might not be immediately obvious, for example:
 
-* A field that is required
-* A maximum or minimum length on a text input
-* A password creation input that requires special characters
-* A phone number input that shouldn’t include any spaces
+- A field that is required
+- A maximum or minimum length on a text input
+- A password creation input that requires special characters
+- A phone number input that shouldn’t include any spaces
 
 While it can be easier for sighted users to quickly consume validation error messages and correct mistakes, it is better user experience for everyone to have the information to avoid errors in the first place.
 
 For required fields, you can simply add the “required” attribute to your input which lets screen readers know to inform the user this field must be completed:
 
-<Gist url="https://gist.github.com/aitchiss/091b96e9a70d9d48f044395d1bfc0bcb"/>
+<Gist url="https://gist.github.com/aitchiss/091b96e9a70d9d48f044395d1bfc0bcb" />
 
 Consider adding descriptive text alongside your label/input communicating clearly any special requirements for the user input. For example:
 
-<Gist url="https://gist.github.com/aitchiss/a56bb0a5f21e0561233bcce389ff6c87"/>
+<Gist url="https://gist.github.com/aitchiss/a56bb0a5f21e0561233bcce389ff6c87" />
 
 Notice in the example above, the “aria-describedBy” attribute has been used. This ensures that the descriptive text is read out to screen reader users along with the input's label. You can switch on your screen reader and test drive the example below:
 
 <ExampleFormContainer>
   <form>
     <label for="email">Email</label>
-    <p id="email-description" style={{marginTop: '0px'}}>Your email should be in the format e.g. user@example.com</p>
+    <p id="email-description" style={{ marginTop: '0px' }}>
+      Your email should be in the format e.g. user@example.com
+    </p>
     <input id="email" type="text" aria-describedBy="email-description" />
   </form>
 </ExampleFormContainer>
@@ -105,16 +115,26 @@ These groupings become even more essential when input types such as radio are co
 
 <ExampleFormContainer>
   <form>
-    <fieldset style={{display: 'flex'}}>
-    <legend>Your marketing preferences:</legend>
-    <div style={{padding: '5px'}}>
-      <input id="email-marketing" type="radio"  value="email" style={{marginRight: '10px'}} />
-      <label for="email-marketing" >Email only</label>
-    </div>
-    <div style={{padding: '5px'}}>
-      <input id="postal-marketing" type="radio"  value="post" style={{marginRight: '10px'}} />
-      <label for="postal-marketing" >Post only</label>
-    </div>
+    <fieldset style={{ display: 'flex' }}>
+      <legend>Your marketing preferences:</legend>
+      <div style={{ padding: '5px' }}>
+        <input
+          id="email-marketing"
+          type="radio"
+          value="email"
+          style={{ marginRight: '10px' }}
+        />
+        <label for="email-marketing">Email only</label>
+      </div>
+      <div style={{ padding: '5px' }}>
+        <input
+          id="postal-marketing"
+          type="radio"
+          value="post"
+          style={{ marginRight: '10px' }}
+        />
+        <label for="postal-marketing">Post only</label>
+      </div>
     </fieldset>
   </form>
 </ExampleFormContainer>
@@ -129,8 +149,8 @@ A simple form is always going to be easier for users to complete with minimal ef
 
 Tooltips might be visually appealing (although the question is open as to whether your sighted users would actually prefer not to have to hover over an element for details), but if you add them to your form you will need to ensure:
 
-* The tooltip is keyboard accessible - i.e. a user can trigger the appearance of the tooltip text by focusing the item with the keyboard instead of hovering with the mouse
-* Your screen reader users can easily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedBy attribute as per Step 2 above.
+- The tooltip is keyboard accessible - i.e. a user can trigger the appearance of the tooltip text by focusing the item with the keyboard instead of hovering with the mouse
+- Your screen reader users can easily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedBy attribute as per Step 2 above.
 
 ## Next steps
 

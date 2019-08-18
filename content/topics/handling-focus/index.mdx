@@ -12,19 +12,24 @@ readingList:
     description: 'GatsbyJS: User Testing Accessible Routing'
   - url: 'https://reactjs.org/docs/accessibility.html#programmatically-managing-focus'
     description: 'React Docs: Programmatically Managing Focus with Refs'
+keywords:
+  - 'focus'
+  - 'router'
+  - 'routing'
+  - 'client side rendering'
 ---
 
 ## Server side vs Client side rendering
 
 At its simplest level, server-side rendering means that when you navigate to a new route e.g:
 
-> upyoura11y.com/example 
+> upyoura11y.com/example
 
 the server is contacted to request the page to display, and a whole new page is presented in the browser. Client-side rendering, on the other hand, means that both:
 
-> upyoura11y.com,  and 
+> upyoura11y.com, and
 
-> upyoura11y.com/example 
+> upyoura11y.com/example
 
 are actually the same page (index.html), but the client app decides what content to drop into that single page at runtime.
 
@@ -37,9 +42,10 @@ There are a few accessibility concerns this causes. One relates to the page titl
 Imagine the following scenario - as a screen reader user, you read a link to another page. You click the link using the keyboard commands. What do you expect to happen?
 
 In “server-side rendering” land, what would happen is:
-- An entirely new page would be loaded into the browser 
-- The focus of the page would be reset 
-- The new page would be announced 
+
+- An entirely new page would be loaded into the browser
+- The focus of the page would be reset
+- The new page would be announced
 
 But as we know, with client-side rendering like in React, we won’t receive a new page.
 
@@ -58,7 +64,7 @@ Try to imagine just how disorientating this would be for a user with a visual im
 
 ## Potential solutions
 
-There are a few ways to attempt to solve this problem, all involving manually manipulating the focus on the page when the new content loads. The question then is: where do we set the focus when the new ‘page' loads? 
+There are a few ways to attempt to solve this problem, all involving manually manipulating the focus on the page when the new content loads. The question then is: where do we set the focus when the new ‘page' loads?
 
 Recently, GatsbyJS posted [an interesting article](https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/) summarising some user-testing of these techniques. I recommended reading their post in full, but spoiler alert:
 

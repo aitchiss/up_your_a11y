@@ -11,24 +11,64 @@ keyTakeaways:
 readingList:
   - url: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute'
     description: 'MDN web docs: Using the aria-label attribute'
+keywords:
+  - 'lists'
+  - 'component'
+  - 'semantic HTML'
 ---
 
 ## Using multiple similar items in a view
 
 In web applications there will often be a need to map a list of data to a number of similar HTML elements with a particular call to action. This topic inspects a very simple example - a list of product options with a ‘find out more’ button (the button on the current page does nothing, but you can imagine it would e.g. expand further product details elsewhere in the page, open a modal, etc):
 
-
-<ul style={{display: 'flex', justifyContent: 'center', listStyle: 'none', paddingLeft: '0'}}>
+<ul
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    listStyle: 'none',
+    paddingLeft: '0',
+  }}
+>
   <li>
-    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
-      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Interest-free Loans</p>
-      <button style={{backgroundColor: 'black', color: 'white', padding: '8px', width: '175px', fontSize: '1.2rem', fontWeight: 'bold'}}>Find out more</button>
+    <div style={{ border: '1px solid black', padding: '10px', margin: '5px' }}>
+      <p
+        style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem' }}
+      >
+        Interest-free Loans
+      </p>
+      <button
+        style={{
+          backgroundColor: 'black',
+          color: 'white',
+          padding: '8px',
+          width: '175px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+        }}
+      >
+        Find out more
+      </button>
     </div>
   </li>
   <li>
-    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
-      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Savings Accounts</p>
-      <button style={{backgroundColor: 'black', color: 'white', padding: '8px', width: '175px', fontSize: '1.2rem', fontWeight: 'bold'}}>Find out more</button>
+    <div style={{ border: '1px solid black', padding: '10px', margin: '5px' }}>
+      <p
+        style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem' }}
+      >
+        Savings Accounts
+      </p>
+      <button
+        style={{
+          backgroundColor: 'black',
+          color: 'white',
+          padding: '8px',
+          width: '175px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+        }}
+      >
+        Find out more
+      </button>
     </div>
   </li>
 </ul>
@@ -53,21 +93,59 @@ The example above is easy to tweak to achieve the same result but in a more acce
 
 Try turning on your screen reader again and tabbing to the buttons in our new list below. Notice the call to action on each list item is now much more descriptive and allows users to easily distinguish between the actions attached to each item in the list
 
-<ul style={{display: 'flex', justifyContent: 'center', listStyle: 'none', paddingLeft: '0'}}>
+<ul
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    listStyle: 'none',
+    paddingLeft: '0',
+  }}
+>
   <li>
-    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
-      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Interest-free Loans</p>
-      <button style={{backgroundColor: 'black', color: 'white', padding: '8px', width: '175px', fontSize: '1.2rem', fontWeight: 'bold'}} aria-label="Find out more about Interest-free Loans">Find out more</button>
+    <div style={{ border: '1px solid black', padding: '10px', margin: '5px' }}>
+      <p
+        style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem' }}
+      >
+        Interest-free Loans
+      </p>
+      <button
+        style={{
+          backgroundColor: 'black',
+          color: 'white',
+          padding: '8px',
+          width: '175px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+        }}
+        aria-label="Find out more about Interest-free Loans"
+      >
+        Find out more
+      </button>
     </div>
   </li>
   <li>
-    <div style={{border: '1px solid black', padding: '10px', margin: '5px'}}>
-      <p style={{textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem'}}>Savings Accounts</p>
-      <button style={{backgroundColor: 'black', color: 'white', padding: '8px', width: '175px', fontSize: '1.2rem', fontWeight: 'bold'}} aria-label="Find out more about Savings Accounts">Find out more</button>
+    <div style={{ border: '1px solid black', padding: '10px', margin: '5px' }}>
+      <p
+        style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '1.25rem' }}
+      >
+        Savings Accounts
+      </p>
+      <button
+        style={{
+          backgroundColor: 'black',
+          color: 'white',
+          padding: '8px',
+          width: '175px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+        }}
+        aria-label="Find out more about Savings Accounts"
+      >
+        Find out more
+      </button>
     </div>
   </li>
 </ul>
-
 
 ## Applying the approach to React components
 

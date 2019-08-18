@@ -18,10 +18,24 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.mdx
     const category = post.frontmatter.category
     const siteTitle = this.props.data.site.siteMetadata.title
+    const postKeywords = post.frontmatter.keywords
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          keywords={[
+            ...postKeywords,
+            'accessibility',
+            'a11y',
+            'react',
+            'html',
+            'web development',
+            'screen reader',
+            'assistive technology',
+          ]}
+        />
         {category === 'demo' ? (
           <MDXRenderer
             scope={{

@@ -1,0 +1,154 @@
+---
+title: 'Handling Validation Errors in Forms'
+displayTitle: 'Handling Validation Errors in Forms'
+category: 'forms'
+description: 'Form values usually require some kind of validation before they can be submitted, but without visual cues, often understanding where a mistake has been made - and where to fix it - can be tricky for screen reader users. This topic explores two key ways to handle form validation errors for a more accessible experience.'
+accentColor: '#FFE1F4'
+keyTakeaways:
+  - 'Consider the challenges faced by screen reader users when filling out forms'
+  - 'Implement a simple feedback list on form submission to communicate mistakes to your users'
+  - 'Provide immediate feedback to users when they tab away from a given input'
+  - 'Understand the difference between disabled and aria-disabled on a form submission button'
+readingList:
+  - url: 'https://a11y-101.com/development/aria-disabled'
+    description: 'A11y-101: The aria-disabled Attribute'
+  - url: 'https://www.w3.org/WAI/tutorials/forms/notifications/'
+    description: 'WCAG: User Notification'
+  - url: 'https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_alert_role'
+    description: 'MDN Web Docs: Using the alert role'
+  - url: 'https://hiddedevries.nl/en/blog/2017-04-04-how-to-make-inline-error-messages-accessible'
+    description: 'Hidde de Vries: Making Inline Error Messages Accessible'
+  - url: 'https://www.w3.org/WAI/WCAG21/Techniques/aria/ARIA21.html'
+    description: 'WCAG: Using Aria-Invalid to Indicate an Error Field'
+---
+
+## Set your users up for success, but expect mistakes
+
+As covered in the topic <Link to="/accessible-forms">Accessible Forms 101</Link>, we can take some steps to make sure any requirements for a given form input are as clear as possible. This includes:
+
+- Labelling inputs clearly
+- Marking fields as “required” when appropriate
+- Utilising the “aria-describedby” property to provide more detailed information about expected input types/patterns/validations
+
+However, mistakes in input are inevitable and there are a few things we can do to help screen reader users identify and deal with any errors with minimum confusion.
+
+## Our starting point
+
+Consider the following - very minimal - form. We have only one form field, which is required. It might look something like this:
+
+<ExampleFormContainer>
+  <ErrorForm />
+</ExampleFormContainer>
+
+Keeping in mind that screen reader users are likely to complete forms by tabbing through inputs and to the submit button, turn on your screen reader and try tabbing to the email input above, and then (without entering any data) to the submit button. What do you notice?
+
+The main problems can be summarised as:
+
+1. Feedback is provided visually (red highlight, error message) but is not announced to the user
+2. Submit button cannot be tabbed to because it has the “disabled” attribute
+
+This simple example has only one input, with a very simple validation, but you can easily imagine the confusion faced by a user if they have completed multiple form inputs and then arrive at the bottom of the page without any feedback or a submit button.
+
+In this topic we’ll cover two methods of handling this situation with improved accessibility.
+
+## Approach 1: Provide a clear list of errors when ’submit’ is clicked
+
+In this approach, we will:
+
+- rather than disabling the submit button, perform validation on all inputs when the button is clicked
+- If any of the inputs are invalid, we add the "aria-invalid" attribute, prevent the form from being submitted, and
+- We display any and all errors in a list on the same page
+
+The key to getting this approach right for screen reader users is to utilise the “alert” role on the element with our error list. Form validation is a very common use case for the “alert” role, and it ensures that as soon as a message is placed inside the element it will be announced to the user (without any need to add focus to it).
+
+The implementation for the example above would be:
+
+<ExampleFormContainer>
+  <ErrorFormWithList />
+</ExampleFormContainer>
+
+Using your screen reader, try tabbing to and clicking the submit button with no input in the email field.
+
+The code for this simple implementation is below:
+
+<Gist url="https://gist.github.com/aitchiss/e0e76cfe370aba14ca41f7c4f1400e7f" />
+
+Some of the benefits of this approach are:
+
+- It’s less ’noisy’ than input-by-input validation (which we will cover below)
+- As long as a clear message is input into the error list (including the name of the field where each error has occurred, and a clear description of what is missing), it provides a very helpful and concise reference for users
+- The announcement of errors is controlled by the user, rather than intruding on them unexpectedly
+
+On the other hand there are a couple of detractions:
+
+- If many inputs are in an error state, the list might be unmanageable for the user to hold in mind while they fix any mistakes. This means it may be an approach better applied to a shorter form, or to a section/fieldset of longer form
+- If the user wants to revisit the error message (e.g. to replay more complex information about the validation requirements) it is difficult to know where on the page to find it
+
+Based on these pros and cons, the ‘error list’ approach might therefore be appropriate in use cases where
+
+- Either the total number of form inputs is small, or the form can be broken down into smaller sections that can be validated together before proceeding
+- Input validation rules can be easily understood without repetition, or are clearly present elsewhere in the form, e.g. referenced by “aria-describedby” attributes
+
+## Approach 2: Immediate feedback
+
+In this approach, we will:
+
+- Validate an individual input in the ‘onBlur’ event (i.e. as soon as the user tabs away from it)
+- If the input is invalid, we will set the 'aria-invalid' attribbute, add an error message directly below the input, and announce the error to the user
+- Remove any input’s associated error message a soon as its value is changed
+- Apply the ‘aria-disabled’ attribute to the submit button until all input values are validated
+- Re-validate on a submit button click to handle the case where it is clicked before the final input has blurred
+
+This approach also makes use of the “alert” role, but on an input-by-input basis. Try turning on your screen reader and checking the example below. Tab to the email input, and then immediately tab to the submit button without entering anything in the input:
+
+<ExampleFormContainer>
+  <ErrorFormInlineError />
+</ExampleFormContainer>
+
+There are a couple of key considerations when using this approach:
+
+- Every input requires a related element with an “alert” role, to announce any validation errors
+- Any validation error needs to be cleared as soon as the input value is changed (otherwise the submit button may be incorrectly disabled). This is particularly important for non-screen-reader users, as they are unlikely to tab away from the input or click elsewhere on the page before clicking submit
+- The same validation needs to take place on clicking the submit button, as input-by-input validation takes place in the ‘onBlur’ event and most users (especially those not using a screen-reader) may click submit before the final input is blurred
+- The "aria-disabled" attribute is used on the submit button rather than “disabled”, for reasons covered in the final section of this topic
+
+The code for this simple implementation is:
+
+<Gist url="https://gist.github.com/aitchiss/c81486f13cf81a94542f572adeb74c65" />
+
+Benefits of this approach include:
+
+- Immediate feedback to the user; it gives users the option to correct their mistakes before proceeding with the form, or come back to it later if they prefer. This may be less overwhelming than receiving a list of problems at the final submission stage
+- Error messages follow input-by-input and can be easier to locate after they are announced. If the form does not already make use of “aria-describedby” elements, then the attribute can be added to the error message, directly linking it to the input (as in the example above)
+
+Downsides of this approach include:
+
+- It can be a bit “noisy", as users may be bombarded with alerts for each input
+- Unlike approach one, the user does not control when the form is validated
+
+Based on these pros and cons, the ‘validate on blur’ approach may well suited to situations where the user experience will be better if mistakes are identified early on (e.g. a long form that makes it less easy to revisit earlier errors).
+
+## Choose what’s right for your use-case
+
+Regardless of how you decide to implement validation and errors in your forms, the important thing is to ensure you have tested the form using both keyboard navigation and the screen reader to check the experience is easy to follow for everyone.
+
+The two approaches suggested here are common patterns, however don’t be tempted to use the two together. As both approaches make use of the “alert” role, using them together could cause the multiple alerts to conflict and some information not to be read out. It is therefore best, whichever you choose, to adopt one consistent approach throughout your forms.
+
+## In all cases, provide meaningful error messaging
+
+Whichever approach you choose, remember to make sure your error messages are clear and meaningful. For example “Invalid email” does not provide enough information about what a valid email is, or how to correct the mistake. A better message might take the form of, e.g. “Your email address should be in the format example@domain.com”.
+
+## A final note on disabling submit buttons
+
+In approach two, you will notice that the attribute “aria-disabled” is used instead of “disabled”. The key reason for this is that an element with the “disabled” attribute is ignored in the tabbing order by screen readers. Try tabbing to the buttons below by way of an example:
+
+<button disabled style={{marginRight: '20px'}}>Disabled</button>
+<button aria-disabled="true">Aria-Disabled</button>
+
+Using the “disabled” attribute can feel more common-sense to use in this scenario, but the experience can be quite confusing for screen reader users. Having tabbed through multiple form items, to arrive at the end of a page without a submit button in the tab order, and with no obvious way to skip back and recap any form errors can be very disorientating.
+
+When using “aria-disabled” you will notice that it does not prevent a user from clicking the button (unlike “disabled”), and therefore this will need to be handled in your Javascript to prevent form submission before fields are validated. Similarly, buttons with the “aria-disabled” attribute will not receive the same styling as a button with the “disabled” attribute, and CSS will need to be added to give the appropriate look. For example, in Approach Two, the CSS looks like:
+
+<Gist url="https://gist.github.com/aitchiss/7d123e3bd8e9c1f0c26abf45a47ecd29" />
+
+Check out the Further Reading below for more details on “aria-disabled” attribute.

@@ -1,0 +1,18 @@
+.formInput[aria-invalid] {
+  border: 2px solid #ea0000;
+  margin-bottom: 5px;
+}
+
+.errorText {
+  color: #ea0000;
+  font-weight: bold;
+}
+
+.errorListHeader {
+  font-weight: bold;
+}
+
+.formButton[aria-disabled] {
+  background-color: lightgray;
+  color: gray;
+}

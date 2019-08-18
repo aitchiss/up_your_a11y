@@ -7,6 +7,9 @@ import ButtonBox from '../components/ButtonBox/ButtonBox'
 import Gist from 'super-react-gist'
 import ReadingList from '../components/ReadingList/ReadingList'
 import TopicCard from '../components/TopicCard/TopicCard'
+import ErrorForm from '../components/ErrorForm/ErrorForm'
+import ErrorFormWithList from '../components/ErrorForm/ErrorFormWithList'
+import ErrorFormInlineError from '../components/ErrorForm/ErrorFormInlineError'
 import ExampleFormContainer from '../components/ExampleFormContainer/ExampleFormContainer'
 import '../pages/style.css'
 
@@ -21,7 +24,17 @@ class BlogPostTemplate extends React.Component {
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         {category === 'demo' ? (
           <MDXRenderer
-            scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link, ExampleFormContainer }}
+            scope={{
+              ButtonBox,
+              Gist,
+              ReadingList,
+              TopicCard,
+              Link,
+              ExampleFormContainer,
+              ErrorForm,
+              ErrorFormWithList,
+              ErrorFormInlineError,
+            }}
           >
             {post.code.body}
           </MDXRenderer>
@@ -38,7 +51,17 @@ class BlogPostTemplate extends React.Component {
               header
             />
             <MDXRenderer
-              scope={{ ButtonBox, Gist, ReadingList, TopicCard, Link, ExampleFormContainer }}
+              scope={{
+                ButtonBox,
+                Gist,
+                ReadingList,
+                TopicCard,
+                Link,
+                ExampleFormContainer,
+                ErrorForm,
+                ErrorFormWithList,
+                ErrorFormInlineError,
+              }}
             >
               {post.code.body}
             </MDXRenderer>

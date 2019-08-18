@@ -8,6 +8,7 @@ import Gist from 'super-react-gist'
 import ReadingList from '../components/ReadingList/ReadingList'
 import TopicCard from '../components/TopicCard/TopicCard'
 import ExampleFormContainer from '../components/ExampleFormContainer/ExampleFormContainer'
+import '../style.css'
 
 class BlogPostTemplate extends React.Component {
   render() {

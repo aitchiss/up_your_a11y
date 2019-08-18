@@ -95,7 +95,7 @@ Consider adding descriptive text alongside your label/input communicating clearl
 
 <Gist url="https://gist.github.com/aitchiss/a56bb0a5f21e0561233bcce389ff6c87" />
 
-Notice in the example above, the “aria-describedBy” attribute has been used. This ensures that the descriptive text is read out to screen reader users along with the input's label. You can switch on your screen reader and test drive the example below:
+Notice in the example above, the “aria-describedby” attribute has been used. This ensures that the descriptive text is read out to screen reader users along with the input's label. You can switch on your screen reader and test drive the example below:
 
 <ExampleFormContainer>
   <form>
@@ -103,7 +103,7 @@ Notice in the example above, the “aria-describedBy” attribute has been used.
     <p id="email-description" style={{ marginTop: '0px' }}>
       Your email should be in the format e.g. user@example.com
     </p>
-    <input id="email" type="text" aria-describedBy="email-description" />
+    <input id="email" type="text" aria-describedby="email-description" />
   </form>
 </ExampleFormContainer>
 
@@ -150,7 +150,7 @@ A simple form is always going to be easier for users to complete with minimal ef
 Tooltips might be visually appealing (although the question is open as to whether your sighted users would actually prefer not to have to hover over an element for details), but if you add them to your form you will need to ensure:
 
 - The tooltip is keyboard accessible - i.e. a user can trigger the appearance of the tooltip text by focusing the item with the keyboard instead of hovering with the mouse
-- Your screen reader users can easily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedBy attribute as per Step 2 above.
+- Your screen reader users can easily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedby attribute as per Step 2 above.
 
 ## Next steps
 

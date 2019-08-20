@@ -9,7 +9,7 @@ class About extends React.Component {
         query={aboutQuery}
         render={data => {
           const { avatar } = data
-          console.warn(avatar)
+
           return (
             <React.Fragment>
               <div className={aboutStyle.introContainer}>
@@ -24,8 +24,11 @@ class About extends React.Component {
                   <h1>About</h1>
                   <p>
                     Hi! My name's Suzanne and I'm a software engineer based in
-                    Edinburgh. Working for <a href="http://bemo.co">Bemo</a>, I help develop applications for a wide range of clients ranging from small companies to major national brands. At the moment a lot of my work is in React, although previously I was more
-                    focused on Android development.
+                    Edinburgh. Working for <a href="http://bemo.co">Bemo</a>, I
+                    help develop applications for a wide range of clients
+                    ranging from small companies to major national brands. I
+                    work across a variety of languages and frameworks, but at
+                    the moment the majority of my frontend work is in React.
                   </p>
                   <p>
                     If you like, you can find me over on{' '}
@@ -42,7 +45,7 @@ class About extends React.Component {
               <h2>Why did I start Up Your A11y?</h2>
               <p>
                 Through working on a project with a large national brand, my
-                eyes were opened to just how little I understood about
+                eyes were opened to just how little I understood about web
                 accessibility, despite working with web apps for some time. A
                 few things really struck me:
               </p>
@@ -59,9 +62,9 @@ class About extends React.Component {
                   be mindful of in web development
                 </li>
                 <li>
-                  Almost everyone in my engineering team felt they could learn more about how our
-                  apps should perform in terms of keyboard and screen reader
-                  usage
+                  Almost everyone in my engineering team felt they could learn
+                  more about how our apps should perform in terms of keyboard
+                  and screen reader usage
                 </li>
               </ol>
               <p>
@@ -69,11 +72,12 @@ class About extends React.Component {
                 great resources online, many of which you'll find referenced
                 throughout this site. My eyes were gradually opened, and I
                 started collecting notes and examples to more easily refer back
-                to them later. These notes became a "lunch and learn" session for my colleagues, and later I decided to write up these notes into short
-                articles and tutorials, in large part for my own learning and
-                reference, but also to share here on Up
-                Your A11y, in the hope that it will help someone else in a
-                similar position to me.
+                to later. These notes became a "lunch and learn" session for my
+                colleagues, and later I decided to write them up into short
+                articles and tutorials. In large part this was for my own
+                learning and reference, but also to share here on Up Your A11y,
+                in the hope that it will help someone else in a similar position
+                to me.
               </p>
               <h2>Why the React focus?</h2>
               <p>
@@ -83,16 +87,16 @@ class About extends React.Component {
                 found myself lost on route changes, with focus seemingly in
                 random places. I realised I'd taken for granted my nifty
                 component was fit for purpose across different locations in my
-                app without considering the heading level etc. I'd failed
-                entirely to consider page titles, and so on.
+                app without considering the heading level etc. I hadn't properly
+                considered page titles, and so on.
               </p>
               <p>
-                I’ve therefore given UYA a React bias, partly because it's what
-                I know, and partly because it's those React/SPA specific topics
-                that represented the biggest 'Aha!' moments for me. While the
-                React docs are great, I think it's useful
-                to gather those React-specific considerations together alongside
-                more general accessibility principles and tutorials.
+                I’ve therefore given Up Your A11y a React bias, partly because
+                it's what I know, but also because it's those React/SPA specific
+                topics that represented the biggest 'Aha!' moments for me. While
+                the React docs are great, I think it's useful to gather those
+                React-specific considerations together alongside more general
+                accessibility principles and tutorials.
               </p>
               <h2>Moving forward</h2>
               <p>

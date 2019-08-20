@@ -31,16 +31,18 @@ It’s clear that a concise, descriptive page title can be vital in surfacing yo
 
 ## How to title your pages
 
-W3 has some excellent [simple tips](https://www.w3.org/WAI/WCAG21/Techniques/general/G88.html) on this:
+W3C has some excellent [simple tips](https://www.w3.org/WAI/WCAG21/Techniques/general/G88.html) on this, which are summarised below.
 
-The title of each Web page should:
+**The title of each web page should:**
 
-- Identify the subject of the Web page
-- Make sense when read out of context, for example by a screen reader or in a site map or list of search results
+- Identify the subject of the web page
+- Make sense when read out of context, for example by a screen reader, in a site map or list of search results
 - Be short
-  It may also be helpful for the title to
-- Identify the site or other resource to which the Web page belongs
-- Be unique within the site or other resource to which the Web page belongs
+
+**It may also be helpful for the title to:**
+
+- Identify the site or other resource to which the web page belongs
+- Be unique within the site or other resource to which the web page belongs
 
 It’s also usually preferred that the most important/specific information comes first, e.g.
 
@@ -52,7 +54,7 @@ Rather than:
 
 ## Setting the title in React
 
-Given that React produces single page applications, unless it’s explicitly managed, the page title never changes. This leaves your users with few clues to the page that they’re currently viewing without entering and reading your content. The great news though is that managing the page title is super simple via the [React Document Title](https://github.com/gaearon/react-document-title) component.
+Given that React produces single page applications, the page title never changes unless it is specifically managed. This leaves your users with few clues to the page that they’re currently viewing without entering and reading your content. The great news though is that managing the page title is super simple via the [React Document Title](https://github.com/gaearon/react-document-title) component.
 
 For each page in your app, simply wrap the rendered components in the DocumentTitle component, and pass in the page title, e.g.
 

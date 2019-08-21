@@ -85,9 +85,7 @@ class ContactForm extends React.Component {
         >
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="contact" />
-          <label htmlFor="name" for="name">
-            Name
-          </label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             name="name"
@@ -95,9 +93,7 @@ class ContactForm extends React.Component {
             required={true}
             ref={this.nameRef}
           />
-          <label htmlFor="email" for="email">
-            Email
-          </label>
+          <label htmlFor="email">Email</label>
           <input
             type="text"
             name="email"
@@ -105,9 +101,7 @@ class ContactForm extends React.Component {
             required={true}
             ref={this.emailRef}
           />
-          <label htmlFor="message" for="message">
-            Message
-          </label>
+          <label htmlFor="message">Message</label>
           <textarea
             name="message"
             id="message"

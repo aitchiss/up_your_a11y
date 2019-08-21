@@ -27,12 +27,7 @@ class ErrorForm extends React.Component {
         <label htmlFor="email">Email</label>
         <input id="email" className={formStyle.formInput} required />
         <span className={formStyle.errorText}>{errorMessage}</span>
-        <button
-          type="submit"
-          className="submit-btn"
-          onClick={this.fakeSubmit}
-          aria-disabled="true"
-        >
+        <button type="submit" className="submit-btn" onClick={this.fakeSubmit}>
           Submit
         </button>
       </form>

@@ -6,8 +6,8 @@ description: 'This topic introduces the key concepts to creating simple, accessi
 accentColor: '#FFE1F4'
 keyTakeaways:
   - 'Label and describe your form inputs clearly'
-  - 'Make your forms as easy to use as possible for a wide range of users'
-  - 'Alert your users to errors in their input in a user-friendly way'
+  - 'Associate groups of inputs together'
+  - 'Follow 4 easy steps to make your forms as easy to use as possible for a wide range of users'
 readingList:
   - url: 'https://webaim.org/techniques/forms/'
     description: 'WebAIM: Creating Accessible Forms'
@@ -23,9 +23,13 @@ keywords:
   - 'form label'
 ---
 
+## Accessible forms don't need to be difficult
+
+Form accessibility can sometimes seem like a daunting task, especially when faced with a complicated design, or fields that require complex validations. This topic covers the core basics, and by following these simple four steps you can create accessible forms for a wide range of standard use cases. Once you've mastered the basics, hop on over to <Link to="handling-form-errors">Handling Validation Errors in Forms</Link> for some more tips, and keep an eye out on Up Your A11y for some future topics that deal with more complex form UIs.
+
 ## Step 1: Make sure your inputs are labelled
 
-Getting back to basics, the most fundamental building block of an accessible form is clearly labelled form inputs. Every input in your form should have a corresponding label. Even though you may have placed descriptive text directly above or next to the input, there is no guarantee a screen reader user will read the content, as they will usually tab directly to the form input itself. Turn on your screen reader and consider the following example:
+Getting back to basics, the most fundamental building block of an accessible form is clearly labelled form inputs. Every input in your form should have a unique ID and corresponding label. Even though you may have placed descriptive text directly above or next to the input, there is no guarantee a screen reader user will read the content, as they will usually tab directly to the form input itself (See: <Link to="/screen-reader-keyboard-navigation">Getting Started with Keyboard Navigation and Screen Readers</Link>). Turn on your screen reader and consider the following example:
 
 <ExampleFormContainer>
   <form>
@@ -34,11 +38,9 @@ Getting back to basics, the most fundamental building block of an accessible for
   </form>
 </ExampleFormContainer>
 
-This can easily be remedied by using the appropriate label element, and ‘for’ tag:
+You will notice that although this looks OK on the page, when you tab to the input there is very little information provided; on VoiceOver it simply says "edit text, blank". This can easily be remedied by using the appropriate label element, and ‘for’ tag, as in the code example below. By adding this label, VoiceOver will now announce "First name, edit text". The form input rendered by this example is also included below so you can turn on your screen reader and hear the difference:
 
 <Gist url="https://gist.github.com/aitchiss/80cbc9724601f3c42b36df7644cfa767" />
-
-You can turn on your screen reader and hear the difference below:
 
 <ExampleFormContainer>
   <form>
@@ -57,9 +59,9 @@ It is often the case that you may want to use the placeholder attribute to commu
   </form>
 </ExampleFormContainer>
 
-If you switch on your screen reader and tab to the above input, you’ll notice that the placeholder text is read aloud, so it may seem like this is enough for screen reader users. However as soon as you have entered text into the field, the placeholder disappears and there is no longer any label or information about what the text field is for.
+If you switch on your screen reader and tab to the above input, you’ll notice that the placeholder text is read aloud, so it may seem like this is enough for screen reader users. However as soon as you have entered text into the field, the placeholder disappears and there is no longer any label or information about what the text field is for (go ahead - try using the screen reader to focus on the above input after you've entered text in it).
 
-The above effect can easily be achieved accessibly however, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
+The above effect can easily be achieved accessibly, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
 
 <Gist url="https://gist.github.com/aitchiss/8ab191b55bfb991d847ad7f20c30a6e7" />
 
@@ -85,13 +87,13 @@ Labels clearly communicate to the user what kind of information is expected in a
 - A password creation input that requires special characters
 - A phone number input that shouldn’t include any spaces
 
-While it can be easier for sighted users to quickly consume validation error messages and correct mistakes, it is better user experience for everyone to have the information to avoid errors in the first place.
+While it can be easier for sighted users to quickly consume validation error messages and correct mistakes, it is better user experience for everyone to have the information upfront to avoid errors in the first place.
 
 For required fields, you can simply add the “required” attribute to your input which lets screen readers know to inform the user this field must be completed:
 
 <Gist url="https://gist.github.com/aitchiss/091b96e9a70d9d48f044395d1bfc0bcb" />
 
-Consider adding descriptive text alongside your label/input communicating clearly any special requirements for the user input. For example:
+Consider also adding descriptive text alongside your label/input communicating clearly any special requirements for the user input. For example:
 
 <Gist url="https://gist.github.com/aitchiss/a56bb0a5f21e0561233bcce389ff6c87" />
 
@@ -109,7 +111,7 @@ Notice in the example above, the “aria-describedby” attribute has been used.
 
 ## Step 3: Get organised
 
-Large forms can be difficult to consume for all types of users, especially those using assistive technology. You can ease the burden by splitting your form into groups of related details using the fieldset and legend elements, helping the user to understand when they have reached a new section of the form.
+Large forms can be difficult to consume for all types of users, especially those using assistive technology. You can ease the burden by splitting your form into groups of related details using the 'fieldset' and 'legend' elements, helping the user to understand when they have reached a new section of the form.
 
 These groupings become even more essential when input types such as radio are considered. For example, a basic form might have a set of radio options, e.g.
 
@@ -154,4 +156,4 @@ Tooltips might be visually appealing (although the question is open as to whethe
 
 ## Next steps
 
-Now you have the basics in place, keep an eye out for more advanced Form topics on Up Your A11y coming soon, including accessible ways to validate input and notify your users of errors. In the meantime, check out the further reading suggestions below.
+Now you have the basics in place, check out <Link to="/handling-form-errors">Handling Validation Errors in Forms</Link>, which will give you some tips on how to handle failed input validation and errors. Keep an eye out for more advanced Form topics on Up Your A11y coming soon, and in the meantime, check out the further reading suggestions below.

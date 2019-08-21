@@ -99,6 +99,7 @@ module.exports = {
             {
               allMdx(
                 limit: 1000,
+                sort: { order: ASC, fields: [frontmatter___sortOrder] },
               ) {
                 edges {
                   node {

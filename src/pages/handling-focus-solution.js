@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import solutionStyle from './handling-focus-solution.module.css'
+import './style.css'
 
 class HandlingFocusSolution extends React.Component {
   headingRef = React.createRef()

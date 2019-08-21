@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import layoutStyle from './pageLayoutsStarter.module.css'
+import './style.css'
 
 class PageLayoutsStarter extends React.Component {
   render() {

@@ -2,6 +2,7 @@ import React from 'react'
 import SEO from '../components/seo'
 import { Link } from 'gatsby'
 import layoutStyle from './pageLayoutsReorganised.module.css'
+import './style.css'
 
 class PageLayoutsEnhanced extends React.Component {
   render() {

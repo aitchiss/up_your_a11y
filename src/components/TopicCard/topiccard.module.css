@@ -36,6 +36,10 @@
   outline: none;
 }
 
+.headerCard {
+  margin: auto;
+}
+
 @media only screen and (max-width: 768px) {
   .topicContainer {
     flex-direction: column;

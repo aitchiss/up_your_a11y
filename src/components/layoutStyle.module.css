@@ -1,5 +1,7 @@
 .container {
   padding: 25px;
+  max-width: 900px;
+  margin: auto;
 }
 
 @media only screen and (min-width: 768px) {

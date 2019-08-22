@@ -38,9 +38,11 @@ class TopicCard extends Component {
       linkAriaLabel,
     } = this.props
     const Tag = 'h' + headingLevel
+    const headerStyle = header ? cardStyle.headerCard : ''
+
     return (
       <div
-        className={cardStyle.topicContainer}
+        className={`${cardStyle.topicContainer} ${headerStyle}`}
         style={{ boxShadow: `5px -10px ${accentColor}` }}
       >
         <div className={cardStyle.description}>

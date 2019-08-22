@@ -14,12 +14,16 @@ a {
   border-bottom: 3px solid #fdbfaf;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
 }
@@ -45,4 +49,14 @@ li {
 .topicHeader {
   margin-top: 35px;
   margin-bottom: 30px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 8px;
+  width: 175px;
+  margin-top: 25px;
 }

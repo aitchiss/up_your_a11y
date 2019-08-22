@@ -147,8 +147,8 @@ Whichever approach you choose, remember to make sure your error messages are cle
 
 In approach two, you will notice that the attribute “aria-disabled” is used instead of “disabled”. The key reason for this is that an element with the “disabled” attribute is ignored in the tabbing order by screen readers. Try tabbing to the buttons below by way of an example:
 
-<button disabled style={{marginRight: '20px'}}>Disabled</button>
-<button aria-disabled="true">Aria-Disabled</button>
+<button disabled style={{marginRight: '20px'}} >Disabled</button>
+<button aria-disabled="true" >Aria-Disabled</button>
 
 Using the “disabled” attribute can feel more common-sense to use in this scenario, but the experience can be quite confusing for screen reader users. Having tabbed through multiple form items, to arrive at the end of a page without a submit button in the tab order, and with no obvious way to skip back and recap any form errors can be very disorientating.
 

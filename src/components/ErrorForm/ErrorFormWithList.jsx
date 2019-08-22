@@ -48,7 +48,7 @@ class ErrorFormWithList extends React.Component {
           />
           <button
             type="submit"
-            className="submit-btn"
+            className={formStyle.formButton}
             onClick={this.handleSubmit}
           >
             Submit

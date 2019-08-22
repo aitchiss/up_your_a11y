@@ -90,7 +90,7 @@ class ContactForm extends React.Component {
             type="text"
             name="name"
             id="name"
-            required={true}
+            required="true"
             ref={this.nameRef}
           />
           <label htmlFor="email">Email</label>
@@ -98,7 +98,7 @@ class ContactForm extends React.Component {
             type="text"
             name="email"
             id="email"
-            required={true}
+            required="true"
             ref={this.emailRef}
           />
           <label htmlFor="message">Message</label>
@@ -106,7 +106,7 @@ class ContactForm extends React.Component {
             name="message"
             id="message"
             rows="6"
-            required={true}
+            required="true"
             ref={this.messageRef}
           />
           <button

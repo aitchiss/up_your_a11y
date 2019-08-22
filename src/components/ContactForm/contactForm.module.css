@@ -28,6 +28,10 @@ textarea {
   font-size: 1rem;
 }
 
+textarea:required {
+  box-shadow: none;
+}
+
 button {
   background-color: black;
   color: white;

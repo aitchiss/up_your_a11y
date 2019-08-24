@@ -87,7 +87,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx {
+    allMdx(sort: { order: ASC, fields: [frontmatter___sortOrder] }) {
       edges {
         node {
           excerpt

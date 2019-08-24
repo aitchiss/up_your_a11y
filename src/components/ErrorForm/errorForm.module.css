@@ -26,3 +26,16 @@
   background-color: lightgray;
   color: gray;
 }
+
+label {
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+input {
+  min-height: 30px;
+  border: 1px solid black;
+  padding: 5px 10px 5px 10px;
+  font-size: 1rem;
+}

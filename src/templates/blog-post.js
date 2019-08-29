@@ -19,22 +19,22 @@ class BlogPostTemplate extends React.Component {
     const category = post.frontmatter.category
     const siteTitle = this.props.data.site.siteMetadata.title
     const postKeywords = post.frontmatter.keywords
+    const baseKeywords = [
+      'accessibility',
+      'a11y',
+      'react',
+      'html',
+      'web development',
+      'screen reader',
+      'assistive technology',
+    ]
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description}
-          keywords={[
-            ...postKeywords,
-            'accessibility',
-            'a11y',
-            'react',
-            'html',
-            'web development',
-            'screen reader',
-            'assistive technology',
-          ]}
+          keywords={[...postKeywords, ...baseKeywords]}
         />
         {category === 'demo' ? (
           <MDXRenderer
@@ -110,6 +110,7 @@ export const pageQuery = graphql`
           url
           description
         }
+        keywords
       }
       code {
         body

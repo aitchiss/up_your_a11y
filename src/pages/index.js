@@ -56,12 +56,14 @@ class TopicsIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const siteImg = data.site.siteMetadata.image
     const posts = data.allMdx.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title="Home"
+          image={siteImg}
           keywords={[
             `accessibility`,
             `react`,
@@ -85,6 +87,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        image
       }
     }
     allMdx(sort: { order: ASC, fields: [frontmatter___sortOrder] }) {

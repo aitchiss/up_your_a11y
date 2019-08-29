@@ -3,7 +3,7 @@ module.exports = {
     title: `Up Your A11y`,
     author: `Suzanne Aitchison`,
     description: `Notes and tips for improving your web accessibility`,
-    siteUrl: `http://upyoura11y.com`,
+    siteUrl: `https://upyoura11y.com`,
     social: {
       twitter: `s_aitchison`,
     },

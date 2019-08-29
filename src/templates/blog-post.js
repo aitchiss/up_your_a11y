@@ -18,7 +18,6 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.mdx
     const category = post.frontmatter.category
     const siteTitle = this.props.data.site.siteMetadata.title
-    const siteImg = this.props.data.site.siteMetadata.image
     const postKeywords = post.frontmatter.keywords
     const baseKeywords = [
       'accessibility',
@@ -33,8 +32,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title={post.frontmatter.title}
-          image={siteImg}
+          title={post.frontmatter.displayTitle}
           description={post.frontmatter.description}
           keywords={[...postKeywords, ...baseKeywords]}
         />
@@ -106,6 +104,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         displayTitle
+        description
         category
         accentColor
         keyTakeaways

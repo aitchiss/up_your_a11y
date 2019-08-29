@@ -7,7 +7,7 @@ module.exports = {
     social: {
       twitter: `s_aitchison`,
     },
-    icon: 'static/UYA_fav.png',
+    image: 'UYA_fav.png',
   },
   plugins: [
     `gatsby-plugin-sitemap`,

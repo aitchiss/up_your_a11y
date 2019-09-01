@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Up Your A11y`,
     author: `Suzanne Aitchison`,
-    description: `Notes and tips for improving your web accessibility`,
+    description: `A collection of tutorials and articles to help you improve the accessibility of your websites and web applications, particularly using React`,
     siteUrl: `https://upyoura11y.com`,
     social: {
       twitter: `s_aitchison`,

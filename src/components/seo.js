@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, keywords, title }) {
               { name: `description`, content: metaDescription },
               { property: `og:title`, content: title },
               { property: `og:description`, content: metaDescription },
+              { property: `og:image`, content: data.site.siteMetadata.image },
               { property: `og:type`, content: `website` },
               { name: `twitter:card`, content: `summary` },
               {

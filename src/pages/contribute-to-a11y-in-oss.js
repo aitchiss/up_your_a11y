@@ -18,7 +18,7 @@ class A11yOSSContributionsPage extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.github.com/search/issues?q=a11y+accessibility+type:issue+is:open+is:public+language:javascript+language:html+archived:false+no:assignee+label:"help wanted"+sort:updated&per_page=100`
+        `https://api.github.com/search/issues?q=a11y OR accessibility+type:issue+is:open+is:public+language:javascript+language:html+archived:false+no:assignee+label:"help wanted"+sort:updated&per_page=75`
       )
       .then(response => {
         const { data } = response

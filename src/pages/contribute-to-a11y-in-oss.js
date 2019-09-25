@@ -22,7 +22,6 @@ class A11yOSSContributionsPage extends React.Component {
       )
       .then(response => {
         const { data } = response
-        console.log(response)
         const safeItems = data.items || []
         this.setState({ loading: false, issues: safeItems })
       })

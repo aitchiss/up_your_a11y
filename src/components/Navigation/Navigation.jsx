@@ -34,6 +34,18 @@ class Navigation extends React.Component {
               Contact
             </Link>
           </li>
+          <li>
+            <Link
+              to="/contribute-to-a11y-in-oss"
+              className={
+                activePage === '/contribute-to-a11y-in-oss'
+                  ? `${navStyle.navLink} ${navStyle.activePage}`
+                  : `${navStyle.navLink} ${navStyle.inactivePage}`
+              }
+            >
+              Contribute to OSS
+            </Link>
+          </li>
         </ul>
       </nav>
     )

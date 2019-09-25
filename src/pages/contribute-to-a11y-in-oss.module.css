@@ -1,6 +1,8 @@
 .listSection {
-  display: flex;
   justify-content: center;
+}
+
+.listSection h2 {
   margin-top: 50px;
 }
 
@@ -11,6 +13,8 @@
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 50px;
 }
 
 .spinnerCopy {
@@ -20,6 +24,52 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.issueList {
+  list-style: none;
+}
+
+.issueLink {
+  width: max-content;
+  color: black;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin: 8px 15px 8px 15px;
+  padding: 3px;
+  align-self: flex-end;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 5px solid #fdbfaf;
+}
+
+.issueHeader {
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #c0f0f4;
+  padding: 10px;
+}
+
+.lastUpdated {
+  font-size: 0.8rem;
+  font-weight: strong;
+}
+
+.issueCard {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-top-width: 3px;
+  border-right-width: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.issueCard p,
+h2 {
+  word-wrap: break-word;
 }
 
 @keyframes spin {

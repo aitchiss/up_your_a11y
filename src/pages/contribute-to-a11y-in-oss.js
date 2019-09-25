@@ -11,32 +11,20 @@ class A11yOSSContributionsPage extends React.Component {
 
     this.state = {
       loading: true,
+      issues: [],
     }
   }
 
   componentDidMount() {
-    console.log('----LOADING')
-    // Check only for issues last updated in the last 4 weeks
-    // And sort by most recently updated
-    const relevantDate = new Date()
-    relevantDate.setDate(relevantDate.getDate() - 28)
-    const day = relevantDate.getDay().toString()
-    const month = relevantDate.getMonth().toString()
-    const year = relevantDate.getFullYear()
-
-    const dayFormatted = day.length === 1 ? `0${day}` : day
-    const monthFormatted = month.length === 1 ? `0${month}` : month
-    const dateQueryString = `${year}-${monthFormatted}-${dayFormatted}`
-
     axios
       .get(
-        `https://api.github.com/search/issues?q=a11y+accessibility+type:issue+is:open+is:public+language:javascript+language:html+updated:>=${dateQueryString}+archived:false+no:assignee&per_page=100`
+        `https://api.github.com/search/issues?q=a11y+accessibility+type:issue+is:open+is:public+language:javascript+language:html+archived:false+no:assignee+label:"help wanted"+sort:updated&per_page=100`
       )
       .then(response => {
         const { data } = response
         console.log(response)
         const safeItems = data.items || []
-        this.setState({ loading: false })
+        this.setState({ loading: false, issues: safeItems })
       })
       .catch(e => {
         console.warn(e)
@@ -44,14 +32,41 @@ class A11yOSSContributionsPage extends React.Component {
   }
 
   render() {
-    const { loading } = this.state
+    const { loading, issues } = this.state
+
+    const issueCards = issues.map(x => {
+      const contract = x.body.length > 200
+      const preview = contract ? `${x.body.substr(0, 200)}...` : x.body
+
+      const lastUpdate = new Date(x['updated_at'])
+      const updatedFormatted = lastUpdate.toLocaleDateString()
+
+      return (
+        <li key={x.id}>
+          <div className={contributeStyle.issueCard}>
+            <h3 className={contributeStyle.issueHeader}>{x.title}</h3>
+            <p className={contributeStyle.lastUpdated}>
+              Last updated: {updatedFormatted}
+            </p>
+            <p>{preview}</p>
+            <a
+              href={x['html_url']}
+              aria-label={`Visit issue: ${x.title}`}
+              className={contributeStyle.issueLink}
+            >
+              Visit this issue
+            </a>
+          </div>
+        </li>
+      )
+    })
 
     return (
       <Layout location={this.props.location}>
         <SEO title="Contribute to A11y Issues in OSS" />
-        <h1>100 Open A11y OSS Issues Looking for Help</h1>
+        <h1>Open A11y OSS Issues Looking for Help</h1>
         <p>
-          Sometimes it's hard to know where to start in contributingn to Open
+          Sometimes it's hard to know where to start in contributing to Open
           Source Software, and often you might not have a particular repository
           in mind that you'd like to contribute to.
         </p>
@@ -61,20 +76,23 @@ class A11yOSSContributionsPage extends React.Component {
           OSS project.
         </p>
         <p>
-          To help make this as easy as possible, we've listed below 100 current
-          issues referencing accessibility that are waiting on an assignee.
-          Follow the links below to find out more about how you could
-          contribute.
+          To help make this as easy as possible, we've listed below current
+          issues referencing accessibility that are looking for help. Follow the
+          links below to find out more about how you could contribute.
         </p>
-        <p>The list below includes open issues:</p>
+        <p>
+          <strong>The list below includes open issues:</strong>
+        </p>
         <ul>
-          <li>From OSS projects</li>
+          <li>From open source GitHub projects</li>
           <li>Referencing 'a11y' or 'accessibility'</li>
-          <li>Updated in the last 4 weeks</li>
+          <li>Labelled with "Help wanted"</li>
           <li>No assignee or pull request yet</li>
           <li>Utilising JavaScript or HTML</li>
         </ul>
+        <p>The most recently updated issues will appear first.</p>
         <section className={contributeStyle.listSection}>
+          <h2>Current Open Issues from GitHub</h2>
           <div
             style={{ display: loading ? 'block' : 'none' }}
             className={contributeStyle.loader}
@@ -85,6 +103,10 @@ class A11yOSSContributionsPage extends React.Component {
               ? 'Open O.S.S. issues are loading...'
               : 'Open O.S.S. issues have finished loading.'}
           </p>
+
+          <div className={contributeStyle.listWrapper}>
+            <ul className={contributeStyle.issueList}>{issueCards}</ul>
+          </div>
         </section>
       </Layout>
     )

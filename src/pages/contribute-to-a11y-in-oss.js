@@ -42,7 +42,7 @@ class A11yOSSContributionsPage extends React.Component {
       const updatedFormatted = lastUpdate.toLocaleDateString()
 
       return (
-        <li key={x.id}>
+        <li key={x.id} className={contributeStyle.listItems}>
           <div className={contributeStyle.issueCard}>
             <h3 className={contributeStyle.issueHeader}>{x.title}</h3>
             <p className={contributeStyle.lastUpdated}>
@@ -63,7 +63,21 @@ class A11yOSSContributionsPage extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <SEO title="Contribute to A11y Issues in OSS" />
+        <SEO
+          title="Open A11y OSS Issues Looking for Help"
+          description="A collection of accessibility focused 'help wanted' issues in HTML/JavaScript Open Source projects"
+          keywords={[
+            'open source',
+            'oss',
+            'javascript',
+            'html',
+            'issues',
+            'accessibility',
+            'a11y',
+            'contribute',
+            'help wanted',
+          ]}
+        />
         <h1>Open A11y OSS Issues Looking for Help</h1>
         <p>
           Sometimes it's hard to know where to start in contributing to Open

@@ -28,6 +28,7 @@
 
 .issueList {
   list-style: none;
+  padding-left: 0;
 }
 
 .issueLink {
@@ -65,6 +66,7 @@
   border-right-width: 4px;
   padding: 10px;
   margin-bottom: 15px;
+  max-width: 650px;
 }
 
 .issueCard p,

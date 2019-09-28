@@ -18,7 +18,7 @@ class A11yOSSContributionsPage extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.github.com/search/issues?q=a11y OR accessibility+type:issue+is:open+is:public+language:javascript+language:html+archived:false+no:assignee+label:"help wanted"+sort:updated&per_page=75`
+        `https://api.github.com/search/issues?q=a11y OR accessibility OR accessible+type:issue+is:open+is:public+language:javascript+language:html+archived:false+no:assignee+label:"help wanted" OR "good first issue"+sort:updated&per_page=75`
       )
       .then(response => {
         const { data } = response
@@ -98,12 +98,22 @@ class A11yOSSContributionsPage extends React.Component {
         </p>
         <ul>
           <li>From open source GitHub projects</li>
-          <li>Referencing 'a11y' or 'accessibility'</li>
-          <li>Labelled with "Help wanted"</li>
+          <li>Referencing 'a11y', 'accessibility', or 'accessible'</li>
+          <li>Labelled with "Help wanted" or "Good first issue"</li>
           <li>No assignee or pull request yet</li>
           <li>Utilising JavaScript or HTML</li>
         </ul>
-        <p>The most recently updated issues will appear first.</p>
+        <p>
+          Results are fetched via search query to the GitHub API, so you might
+          see some outliers that are perhaps not as relevant. The most recently
+          updated issues will appear first.
+        </p>
+        <p>
+          If you prefer, you can{' '}
+          <a href="https://github.com/search?q=a11y%20OR%20accessibility%20OR%20accessible+type:issue+is:open+is:public+language:javascript+language:html+archived:false+no:assignee+label:%22help%20wanted%22%20OR%20%22good%20first%20issue%22+sort:updated">
+            open the same search query in GitHub
+          </a>
+        </p>
         <section className={contributeStyle.listSection}>
           <h2>Current Open Issues from GitHub</h2>
           <div

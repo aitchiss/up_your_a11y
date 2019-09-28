@@ -104,7 +104,7 @@ class A11yOSSContributionsPage extends React.Component {
           <li>Utilising JavaScript or HTML</li>
         </ul>
         <p>
-          Results are fetched via search query to the GitHub API, so you might
+          Results are fetched via search query from the GitHub API, so you might
           see some outliers that are perhaps not as relevant. The most recently
           updated issues will appear first.
         </p>

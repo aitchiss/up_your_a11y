@@ -4,18 +4,26 @@ import { graphql, StaticQuery } from 'gatsby'
 
 class DecorativeList extends React.Component {
   render() {
+    const { bulletsContent } = this.props
+
     return (
       <StaticQuery
         query={decorativeListQuery}
         render={data => {
           const { bullet } = data
-          return (
-            <ul>
-              <li>
-                <img src={bullet.edges[0].node.publicURL} />
+          const bullets = bulletsContent.map((x, index) => {
+            const key = `decorative-bullet-${index}`
+            return (
+              <li className={listStyle.listItem} key={key}>
+                <img
+                  src={bullet.edges[0].node.publicURL}
+                  className={listStyle.bullet}
+                />
+                <span className={listStyle.bulletContent}>{x}</span>
               </li>
-            </ul>
-          )
+            )
+          })
+          return <ul className={listStyle.decorativeList}>{bullets}</ul>
         }}
       />
     )

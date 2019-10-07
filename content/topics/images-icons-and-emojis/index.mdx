@@ -1,0 +1,56 @@
+---
+title: 'Images, Icons and Emojis'
+displayTitle: 'Accessible Images, Icons and Emojis'
+category: 'lists'
+description: 'PLACEHOLDER'
+accentColor: '#F8F3A3'
+sortOrder: 1
+keyTakeaways:
+  - "Add meaningful alternative text to your content's images"
+  - 'Identify cases where alternative text is not required'
+  - "Handle 'alternative imagery' such as Font Awesome icons and Emojis"
+
+readingList:
+  - url: 'https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html'
+    description: 'PLACEHOLDER'
+
+keywords:
+  - 'images'
+  - 'alternative text'
+  - 'alt text'
+  - 'decorative images'
+  - 'emojis'
+  - 'font awesome'
+  - 'icons'
+---
+
+One of the first things we all learn about web accessibility is that we need to provide alternative text for images we use in our websites and apps. The principle is clear, but when it comes to actually implementing that alternative text, it can be so hard to know what to write!
+
+There are many instances of alt text on the web that fall into one of the below traps:
+
+- Repeating what surrounding text already describes
+- Using redundant phrases like "Image of…"
+- Providing meaningless alternative text for a purely decorative component (e.g. “divider line”)
+- Focusing on what the image looks like, rather than what it is being used to convey (either in content or function)
+
+This article will step through a few key questions you can ask yourself when adding imagery to your content, to help you identify meaningful alternative text. We’ll also then take a look at some alternative imagery you might use (emojis & font awesome icons) and how to handle those in an accessible way.
+
+## Question 1: Does Your Image Actually Need Alternative Text?
+
+It’s worth saying loud and clear, **not all images need alternative text**. Often we use images in a way that are purely decorative, e.g. to help space out a page, add a bit of color to a very tex-heavy page, use as fancy bullet points, etc. In cases where the image used is purely decorative, it is acceptable to provide empty alternative text.
+
+Ask yourself, if this image wasn’t present on the page, what would the user miss out on? If the answer is purely that it wouldn’t look as nice, then it sounds like you don’t need alternative text.
+
+### Some examples where alternative text wouldn’t be necessary:
+
+#### Images used for layout purposes only
+
+![Example image of a purely decorative dividing line](./decorative-divider.png)
+
+In the example above, the image is used simply to provide a decorative dividing line. It adds no contextual or functional value, and therefore the alt attribute can happily be left empty - i.e. `alt=""`
+
+### Images used as bullet points
+
+<DecorativeList />
+
+In this example, the standard list style has been removed, and images have been used in each `li` item instead. The code would look something like this:

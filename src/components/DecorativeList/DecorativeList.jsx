@@ -2,9 +2,10 @@ import React from 'react'
 import listStyle from './decorativeList.module.css'
 import { graphql, StaticQuery } from 'gatsby'
 
+
 class DecorativeList extends React.Component {
   render() {
-    const { bulletsContent } = this.props
+    const { bulletsContent, altText } = this.props
 
     return (
       <StaticQuery
@@ -17,6 +18,7 @@ class DecorativeList extends React.Component {
               <li className={listStyle.listItem} key={key}>
                 <img
                   src={bullet.edges[0].node.publicURL}
+                  alt={altText}
                   className={listStyle.bullet}
                 />
                 <span className={listStyle.bulletContent}>{x}</span>

@@ -121,7 +121,7 @@ class A11yOSSContributionsPage extends React.Component {
             className={contributeStyle.loader}
             role="alert"
           />
-          <p className={contributeStyle.spinnerCopy} aria-live="assertive">
+          <p className={contributeStyle.spinnerCopy} aria-live="polite">
             {loading
               ? 'Open O.S.S. issues are loading...'
               : 'Open O.S.S. issues have finished loading.'}

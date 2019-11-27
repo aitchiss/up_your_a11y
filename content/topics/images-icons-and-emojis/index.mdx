@@ -54,3 +54,113 @@ In the example above, the image is used simply to provide a decorative dividing 
 <DecorativeList bulletsContent={['List Item One', 'List Item Two']} />
 
 In this example, the standard list style has been removed, and images have been used in each `li` item instead. The code would look something like this:
+
+<Gist url="https://gist.github.com/aitchiss/00a25a1916ab6523c7286527d5e983ab" />
+
+If we set alternative text on every image, screen reader users would hear the same alt text announced at the start of every list item. This would be pretty noisy, and for no additional value, since the icons are purely decorative. It’s another great use case for empty alt text.
+
+#### Images where the surrounding text is descriptive enough already
+
+Sometimes when we use an image to convey context on a page, we also add text which captions the image, or otherwise describes it. Consider the following example:
+
+<DecorativeImageExample caption="Slice of Cherry Pie: 500 calories" altText="A colourful decorative bullet point" />
+
+Depending on what we want to achieve, there might not be a need to add alternative text to this image, as long as there is nothing further we want to communicate beyond what is already written in the text beside it. In this case again, empty alt text would be acceptable.
+
+However, if we **do** want to convey something additional with the image, then we would need to add the relevant alternative text. For example, imagine if the text "Slice of Cherry Pie" was missing from the example above. In that case, it would be relevant to add alt text, otherwise we haven't successfully conveyed the message that a slice of cherry pie is 500 calories.
+
+
+## Question 2: Does this image have a function?
+
+Through asking question 1, you’ve established you need some alternative text for your image. The next question then addresses what kind of image you’re trying to describe. Many images in your app might have a function attached to them, rather than purely being part of your content.
+
+For example, consider the header section of this page, which includes an image of the "Up Your A11y" logo.
+
+In this case, it would make sense for the alternative text to succinctly convey the function of the image, e.g. “Home”.
+
+Don’t be tempted to add redundant additional text, for example: “Link to Home”, “Navigate Home”, “Back to Home Page”, “Home Icon”, etc. The semantics of the HTML take care of this information for you already.
+
+The image will be part of a link, and so the screen reader will already announced that it is an image and a link. Avoiding redundant alt text like this will really help streamline the experience for your screen reader users.
+
+## Question 3: What additional content does this image provide?
+
+Through steps 1 and 2, we’ve established that the image conveys some content, but it doesn’t have an associated function. The image is therefore part of the content you are providing, and alternative text is required to make sure that users don’t lose the context it provides.
+
+When considering what alternative text to add to your image the key guidance is once again to put yourself in the shoes of the user - “if I couldn’t see this image, what would I need to know to appreciate this content?”. It is not an easy question to answer, but it is worth considering carefully. Remember that the alternative text you provide is not only used by screen readers, but also to display on the page if the image fails to load, and for search engines to understand your content.
+
+The same image in different situations would require different alternative text. By way of an example, consider the following examples using the same image:
+
+### Example 1: the image is used liked a title
+
+<DecorativeImageExample caption="Ingredients: 100g cherries, 50g sugar..." altText="Cherry pie" />
+
+Here you can see that we are using the image like a title, with the description below going on to explain the ingredients or recipes steps required to make the item. In this case the alt text could usefully just be the name of the object pictured, i.e. "Cherry Pie".
+
+### Example 2: the detail of the image is important
+
+<DecorativeImageExample caption="Serving suggestion" altText="A slice of cherry pie served on a white plate with two fresh cherries beside it" />
+
+In this case, we can see that the detail of the image is central to conveying meaning. In this case, we would want to provdie more detail in the alt text, e.g. "A slice of cherry pie served on a white plate with two fresh cherries beside it"
+
+As you can see, there is no hard and fast rule other than to consider what content is missing when the image is missing!
+
+## Some special kinds of imagery
+
+In some cases the visual imagery on the page is not actually an image. Common examples of this are font icons and emojis.
+
+### Font Icons
+
+The examples in this article will focus particularly on [Font Awesome](https://fontawesome.com) icons, as it is one of the most popular and widely used font icon providers. Given they are so widely used, it’s no surprise that they have [their own handy guide to how to use their icons accessibly](https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility); summarised below.
+
+#### 1. As before, ask: does this need alternative text?
+
+If your icon is purely decorative, then alt text isn’t required. However, unlike with an image, a font icon does not have an “alt” attribute that you can set to empty. In this case, we can hide it from assistive technology users by using the ‘aria-hidden’ property. For example:
+
+<Gist url="https://gist.github.com/aitchiss/c99e3a79cea4ebf04ac54d1e4d0909fc" />
+
+Please note that aria-hidden must be explicitly set to true as in the example, and the shorthand `aria-hidden` will not be effective.
+
+#### 2. Does the icon have an action?
+
+If the icon is associated with an interactive element, such as a link, then we can add an ‘aria-label’ to the interactive element, while hiding the icon itself as in Step 1. For example:
+
+<Gist url="https://gist.github.com/aitchiss/b6ecaaaf99c264e206bc472480386d14" />
+
+#### 3. In other cases, display some alternative text off-screen
+
+As we cannot add alternative text to the icon itself, what we can do is add some actual text, but display it in a way to make it only visible to assistive technology users. This can be done using CSS and displaying the text off screen. As before, we will add ‘aria-hidden’ to the icon itself (NB: the 'title' attribute in Font Awesome allows a tooltip to appear for sighted users):
+
+<Gist url="https://gist.github.com/aitchiss/dcd702072f4ac2100ddf250042692a38" /> 
+<Gist url="https://gist.github.com/aitchiss/cf983dfda3348852443ee0345ca70beb" />
+
+### Emojis
+
+Emojis are another special case in terms of imagery that doesn’t present itself in an ‘img’ tag. We can copy and paste the Unicode value of an emoji and have it show in your browser, but some extra steps are needed to make this accessible.
+
+#### Hide if purely decorative
+
+Similar to the font icon example above, we can hide the emoji if it is purely decorative. As the emoji does not have its own tag, however, we will need to wrap it in a ’span’ to do this:
+
+<Gist url="https://gist.github.com/aitchiss/efcd78386c798136eb1b22be7c27aa19" />
+
+#### Add an "img" role otherwise
+
+In all other cases, we can ensure that the emoji is treated by the browser as an image. We can do this with the 'role' and 'aria-label' attributes. For example:
+
+<Gist url="https://gist.github.com/aitchiss/9bcc82b46f1aa57e615447cc6335dbcb" />
+
+The code example above would produce: <span role="img" aria-label="open book">&#x1F4D6;</span>
+
+## Final thoughts
+
+All of the preceding guidance boils down to those few key considerations:
+
+- Is this image purely decorative?
+- Does this image have a function, or is it purely content?
+- What content would the user miss out on if the image was missing?
+
+The final question is the difficult one to answer, but by taking a little time over this, you can improve the experience for all of your users, as well as your SEO!
+
+
+
+

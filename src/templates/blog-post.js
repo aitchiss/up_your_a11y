@@ -12,6 +12,7 @@ import ErrorFormWithList from '../components/ErrorForm/ErrorFormWithList'
 import ErrorFormInlineError from '../components/ErrorForm/ErrorFormInlineError'
 import ExampleFormContainer from '../components/ExampleFormContainer/ExampleFormContainer'
 import DecorativeList from '../components/DecorativeList/DecorativeList'
+import DecorativeImageExample from '../components/DecorativeImageExample/DecorativeImageExample'
 import '../pages/style.css'
 
 class BlogPostTemplate extends React.Component {
@@ -50,6 +51,7 @@ class BlogPostTemplate extends React.Component {
               ErrorFormWithList,
               ErrorFormInlineError,
               DecorativeList,
+              DecorativeImageExample,
             }}
           >
             {post.code.body}
@@ -78,6 +80,7 @@ class BlogPostTemplate extends React.Component {
                 ErrorFormWithList,
                 ErrorFormInlineError,
                 DecorativeList,
+                DecorativeImageExample,
               }}
             >
               {post.code.body}

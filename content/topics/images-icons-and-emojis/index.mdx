@@ -11,33 +11,48 @@ keyTakeaways:
   - "Handle 'alternative imagery' such as Font Awesome icons and Emojis"
 
 readingList:
-  - url: 'https://www.w3.org/TR/wai-aria-practices/examples/landmarks/HTML5.html'
-    description: 'PLACEHOLDER'
+  - url: 'https://www.w3.org/WAI/tutorials/images/'
+    description: 'W3C: Images Concepts'
+  - url: 'https://moz.com/learn/seo/alt-text'
+    description: 'Moz: Alt Text for Images SEO Best Practice'
+  - url: 'https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility'
+    description: 'Font Awesome: Accessibility'
+  - url: 'https://tink.uk/accessible-emoji/'
+    description: 'Tink: Accessible Emoji'
 
 keywords:
   - 'images'
   - 'alternative text'
   - 'alt text'
   - 'decorative images'
+  - 'functional images'
   - 'emojis'
   - 'font awesome'
   - 'icons'
 ---
 
-One of the first things we all learn about web accessibility is that we need to provide alternative text for images we use in our websites and apps. The principle is clear, but when it comes to actually implementing that alternative text, it can be so hard to know what to write!
+One of the first things we often learn about web accessibility is that we need to provide alternative text for images we use in our websites and apps. This is important because the alt text on an image provides contextual information to:
+
+- Visually impaired users (via screen readers), who can't otherwise see the image clearly
+- Users with slow network connections who may have trouble loading your images
+- Crawlers that dictate your SEO, which need a way to understand what content is presented on your page without seeing it
+
+When it comes to actually implementing that alternative text however, it can be so hard to know what to write!
+
+## Common failings of alt text
 
 There are many instances of alt text on the web that fall into one of the below traps:
 
 - Repeating what surrounding text already describes
 - Using redundant phrases like "Image of…"
-- Providing meaningless alternative text for a purely decorative component (e.g. “divider line”)
+- Providing meaningless alternative text for a purely decorative component (e.g. "divider line")
 - Focusing on what the image looks like, rather than what it is being used to convey (either in content or function)
 
 This article will step through a few key questions you can ask yourself when adding imagery to your content, to help you identify meaningful alternative text. We’ll also then take a look at some alternative imagery you might use (emojis & font awesome icons) and how to handle those in an accessible way.
 
 ## Question 1: Does Your Image Actually Need Alternative Text?
 
-It’s worth saying loud and clear, **not all images need alternative text**. Often we use images in a way that are purely decorative, e.g. to help space out a page, add a bit of color to a very tex-heavy page, use as fancy bullet points, etc. In cases where the image used is purely decorative, it is acceptable to provide empty alternative text.
+It’s worth saying loud and clear, although all `<img />` elements must have an `alt` attribute, **not all images need alternative text**. Often we use images in a way that are purely decorative, e.g. to help space out a page, add a bit of color to a very text-heavy page, use as fancy bullet points, etc. In cases where the image used is purely decorative, it is acceptable to provide empty alternative text.
 
 Ask yourself, if this image wasn’t present on the page, what would the user miss out on? If the answer is purely that it wouldn’t look as nice, then it sounds like you don’t need alternative text.
 
@@ -47,11 +62,11 @@ Ask yourself, if this image wasn’t present on the page, what would the user mi
 
 ![Example image of a purely decorative dividing line](./decorative-divider.png)
 
-In the example above, the image is used simply to provide a decorative dividing line. It adds no contextual or functional value, and therefore the alt attribute can happily be left empty - i.e. `alt=""`
+In the example above, the image is used to provide a decorative dividing line. It adds no contextual or functional value, and therefore the alt attribute can happily be left empty - i.e. `alt=""`
 
 #### Images used as bullet points
 
-<DecorativeList bulletsContent={['List Item One', 'List Item Two']} />
+<DecorativeList bulletsContent={['List Item One', 'List Item Two']} altText="Decorative icon used as a bullet point" />
 
 In this example, the standard list style has been removed, and images have been used in each `li` item instead. The code would look something like this:
 
@@ -94,13 +109,13 @@ The same image in different situations would require different alternative text.
 
 <DecorativeImageExample caption="Ingredients: 100g cherries, 50g sugar..." altText="Cherry pie" />
 
-Here you can see that we are using the image like a title, with the description below going on to explain the ingredients or recipes steps required to make the item. In this case the alt text could usefully just be the name of the object pictured, i.e. "Cherry Pie".
+Here you can see that we are using the image like a title, with the description below going on to explain the ingredients or recipe steps required to make the item. In this case the alt text could usefully just be the name of the object pictured, i.e. "Cherry Pie".
 
 ### Example 2: the detail of the image is important
 
 <DecorativeImageExample caption="Serving suggestion" altText="A slice of cherry pie served on a white plate with two fresh cherries beside it" />
 
-In this case, we can see that the detail of the image is central to conveying meaning. In this case, we would want to provdie more detail in the alt text, e.g. "A slice of cherry pie served on a white plate with two fresh cherries beside it"
+In this case, we can see that the detail of the image is central to conveying meaning. In this case, we would want to provide more detail in the alt text, e.g. "A slice of cherry pie served on a white plate with two fresh cherries beside it"
 
 As you can see, there is no hard and fast rule other than to consider what content is missing when the image is missing!
 
@@ -159,7 +174,7 @@ All of the preceding guidance boils down to those few key considerations:
 - Does this image have a function, or is it purely content?
 - What content would the user miss out on if the image was missing?
 
-The final question is the difficult one to answer, but by taking a little time over this, you can improve the experience for all of your users, as well as your SEO!
+The final question is the most difficult one to answer, but by taking a little time over this, you can improve the experience for all of your users, as well as your SEO!
 
 
 

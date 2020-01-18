@@ -4,7 +4,6 @@ import { graphql, StaticQuery, Link } from 'gatsby'
 import Navigation from './Navigation/Navigation'
 
 export default function MenuHeader() {
-  const isHome = location.pathname === '/'
 
   return (
     <StaticQuery

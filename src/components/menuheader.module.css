@@ -1,23 +1,39 @@
 .header {
-  background-color: #fdbfaf;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  border-bottom: 2px solid black;
+  box-shadow:#fdbfaf 0px 3px;
 }
 
-.logo-section a {
+.titleLink {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+.currentPageLink {
   border-bottom: none;
+}
+
+.navigation {
+  display: flex;
+  align-items: flex-end;
 }
 
 @media only screen and (max-width: 768px) {
   .header {
-    background-color: #fdbfaf;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: space-between;
     padding-right: 25px;
+    padding-left: 25px;
   }
 
   .navigation {
@@ -25,19 +41,6 @@
   }
 }
 
-img {
-  margin: 0;
-}
-
-.logoLarge {
-  width: 250px;
-  padding: 25px;
-}
-
-.logoSmall {
-  width: 150px;
-  padding: 25px;
-}
 
 header.h1 {
   font-family: 'Lato', sans-serif;

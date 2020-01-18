@@ -3,39 +3,28 @@ import menuHeaderStyle from './menuheader.module.css'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import Navigation from './Navigation/Navigation'
 
-function MenuHeader(props) {
+export default function MenuHeader() {
+  const isHome = location.pathname === '/'
+
   return (
     <StaticQuery
       query={headerQuery}
       render={data => {
-        const { logoLarge, logoSmall } = data
-        const { expanded, location } = props
-        const logoStyle = expanded
-          ? menuHeaderStyle.logoLarge
-          : menuHeaderStyle.logoSmall
-        const logoSrc = expanded
-          ? logoLarge.edges[0].node.publicURL
-          : logoSmall.edges[0].node.publicURL
+        const { logo } = data
         return (
           <header>
             <div className={menuHeaderStyle.header}>
-              <div className={menuHeaderStyle.logoSection}>
-                {!expanded ? (
-                  <Link to="/" aria-label="Back to home page">
-                    <img
-                      src={logoSrc}
-                      alt="Up your accessibility logo"
-                      className={logoStyle}
-                    />
-                  </Link>
-                ) : (
-                  <img
-                    src={logoSrc}
-                    alt="Up your accessibility logo"
-                    className={logoStyle}
-                  />
-                )}
-              </div>
+              <Link
+                to="/"
+                aria-label="Home"
+                className={menuHeaderStyle.currentPageLink}
+              >
+                <img
+                  src={logo.edges[0].node.publicURL}
+                  alt="Home"
+                  width="250"
+                />
+              </Link>
               <div className={menuHeaderStyle.navigation}>
                 <Navigation location={location} />
               </div>
@@ -49,14 +38,7 @@ function MenuHeader(props) {
 
 const headerQuery = graphql`
   query HeaderQuery {
-    logoLarge: allFile(filter: { name: { eq: "UYALogo_lg" } }) {
-      edges {
-        node {
-          publicURL
-        }
-      }
-    }
-    logoSmall: allFile(filter: { name: { eq: "UYALogo_sm" } }) {
+    logo: allFile(filter: { name: { eq: "uya-mp-logo2" } }) {
       edges {
         node {
           publicURL
@@ -65,5 +47,3 @@ const headerQuery = graphql`
     }
   }
 `
-
-export default MenuHeader

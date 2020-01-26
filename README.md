@@ -23,4 +23,4 @@ Up your A11y is built in [GatsbyJS](https://www.gatsbyjs.org/), with tutorials w
 
 If you'd like to support the work I do on Up Your A11y, please consider buying me a coffee:
 
-<a href="https://www.buymeacoffee.com/mgkZuRU" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+<a href="https://www.buymeacoffee.com/mgkZuRU" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>

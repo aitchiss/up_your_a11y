@@ -1,9 +1,15 @@
+:root {
+  --background-gray: #e7e7e7;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
+  background-color: var(--background-gray);
+  color: #040000;
 }
 
 a {
@@ -13,17 +19,21 @@ a {
 }
 
 h1,
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-}
-
+h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: normal;
 }
 
 p {

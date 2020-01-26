@@ -3,8 +3,7 @@ import menuHeaderStyle from './menuheader.module.css'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import Navigation from './Navigation/Navigation'
 
-export default function MenuHeader({location}) {
-
+export default function MenuHeader({ location }) {
   return (
     <StaticQuery
       query={headerQuery}

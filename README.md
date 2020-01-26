@@ -1,53 +1,26 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's blog starter now with 100% more MDX
-</h1>
 
-Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React, with support for an MDX blog.
 
-_Have another more specific idea? You may want to check out this awesome collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+# Up Your A11y
 
-What's MDX you ask? MDX let's you use JSX in your Markdown, making it even
-easier to write blog posts, document your React components, and much more. [Find
-out more about MDX](https://github.com/mdx-js/mdx), and [gatsby-mdx](https://github.com/ChristopherBiscardi/gatsby-mdx), the plugin that makes
-this blog possible!
+[Up Your A11y](https://www.upyoura11y.com) is a web accessibility toolkit, full of tutorials and information to help developers make sure their web apps can be used and understood by as wide a range of users as possible.
 
-## 🚀 Quick start
+The site is created and maintained by me - Suzanne - a software developer based in Edinburgh, Scotland. Feel free to reach out with any questions or content suggestions either via the website's contact form or on Twitter ([@s_aitchison](https://twitter.com/s_aitchison))
 
-1.  **Create a Gatsby site.**
+## Contributing
 
-    Use the Gatsby CLI to create a new site, specifying the blog starter.
+I'm currently working on a re-design for the site, and hoping to take a more open source approach to Up Your A11y once this is complete. I'd love to have your help in future, so look out for the 'help wanted' label starting to appear on issues soon!
 
-    ```sh
-    # create a new Gatsby site using the blog starter
-    npx gatsby new my-blog-starter
-    https://github.com/hagnerd/gatsby-starter-blog-mdx
-    ```
+### Running the code
 
-1.  **Start developing.**
+Up your A11y is built in [GatsbyJS](https://www.gatsbyjs.org/), with tutorials written in MDX. To run the code:
 
-    Navigate into your new site’s directory and start it up.
+- Download the repo
+- run `npm install`
+- run `gatsby develop`
+- the site is now running at `http://localhost:8000`
 
-    ```sh
-    cd my-blog-starter/
-    gatsby develop
-    ```
+## Support
 
-1.  **Open the source code and start editing!**
+If you'd like to support the work I do on Up Your A11y, please consider buying me a coffee:
 
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
+<style>.bmc-button img{width: 35px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{padding: 7px 10px 7px 10px !important;line-height: 35px !important;height:51px !important;min-width:217px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#5F7FFF !important;border-radius: 5px !important;border: 1px solid transparent !important;padding: 7px 10px 7px 10px !important;font-size: 20px !important;letter-spacing:-0.08px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Lato', sans-serif !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/mgkZuRU"><img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:15px;font-size:19px !important;">Buy me a coffee</span></a>

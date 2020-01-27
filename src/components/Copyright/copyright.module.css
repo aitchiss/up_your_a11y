@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--background-blue);
+  color: var(--font-white);
+  margin: 0;
+  padding: 15px 25px 15px 25px;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer {
+    padding: 15px 50px 15px 50px;
+  }
+}
+
+.innerContainer {
+  max-width: 900px;
+  margin: auto;
+}

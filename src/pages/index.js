@@ -9,6 +9,7 @@ import indexStyle from './index.module.css'
 import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
 import Contact from '../components/Contact/Contact'
 import Contribute from '../components/Contribute/Contribute'
+import Copyright from '../components/Copyright/Copyright'
 
 const categories = [
   {
@@ -83,6 +84,7 @@ class TopicsIndex extends React.Component {
         <About />
         <Contact />
         <Contribute />
+        <Copyright />
       </Layout>
     )
   }

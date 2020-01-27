@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import navStyle from './navigation.module.css'
 
 class Navigation extends React.Component {
@@ -35,16 +34,16 @@ class Navigation extends React.Component {
             </a>
           </li>
           <li>
-            <Link
-              to="/contribute-to-a11y-in-oss"
+            <a
+              href="#contribute"
               className={
                 activePage === '/contribute-to-a11y-in-oss'
                   ? `${navStyle.navLink} ${navStyle.activePage}`
                   : `${navStyle.navLink} ${navStyle.inactivePage}`
               }
             >
-              Contribute to OSS
-            </Link>
+              Contribute
+            </a>
           </li>
         </ul>
       </nav>

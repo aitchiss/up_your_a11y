@@ -8,6 +8,7 @@ import './style.css'
 import indexStyle from './index.module.css'
 import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
 import Contact from '../components/Contact/Contact'
+import Contribute from '../components/Contribute/Contribute'
 
 const categories = [
   {
@@ -81,6 +82,7 @@ class TopicsIndex extends React.Component {
         </SectionContainer>
         <About />
         <Contact />
+        <Contribute />
       </Layout>
     )
   }

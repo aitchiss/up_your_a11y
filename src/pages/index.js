@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import About from '../components/About/About'
+import SectionContainer from '../components/SectionContainer/SectionContainer'
 import SEO from '../components/seo'
 import './style.css'
 import indexStyle from './index.module.css'
@@ -12,7 +14,7 @@ const categories = [
     title: 'fundamentals',
     description:
       'understand the who, what and why of accessibility, and set up your local environment and tooling',
-    titleColorName: '--font-dark-blue',
+    titleColorName: '--font-blue',
   },
   {
     id: 'react',
@@ -72,8 +74,11 @@ class TopicsIndex extends React.Component {
             `blog`,
           ]}
         />
-        <HomePageAbout />
-        <ul className={indexStyle.plainList}>{categoryListItems}</ul>
+        <SectionContainer>
+          <HomePageAbout />
+          <ul className={indexStyle.plainList}>{categoryListItems}</ul>
+        </SectionContainer>
+        <About />
       </Layout>
     )
   }

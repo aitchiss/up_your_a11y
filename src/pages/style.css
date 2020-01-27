@@ -1,8 +1,10 @@
 :root {
   --background-gray: #e7e7e7;
+  --background-pink: #E9A6BA;
 
   --font-black: #040000;
-  --font-dark-blue: #2557c2;
+  --font-blue: #2557c2;
+  --font-dark-blue: #1D4396;
   --font-yellow: #fdf46c;
   --font-aqua: #43feb7;
   --font-dark-green: #407059;

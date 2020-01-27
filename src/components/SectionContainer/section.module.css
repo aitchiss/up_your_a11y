@@ -1,0 +1,16 @@
+.container {
+  padding: 25px;
+  padding-bottom: 100px;
+  margin: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 25px 50px 50px 50px;
+  }
+}
+
+.innerContainer {
+  max-width: 900px;
+  margin: auto;
+}

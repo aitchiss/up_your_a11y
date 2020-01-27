@@ -11,8 +11,8 @@ class Navigation extends React.Component {
       <nav>
         <ul className={navStyle.navList}>
           <li>
-            <Link
-              to="/about"
+            <a
+              href="#about"
               className={
                 activePage === '/about'
                   ? `${navStyle.navLink} ${navStyle.activePage}`
@@ -20,7 +20,7 @@ class Navigation extends React.Component {
               }
             >
               About
-            </Link>
+            </a>
           </li>
           <li>
             <Link

@@ -12,27 +12,27 @@ const categories = [
     title: 'fundamentals',
     description:
       'understand the who, what and why of accessibility, and set up your local environment and tooling',
-    titleColor: '#2557C2',
+    titleColorName: '--font-dark-blue',
   },
   {
     id: 'react',
     title: 'a11y for React',
     description:
       'overcoming common accessibility challenges in React applications',
-    titleColor: '#FDF46C',
+    titleColorName: '--font-yellow',
   },
   {
     id: 'structure',
     title: 'structure / layout',
     description:
       'essentials for creating accessible page structures and using semantic HTML',
-    titleColor: '#43FEB7',
+    titleColorName: '--font-aqua',
   },
   {
     id: 'forms',
     title: 'forms + inputs',
     description: 'create accessible forms, handling data validation and errors',
-    titleColor: '#407059',
+    titleColorName: '--font-dark-green',
   },
 ]
 
@@ -43,7 +43,7 @@ class TopicsIndex extends React.Component {
         <li>
           <div className={indexStyle.categoryTile}>
             <h2
-              style={{ color: category.titleColor }}
+              style={{ color: `var(${category.titleColorName})` }}
               className={indexStyle.categoryHeader}
             >
               {category.title}

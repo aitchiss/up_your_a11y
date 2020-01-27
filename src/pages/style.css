@@ -1,5 +1,11 @@
 :root {
   --background-gray: #e7e7e7;
+
+  --font-black: #040000;
+  --font-dark-blue: #2557c2;
+  --font-yellow: #fdf46c;
+  --font-aqua: #43feb7;
+  --font-dark-green: #407059;
 }
 
 body {
@@ -9,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
   background-color: var(--background-gray);
-  color: #040000;
+  color: var(--font-black);
 }
 
 a {

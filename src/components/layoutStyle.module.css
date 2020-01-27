@@ -1,15 +1,4 @@
-.container {
-  padding: 25px;
-  padding-bottom: 100px;
-  max-width: 900px;
-  margin: auto;
-}
 
-@media only screen and (min-width: 768px) {
-  .container {
-    padding: 25px 50px 100px 50px;
-  }
-}
 
 blockquote {
   padding: 5px 25px;

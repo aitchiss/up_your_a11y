@@ -1,0 +1,15 @@
+.sectionContainer {
+  background-color: var(--background-purple);
+  color: var(--font-white);
+}
+
+.coffeeLink {
+  background-color: unset;
+  border-bottom: none;
+  padding: 0;
+}
+
+.coffeeImage {
+  height: 51px;
+  width: 217px;
+}

@@ -3,61 +3,60 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import './style.css'
-import TopicCard from '../components/TopicCard/TopicCard'
+import indexStyle from './index.module.css'
 import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
 
-const CategoryListHeaders = {
-  fundamentals: 'Getting the Fundamentals Right',
-  reactPitfalls: 'Common Challenges in React & Single Page Applications',
-  lists: 'Structures and Layout',
-  forms: 'Forms and User Input',
-}
+const categories = [
+  {
+    id: 'fundamentals',
+    title: 'fundamentals',
+    description:
+      'understand the who, what and why of accessibility, and set up your local environment and tooling',
+    titleColorName: '--font-dark-blue',
+  },
+  {
+    id: 'react',
+    title: 'a11y for React',
+    description:
+      'overcoming common accessibility challenges in React applications',
+    titleColorName: '--font-yellow',
+  },
+  {
+    id: 'structure',
+    title: 'structure / layout',
+    description:
+      'essentials for creating accessible page structures and using semantic HTML',
+    titleColorName: '--font-aqua',
+  },
+  {
+    id: 'forms',
+    title: 'forms + inputs',
+    description: 'create accessible forms, handling data validation and errors',
+    titleColorName: '--font-dark-green',
+  },
+]
 
 class TopicsIndex extends React.Component {
-  static getListSections(posts) {
-    const categories = Object.keys(CategoryListHeaders)
-    const items = categories.map(category => {
-      const matchingPosts = posts.filter(({ node }) => {
-        const safeCategory = node.frontmatter.category || ''
-        return safeCategory === category
-      })
-
-      const listEntries = matchingPosts.map(({ node }) => {
-        const displayTitle = node.frontmatter.displayTitle || node.fields.slug
-        const accent = node.frontmatter.accentColor || ''
-        const description = node.frontmatter.description || ''
-        return (
-          <li key={`topic-list-item-${node.fields.slug}`}>
-            <TopicCard
-              key={node.fields.slug}
-              headingLevel="3"
-              accentColor={accent}
-              showButton
-              linkUrl={node.fields.slug}
-              linkAriaLabel={`Link to ${displayTitle}`}
-              topic={{
-                title: displayTitle,
-                description: description,
-              }}
-            />
-          </li>
-        )
-      })
+  render() {
+    const categoryListItems = categories.map(category => {
       return (
-        <React.Fragment key={`category-section-${category}`}>
-          <h2 className="topicHeader">{CategoryListHeaders[category]}</h2>
-          <ul className="plainList">{listEntries}</ul>
-        </React.Fragment>
+        <li>
+          <div className={indexStyle.categoryTile}>
+            <h2
+              style={{ color: `var(${category.titleColorName})` }}
+              className={indexStyle.categoryHeader}
+            >
+              {category.title}
+            </h2>
+          </div>
+          <p>{category.description}</p>
+        </li>
       )
     })
-    return items
-  }
 
-  render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const siteImg = data.site.siteMetadata.image
-    const posts = data.allMdx.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -74,7 +73,7 @@ class TopicsIndex extends React.Component {
           ]}
         />
         <HomePageAbout />
-        {TopicsIndex.getListSections(posts)}
+        <ul className={indexStyle.plainList}>{categoryListItems}</ul>
       </Layout>
     )
   }
@@ -88,24 +87,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         image
-      }
-    }
-    allMdx(sort: { order: ASC, fields: [frontmatter___sortOrder] }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            displayTitle
-            category
-            accentColor
-            keyTakeaways
-            description
-          }
-        }
       }
     }
   }

@@ -1,13 +1,18 @@
 :root {
   --background-gray: #e7e7e7;
-  --background-pink: #E9A6BA;
+  --background-pink: #e9a6ba;
+
+  --link-background-pink: rgba(233, 166, 186, 0.5);
+
+  --form-color-gray: #767575;
 
   --font-black: #040000;
   --font-blue: #2557c2;
-  --font-dark-blue: #1D4396;
+  --font-dark-blue: #1d4396;
   --font-yellow: #fdf46c;
   --font-aqua: #43feb7;
   --font-dark-green: #407059;
+  --font-error-red: #cf202d;
 }
 
 body {
@@ -22,8 +27,10 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
-  border-bottom: 3px solid #fdbfaf;
+  background-color: var(--background-pink);
+  padding: 5px;
+  color: var(--font-dark-blue);
+  border-bottom: 3px solid var(--font-blue);
 }
 
 h1,

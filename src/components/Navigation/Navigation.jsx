@@ -23,8 +23,8 @@ class Navigation extends React.Component {
             </a>
           </li>
           <li>
-            <Link
-              to="/contact"
+            <a
+              href="#contact"
               className={
                 activePage === '/contact'
                   ? `${navStyle.navLink} ${navStyle.activePage}`
@@ -32,7 +32,7 @@ class Navigation extends React.Component {
               }
             >
               Contact
-            </Link>
+            </a>
           </li>
           <li>
             <Link

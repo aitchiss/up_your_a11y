@@ -1,125 +1,96 @@
-import React from 'react'
+import React, { useState } from 'react'
 import contactFormStyle from './contactForm.module.css'
 
-class ContactForm extends React.Component {
-  static verifyEmailFromRef(emailRef) {
-    const emailRegex = new RegExp(/(.+)@(.+)\.(.+)/)
-    return (
-      ContactForm.verifyInputNotEmptyFromRef(emailRef) &&
-      emailRegex.test(emailRef.current.value)
-    )
-  }
+export default function ContactForm() {
+  const emailRegex = new RegExp(/(.+)@(.+)\.(.+)/)
 
-  static verifyInputNotEmptyFromRef(inputRef) {
-    return (
-      inputRef.current &&
-      inputRef.current.value &&
-      inputRef.current.value !== ''
-    )
-  }
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [errors, setErrors] = useState({})
 
-  constructor(props) {
-    super(props)
-    this.submitForm = this.submitForm.bind(this)
-    this.getErrorsList = this.getErrorsList.bind(this)
+  const handleSubmitForm = e => {
+    const errors = {}
 
-    this.state = {
-      errors: [],
-    }
-  }
-
-  nameRef = React.createRef()
-  emailRef = React.createRef()
-  messageRef = React.createRef()
-
-  submitForm(e) {
-    const errors = []
-
-    if (!ContactForm.verifyInputNotEmptyFromRef(this.nameRef)) {
-      errors.push({ id: 'name', error: 'Please enter your name' })
+    if (!name || name === '') {
+      errors.name = 'Please enter your name'
     }
 
-    if (!ContactForm.verifyEmailFromRef(this.emailRef)) {
-      errors.push({ id: 'email', error: 'Please enter a valid email' })
+    if (!email || email === '' || !emailRegex.test(email)) {
+      errors.email = 'Please enter a valid email'
     }
 
-    if (!ContactForm.verifyInputNotEmptyFromRef(this.messageRef)) {
-      errors.push({ id: 'message', error: 'Please enter your message' })
+    if (!message || message === '') {
+      errors.message = 'Please enter your message'
     }
 
-    if (errors.length > 0) {
+    if (Object.keys(errors).length > 0) {
       e.preventDefault()
     }
-    this.setState({ errors })
+    setErrors(errors)
   }
 
-  getErrorsList() {
-    const { errors } = this.state
-    const errorListItems = errors.map(x => {
-      return <li key={`error-li-${x.id}`}>{x.error}</li>
+  const getErrorsList = () => {
+    const errorListItems = Object.keys(errors).map(x => {
+      return <li key={`error-li-${x}`}>{errors[x]}</li>
     })
     return <ul>{errorListItems}</ul>
   }
 
-  render() {
-    const { errors } = this.state
-    const showErrors = errors.length > 0
-    return (
-      <React.Fragment>
-        <h2>Contact Form</h2>
-        {showErrors ? (
-          <div role="alert" className={contactFormStyle.errorAlertBox}>
-            <h3>Looks like there are some errors in your form...</h3>
-            {this.getErrorsList()}
-          </div>
-        ) : null}
+  const showErrors = Object.keys(errors).length > 0
 
-        <form
-          className={contactFormStyle.formWrapper}
-          method="post"
-          action="#"
-          name="contact"
-          method="post"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact" />
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            required="true"
-            ref={this.nameRef}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            required="true"
-            ref={this.emailRef}
-          />
-          <label htmlFor="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            rows="6"
-            required="true"
-            ref={this.messageRef}
-          />
-          <button
-            type="submit"
-            className="submit-btn"
-            onClick={this.submitForm}
-          >
-            Submit
-          </button>
-        </form>
-      </React.Fragment>
-    )
-  }
+  return (
+    <React.Fragment>
+      <form
+        className={contactFormStyle.formWrapper}
+        method="post"
+        action="#"
+        name="contact"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
+        <label htmlFor="name">name</label>
+        <input
+          type="text"
+          className={errors.name ? contactFormStyle.error : null}
+          name="name"
+          id="name"
+          required
+          onChange={e => setName(e.target.value)}
+        />
+        <label htmlFor="email">email</label>
+        <input
+          type="text"
+          className={errors.email ? contactFormStyle.error : null}
+          name="email"
+          id="email"
+          required
+          onChange={e => setEmail(e.target.value)}
+        />
+        <label htmlFor="message">message</label>
+        <textarea
+          className={errors.message ? contactFormStyle.error : null}
+          name="message"
+          id="message"
+          rows="6"
+          required
+          onChange={e => setMessage(e.target.value)}
+        />
+        <button type="submit" className="submit-btn" onClick={handleSubmitForm}>
+          submit
+        </button>
+      </form>
+      {showErrors ? (
+        <div role="alert" className={contactFormStyle.errorAlertBox}>
+          <h3 className={contactFormStyle.error}>
+            Looks like there are some errors in your form...
+          </h3>
+          {getErrorsList()}
+        </div>
+      ) : null}
+    </React.Fragment>
+  )
 }
-
-export default ContactForm

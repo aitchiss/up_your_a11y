@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import './style.css'
 import indexStyle from './index.module.css'
 import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
+import Contact from '../components/Contact/Contact'
 
 const categories = [
   {
@@ -42,7 +43,7 @@ class TopicsIndex extends React.Component {
   render() {
     const categoryListItems = categories.map(category => {
       return (
-        <li>
+        <li key={`category-${category.id}`}>
           <div className={indexStyle.categoryTile}>
             <h2
               style={{ color: `var(${category.titleColorName})` }}
@@ -79,6 +80,7 @@ class TopicsIndex extends React.Component {
           <ul className={indexStyle.plainList}>{categoryListItems}</ul>
         </SectionContainer>
         <About />
+        <Contact />
       </Layout>
     )
   }

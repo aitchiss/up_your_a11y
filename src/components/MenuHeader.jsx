@@ -3,7 +3,7 @@ import menuHeaderStyle from './menuheader.module.css'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import Navigation from './Navigation/Navigation'
 
-export default function MenuHeader({ location }) {
+export default function MenuHeader() {
   return (
     <StaticQuery
       query={headerQuery}
@@ -15,7 +15,7 @@ export default function MenuHeader({ location }) {
               <Link
                 to="/"
                 aria-label="Home"
-                className={menuHeaderStyle.currentPageLink}
+                className={menuHeaderStyle.logoLink}
               >
                 <img
                   src={logo.edges[0].node.publicURL}
@@ -24,7 +24,7 @@ export default function MenuHeader({ location }) {
                 />
               </Link>
               <div className={menuHeaderStyle.navigation}>
-                <Navigation location={location} />
+                <Navigation />
               </div>
             </div>
           </header>
@@ -36,7 +36,7 @@ export default function MenuHeader({ location }) {
 
 const headerQuery = graphql`
   query HeaderQuery {
-    logo: allFile(filter: { name: { eq: "uya-mp-logo2" } }) {
+    logo: allFile(filter: { name: { eq: "UYA11y-Logo_v2" } }) {
       edges {
         node {
           publicURL

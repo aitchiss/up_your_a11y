@@ -3,8 +3,10 @@
   --background-pink: #e9a6ba;
   --background-purple: #9951bb;
   --background-blue: #2557c2;
+  --background-white: #ffffff;
 
   --link-background-pink: rgba(233, 166, 186, 0.5);
+  --link-underline-teal: #3da1a7;
 
   --form-color-gray: #767575;
 
@@ -30,10 +32,13 @@ body {
 
 a {
   text-decoration: none;
-  background-color: var(--background-pink);
   padding: 5px;
-  color: var(--font-dark-blue);
-  border-bottom: 3px solid var(--font-blue);
+  color: var(--font-black);
+  border-bottom: 2px solid var(--link-underline-teal);
+}
+
+a:hover {
+  background-color: var(--link-underline-teal);
 }
 
 h1,

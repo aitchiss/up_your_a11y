@@ -8,7 +8,10 @@ export default function Contribute() {
       <h2 id="contribute">contribute</h2>
       <p>
         Up Your A11y is open source, and contributions are welcome:{' '}
-        <a href="https://github.com/aitchiss/up_your_a11y">
+        <a
+          href="https://github.com/aitchiss/up_your_a11y"
+          className={contributeStyle.sectionLink}
+        >
           Visit the GitHub repository
         </a>
       </p>

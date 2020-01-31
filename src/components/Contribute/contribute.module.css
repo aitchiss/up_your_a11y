@@ -13,3 +13,7 @@
   height: 51px;
   width: 217px;
 }
+
+.sectionLink {
+  color: var(--font-white);
+}

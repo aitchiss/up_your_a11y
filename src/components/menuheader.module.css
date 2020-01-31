@@ -1,13 +1,25 @@
-.header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding-right: 25px;
-  padding-left: 25px;
+header {
   padding-top: 20px;
   padding-bottom: 25px;
-  border-bottom: 2px solid black;
-  box-shadow:#fdbfaf 0px 3px;
+  background-color: var(--background-white);
+  width: 100%;
+}
+
+.header {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  background-color: unset;
+  border-bottom: none;
+}
+
+.logoLink:hover {
+  background-color: unset;
 }
 
 .titleLink {
@@ -29,7 +41,7 @@
 @media only screen and (max-width: 768px) {
   .header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
     padding-right: 25px;
@@ -37,16 +49,6 @@
   }
 
   .navigation {
-    align-self: flex-end;
+    align-self: center;
   }
-}
-
-
-header.h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  color: black;
-  font-size: 2.5rem;
-  margin-top: 0;
-  padding: 20px;
 }

@@ -38,6 +38,17 @@ class BlogPostTemplate extends React.Component {
       return <li key={key}>{x}</li>
     })
 
+    const furtherReadingListItems = post.frontmatter.readingList.map(
+      (x, index) => {
+        const key = `reading-list-${index}`
+        return (
+          <li key={key}>
+            <a href={x.url}>{x.description}</a>
+          </li>
+        )
+      }
+    )
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -79,10 +90,13 @@ class BlogPostTemplate extends React.Component {
           >
             {post.code.body}
           </MDXRenderer>
-          {category !== 'demo' && (
-            <ReadingList items={post.frontmatter.readingList} />
-          )}
         </SectionContainer>
+        {category !== 'demo' && (
+          <SectionContainer className={postStyle.furtherReadingSection}>
+            <h2>further reading</h2>
+            <ul>{furtherReadingListItems}</ul>
+          </SectionContainer>
+        )}
       </Layout>
     )
   }

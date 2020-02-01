@@ -75,5 +75,15 @@
   padding-left: 15px;
 }
 
-.mainPost {
+.furtherReadingSection {
+  background-color: var(--background-pink);
+  color: var(--font-dark-blue);
+}
+
+.furtherReadingSection a {
+  color: var(--font-dark-blue);
+}
+
+.furtherReadingSection a:hover {
+  color: var(--font-black);
 }

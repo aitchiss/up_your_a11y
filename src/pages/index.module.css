@@ -31,6 +31,24 @@
   position: relative;
 }
 
+.categoryLink {
+  border-bottom: none;
+  color: unset;
+}
+
+.categoryLink:hover {
+  background-color: unset;
+}
+
+.categoryLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
 .categoryHeader {
   position: absolute;
   margin: 0;

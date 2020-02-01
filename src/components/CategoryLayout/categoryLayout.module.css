@@ -100,6 +100,20 @@
   }
 }
 
+.articleLink {
+  padding: 0;
+  border-bottom: none;
+}
+
+.articleLink h2 {
+  display: inline-block;
+  border-bottom: 2px solid var(--link-underline-teal);
+}
+
+.articleLink h2:hover {
+  background-color: var(--link-underline-teal);
+}
+
 .articleDescription {
   margin-bottom: 0;
 }

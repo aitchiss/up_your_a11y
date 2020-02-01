@@ -3,10 +3,6 @@
   padding-right: var(--default-container-padding-sides-mobile, 25px);
   padding-top: 10px;
   padding-bottom: 10px;
-  min-height: 175px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background-color: black;
 }
 
@@ -17,6 +13,16 @@
     padding-left: var(--default-container-padding-sides-large, 50px);
     padding-right: var(--default-container-padding-sides-large, 50px);
   }
+}
+
+.titleInner {
+  max-width: 900px;
+  min-height: 175px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .homeLink {

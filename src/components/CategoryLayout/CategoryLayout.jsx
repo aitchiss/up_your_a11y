@@ -33,10 +33,12 @@ export default function CategoryLayout({ title, articles = [] }) {
       <MenuHeader />
       <main>
         <div className={categoryLayoutStyle.titleWrapper}>
-          <Link to="/" className={categoryLayoutStyle.homeLink}>
-            Home
-          </Link>
-          <h1 className={categoryLayoutStyle.title}>{title}</h1>
+          <div className={categoryLayoutStyle.titleInner}>
+            <Link to="/" className={categoryLayoutStyle.homeLink}>
+              Home
+            </Link>
+            <h1 className={categoryLayoutStyle.title}>{title}</h1>
+          </div>
         </div>
         <SectionContainer>
           <ul className={`plainList ${categoryLayoutStyle.articleList}`}>

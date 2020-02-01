@@ -18,6 +18,18 @@
   --font-dark-green: #407059;
   --font-error-red: #cf202d;
   --font-white: #ffffff;
+
+  --default-container-padding-sides-mobile: 25px;
+  --default-container-padding-sides-large: 50px;
+
+  --default-container-padding-mobile: 25px
+    var(--default-container-padding-sides-mobile) 100px
+    var(--default-container-padding-sides-mobile);
+  --default-container-padding-large: 25px
+    var(--default-container-padding-sides-large) 50px
+    var(--default-container-padding-sides-large);
+  --default-content-max-width: 900px;
+  --default-content-margin: auto;
 }
 
 body {

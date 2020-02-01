@@ -1,16 +1,11 @@
-.container {
-  padding: 25px;
-  padding-bottom: 100px;
-  margin: auto;
-}
-
 @media only screen and (min-width: 768px) {
-  .container {
-    padding: 25px 50px 50px 50px;
+  .innerContainer {
+    padding: var(--default-container-padding-large, 25px 50px 50px 50px);
   }
 }
 
 .innerContainer {
-  max-width: 900px;
-  margin: auto;
+  max-width: var(--default-content-max-width, 900px);
+  margin: var(--default-content-margin, auto);
+  padding: var(--default-container-padding-mobile, 25px 25px 100px 25px);
 }

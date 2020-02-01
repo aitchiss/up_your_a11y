@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import About from '../components/About/About'
 import SectionContainer from '../components/SectionContainer/SectionContainer'
@@ -14,6 +14,7 @@ import Copyright from '../components/Copyright/Copyright'
 const categories = [
   {
     id: 'fundamentals',
+    path: '/category/fundamentals',
     title: 'fundamentals',
     description:
       'understand the who, what and why of accessibility, and set up your local environment and tooling',
@@ -21,6 +22,7 @@ const categories = [
   },
   {
     id: 'react',
+    path: '/category/react',
     title: 'a11y for React',
     description:
       'overcoming common accessibility challenges in React applications',
@@ -28,6 +30,7 @@ const categories = [
   },
   {
     id: 'structure',
+    path: '/category/structure-and-layout',
     title: 'structure / layout',
     description:
       'essentials for creating accessible page structures and using semantic HTML',
@@ -35,6 +38,7 @@ const categories = [
   },
   {
     id: 'forms',
+    path: '/category/forms-and-inputs',
     title: 'forms + inputs',
     description: 'create accessible forms, handling data validation and errors',
     titleColorName: '--font-dark-green',
@@ -47,12 +51,14 @@ class TopicsIndex extends React.Component {
       return (
         <li key={`category-${category.id}`}>
           <div className={indexStyle.categoryTile}>
-            <h2
-              style={{ color: `var(${category.titleColorName})` }}
-              className={indexStyle.categoryHeader}
-            >
-              {category.title}
-            </h2>
+            <Link className={indexStyle.categoryLink} to={category.path}>
+              <h2
+                style={{ color: `var(${category.titleColorName})` }}
+                className={indexStyle.categoryHeader}
+              >
+                {category.title}
+              </h2>
+            </Link>
           </div>
           <p>{category.description}</p>
         </li>

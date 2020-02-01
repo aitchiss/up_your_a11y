@@ -1,0 +1,125 @@
+.titleWrapper {
+  padding-left: var(--default-container-padding-sides-mobile, 25px);
+  padding-right: var(--default-container-padding-sides-mobile, 25px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .titleWrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: var(--default-container-padding-sides-large, 50px);
+    padding-right: var(--default-container-padding-sides-large, 50px);
+  }
+}
+
+.titleInner {
+  max-width: 900px;
+  min-height: 175px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.homeLink {
+  align-self: flex-start;
+}
+
+.title {
+  margin: 0;
+  color: yellow;
+}
+
+.articleList {
+  display: flex;
+  flex-direction: column;
+}
+
+.articleListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0px 10px 0px;
+}
+
+@media only screen and (orientation: landscape) {
+  .articleListItem {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .articleListItem {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+}
+
+.articleBullet {
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+@media only screen and (orientation: landscape) {
+  .articleBullet {
+    width: 150px;
+    min-width: 150px;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .articleBullet {
+    width: 150px;
+    min-width: 150px;
+    margin: 0;
+  }
+}
+
+.articleTitle {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.articleDetail {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media only screen and (orientation: landscape) {
+  .articleDetail {
+    padding-left: 50px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .articleDetail {
+    padding-left: 50px;
+  }
+}
+
+.articleLink {
+  padding: 0;
+  border-bottom: none;
+}
+
+.articleLink h2 {
+  display: inline-block;
+  border-bottom: 2px solid var(--link-underline-teal);
+}
+
+.articleLink h2:hover {
+  background-color: var(--link-underline-teal);
+}
+
+.articleDescription {
+  margin-bottom: 0;
+}

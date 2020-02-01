@@ -114,6 +114,7 @@
 .articleLink h2 {
   display: inline-block;
   border-bottom: 2px solid var(--link-underline-teal);
+  padding-bottom: 2px;
 }
 
 .articleLink h2:hover {

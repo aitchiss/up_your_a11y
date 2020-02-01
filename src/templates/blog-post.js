@@ -33,7 +33,8 @@ class BlogPostTemplate extends React.Component {
       'assistive technology',
     ]
 
-    const { keyTakeaways = [], readingList = [] } = post.frontmatter
+    const { frontmatter = {} } = post
+    const { keyTakeaways = [], readingList = [] } = frontmatter
 
     const previewListItems = keyTakeaways.map((x, index) => {
       const key = `key-takeaway-${index}`

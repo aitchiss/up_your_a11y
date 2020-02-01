@@ -1,24 +1,25 @@
 import React from 'react'
 import navStyle from './navigation.module.css'
+import { Link } from 'gatsby'
 
 export default function Navigation() {
   return (
     <nav>
       <ul className={navStyle.navList}>
         <li>
-          <a href="#about" className={navStyle.navLink}>
+          <Link to="/#about" className={navStyle.navLink}>
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#contact" className={navStyle.navLink}>
+          <Link to="/#contact" className={navStyle.navLink}>
             Contact
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#contribute" className={navStyle.navLink}>
+          <Link to="/#contribute" className={navStyle.navLink}>
             Contribute
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

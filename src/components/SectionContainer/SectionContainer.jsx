@@ -3,7 +3,7 @@ import sectionStyle from './section.module.css'
 
 export default function SectionContainer({ children, className }) {
   return (
-    <section className={`${sectionStyle.container} ${className}`}>
+    <section className={className ? className : ''}>
       <div className={sectionStyle.innerContainer}>{children}</div>
     </section>
   )

@@ -57,9 +57,11 @@ class BlogPostTemplate extends React.Component {
           keywords={[...postKeywords, ...baseKeywords]}
         />
         <div className={postStyle.breadcrumbContainer}>
-          <Link to={`/${post.frontmatter.category}`}>
-            {post.frontmatter.category}
-          </Link>
+          <div className={postStyle.breadcrumbInner}>
+            <Link to={`/${post.frontmatter.category}`}>
+              {post.frontmatter.category}
+            </Link>
+          </div>
         </div>
         <SectionContainer className={postStyle.takewayContainer}>
           {category !== 'demo' && (

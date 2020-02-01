@@ -5,6 +5,14 @@
   padding-right: var(--default-container-padding-sides-mobile, 25px);
 }
 
+.breadcrumbInner {
+  max-width: 900px;
+  margin: auto;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
 .takewayContainer {
   background-color: var(--background-white);
 }

@@ -17,6 +17,20 @@ import '../pages/style.css'
 import postStyle from './postStyle.module.css'
 import SectionContainer from '../components/SectionContainer/SectionContainer'
 
+const categoryUrlMapping = {
+  fundamentals: '/category/fundamentals',
+  react: '/category/react',
+  forms: '/category/forms-and-inputs',
+  structure: '/category/structure-and-layout',
+}
+
+const categoryTitleMapping = {
+  fundamentals: 'fundamentals',
+  react: 'react',
+  forms: 'forms + inputs',
+  structure: 'structure / layout',
+}
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
@@ -33,8 +47,8 @@ class BlogPostTemplate extends React.Component {
       'assistive technology',
     ]
 
-    const { frontmatter = {} } = post
-    const { keyTakeaways = [], readingList = [] } = frontmatter
+    const keyTakeaways = post.frontmatter.keyTakeaways || []
+    const readingList = post.frontmatter.readingList || []
 
     const previewListItems = keyTakeaways.map((x, index) => {
       const key = `key-takeaway-${index}`
@@ -59,8 +73,8 @@ class BlogPostTemplate extends React.Component {
         />
         <div className={postStyle.breadcrumbContainer}>
           <div className={postStyle.breadcrumbInner}>
-            <Link to={`/${post.frontmatter.category}`}>
-              {post.frontmatter.category}
+            <Link to={categoryUrlMapping[post.frontmatter.category]}>
+              {categoryTitleMapping[post.frontmatter.category]}
             </Link>
           </div>
         </div>

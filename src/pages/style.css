@@ -23,7 +23,7 @@
   --default-container-padding-sides-large: 50px;
 
   --default-container-padding-mobile: 25px
-    var(--default-container-padding-sides-mobile) 100px
+    var(--default-container-padding-sides-mobile) 50px
     var(--default-container-padding-sides-mobile);
   --default-container-padding-large: 25px
     var(--default-container-padding-sides-large) 50px
@@ -45,6 +45,7 @@ body {
 a {
   text-decoration: none;
   padding: 5px;
+  padding-bottom: 2px;
   color: var(--font-black);
   border-bottom: 2px solid var(--link-underline-teal);
 }
@@ -72,6 +73,10 @@ h2 {
 }
 
 p {
+  line-height: 1.5rem;
+}
+
+li {
   line-height: 1.5rem;
 }
 

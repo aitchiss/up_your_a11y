@@ -33,21 +33,21 @@ class BlogPostTemplate extends React.Component {
       'assistive technology',
     ]
 
-    const previewListItems = post.frontmatter.keyTakeaways.map((x, index) => {
+    const { keyTakeaways = [], readingList = [] } = post.frontmatter
+
+    const previewListItems = keyTakeaways.map((x, index) => {
       const key = `key-takeaway-${index}`
       return <li key={key}>{x}</li>
     })
 
-    const furtherReadingListItems = post.frontmatter.readingList.map(
-      (x, index) => {
-        const key = `reading-list-${index}`
-        return (
-          <li key={key}>
-            <a href={x.url}>{x.description}</a>
-          </li>
-        )
-      }
-    )
+    const furtherReadingListItems = readingList.map((x, index) => {
+      const key = `reading-list-${index}`
+      return (
+        <li key={key}>
+          <a href={x.url}>{x.description}</a>
+        </li>
+      )
+    })
 
     return (
       <Layout location={this.props.location} title={siteTitle}>

@@ -14,6 +14,8 @@ import ExampleFormContainer from '../components/ExampleFormContainer/ExampleForm
 import DecorativeList from '../components/DecorativeList/DecorativeList'
 import DecorativeImageExample from '../components/DecorativeImageExample/DecorativeImageExample'
 import '../pages/style.css'
+import postStyle from './postStyle.module.css'
+import SectionContainer from '../components/SectionContainer/SectionContainer'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -31,6 +33,11 @@ class BlogPostTemplate extends React.Component {
       'assistive technology',
     ]
 
+    const previewListItems = post.frontmatter.keyTakeaways.map((x, index) => {
+      const key = `key-takeaway-${index}`
+      return <li key={key}>{x}</li>
+    })
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -38,7 +45,23 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description}
           keywords={[...postKeywords, ...baseKeywords]}
         />
-        {category === 'demo' ? (
+        <div className={postStyle.breadcrumbContainer}>
+          <Link to={`/${post.frontmatter.category}`}>
+            {post.frontmatter.category}
+          </Link>
+        </div>
+        <SectionContainer className={postStyle.takewayContainer}>
+          {category !== 'demo' && (
+            <div className={postStyle.titleWrapper}>
+              <div className={postStyle.titleColorBlock} />
+              <div className={postStyle.titleDetailWrapper}>
+                <h1>{post.frontmatter.displayTitle}</h1>
+                <ul className={postStyle.takeawaysList}>{previewListItems}</ul>
+              </div>
+            </div>
+          )}
+        </SectionContainer>
+        <SectionContainer className={postStyle.mainPost}>
           <MDXRenderer
             scope={{
               ButtonBox,
@@ -56,38 +79,10 @@ class BlogPostTemplate extends React.Component {
           >
             {post.code.body}
           </MDXRenderer>
-        ) : (
-          <React.Fragment>
-            <TopicCard
-              topic={{
-                title: post.frontmatter.displayTitle,
-                keyTakeaways: post.frontmatter.keyTakeaways,
-              }}
-              accentColor={post.frontmatter.accentColor}
-              headingLevel="1"
-              showButton={false}
-              header
-            />
-            <MDXRenderer
-              scope={{
-                ButtonBox,
-                Gist,
-                ReadingList,
-                TopicCard,
-                Link,
-                ExampleFormContainer,
-                ErrorForm,
-                ErrorFormWithList,
-                ErrorFormInlineError,
-                DecorativeList,
-                DecorativeImageExample,
-              }}
-            >
-              {post.code.body}
-            </MDXRenderer>
+          {category !== 'demo' && (
             <ReadingList items={post.frontmatter.readingList} />
-          </React.Fragment>
-        )}
+          )}
+        </SectionContainer>
       </Layout>
     )
   }

@@ -1,0 +1,79 @@
+.breadcrumbContainer {
+  background-color: black;
+  min-height: 50px;
+  padding-left: var(--default-container-padding-sides-mobile, 25px);
+  padding-right: var(--default-container-padding-sides-mobile, 25px);
+}
+
+.takewayContainer {
+  background-color: var(--background-white);
+}
+
+@media only screen and (min-width: 768px) {
+  .breadcrumbContainer {
+    padding-left: var(--default-container-padding-sides-large, 50px);
+    padding-right: var(--default-container-padding-sides-large, 50px);
+  }
+  .takewayContainer {
+    padding-top: 20px;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.titleColorBlock {
+  display: none;
+  background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .titleColorBlock {
+    display: inline-block;
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  .titleColorBlock {
+    display: inline-block;
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+  }
+}
+
+.titleDetailWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: unset;
+}
+
+@media only screen and (min-width: 768px) {
+  .titleDetailWrapper {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  .titleDetailWrapper {
+    margin-left: 100px;
+  }
+}
+
+.titleDetailWrapper h1 {
+  margin: 0;
+}
+
+.takeawaysList {
+  padding-left: 15px;
+}
+
+.mainPost {
+}

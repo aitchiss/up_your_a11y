@@ -7,5 +7,5 @@
 .innerContainer {
   max-width: var(--default-content-max-width, 900px);
   margin: var(--default-content-margin, auto);
-  padding: var(--default-container-padding-mobile, 25px 25px 100px 25px);
+  padding: var(--default-container-padding-mobile, 25px 25px 50px 25px);
 }

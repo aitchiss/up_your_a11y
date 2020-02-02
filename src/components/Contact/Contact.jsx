@@ -9,10 +9,19 @@ export default function Contact() {
       <h2 id="contact">contact</h2>
       <ul className={`plainList ${contactStyle.linksList}`}>
         <li>
-          twitter: <a href="https://twitter.com/s_aitchison">@s_aitchison</a>
+          twitter:{' '}
+          <a
+            href="https://twitter.com/s_aitchison"
+            aria-label="Twitter: @s_aitchison"
+          >
+            @s_aitchison
+          </a>
         </li>
         <li>
-          DEV: <a href="https://dev.to/s_aitchison">s_aitchison</a>
+          DEV:{' '}
+          <a href="https://dev.to/s_aitchison" aria-label="Dev: s_aitchison">
+            s_aitchison
+          </a>
         </li>
       </ul>
       <ContactForm />

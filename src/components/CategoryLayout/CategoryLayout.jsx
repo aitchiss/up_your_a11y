@@ -3,9 +3,9 @@ import categoryLayoutStyle from './categoryLayout.module.css'
 import { Link } from 'gatsby'
 import MenuHeader from '../MenuHeader'
 import SectionContainer from '../SectionContainer/SectionContainer'
+import SEO from '../seo'
 
 export default function CategoryLayout({ title, articles = [] }) {
-  console.log(articles)
   const categoryListItems = articles.map((article, index) => {
     const { frontmatter } = article
     const { slug } = article.fields
@@ -28,8 +28,16 @@ export default function CategoryLayout({ title, articles = [] }) {
     )
   })
 
+  const splitTitle = title.split('')
+  splitTitle[0] = splitTitle[0].toUpperCase()
+  const seoTitle = splitTitle.join('')
+
   return (
     <>
+      <SEO
+        title={seoTitle}
+        keywords={['accessibility', 'a11y', 'web development', seoTitle]}
+      />
       <MenuHeader />
       <main>
         <div className={categoryLayoutStyle.titleWrapper}>

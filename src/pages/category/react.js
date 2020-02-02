@@ -19,7 +19,7 @@ const ReactCategory = () => {
 
         return (
           <CategoryLayout
-            title="react"
+            title="a11y for React"
             articles={categoryPages}
             bannerUrl={bannerUrl}
             titleColor="var(--font-yellow)"

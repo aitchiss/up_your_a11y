@@ -13,7 +13,6 @@ export default function CategoryLayout({
 }) {
   const categoryListItems = articles.map((article, index) => {
     const { frontmatter } = article
-    console.warn(frontmatter)
     const { artUrl = '' } = frontmatter
     const { slug } = article.fields
 

@@ -2,7 +2,7 @@
 
 blockquote {
   padding: 5px 25px;
-  border-left: 8px solid #fdbfaf;
-  background: #f4f2f2;
+  border-left: 8px solid var(--brand-teal);
+  background: white;
   display: inline-block;
 }

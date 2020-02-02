@@ -2,12 +2,12 @@ module.exports = {
   siteMetadata: {
     title: `Up Your A11y`,
     author: `Suzanne Aitchison`,
-    description: `A collection of tutorials and articles to help you improve the accessibility of your websites and web applications, particularly using React`,
+    description: `A toolkit for developers seeking to create accessible web experiences`,
     siteUrl: `https://upyoura11y.com`,
     social: {
       twitter: `s_aitchison`,
     },
-    image: 'https://www.upyoura11y.com/UYA_fav.png',
+    image: 'https://www.upyoura11y.com/favicon.png',
   },
   plugins: [
     `gatsby-plugin-sitemap`,
@@ -129,9 +129,8 @@ module.exports = {
         short_name: `UYA`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#fdbfaf`,
         display: `minimal-ui`,
-        icon: `static/UYA_fav.png`,
+        icon: `static/favicon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -5,15 +5,25 @@ import MenuHeader from '../MenuHeader'
 import SectionContainer from '../SectionContainer/SectionContainer'
 import SEO from '../seo'
 
-export default function CategoryLayout({ title, articles = [] }) {
+export default function CategoryLayout({
+  title,
+  articles = [],
+  bannerUrl = '',
+  titleColor = '#000',
+}) {
   const categoryListItems = articles.map((article, index) => {
     const { frontmatter } = article
+    console.warn(frontmatter)
+    const { artUrl = '' } = frontmatter
     const { slug } = article.fields
 
     const key = `article-list-item-${index}`
     return (
       <li key={key} className={categoryLayoutStyle.articleListItem}>
-        <div className={categoryLayoutStyle.articleBullet} />
+        <div
+          className={categoryLayoutStyle.articleBullet}
+          style={{ backgroundImage: `url(${artUrl})`, backgroundSize: 'cover' }}
+        />
         <div className={categoryLayoutStyle.articleDetail}>
           <Link to={slug} className={categoryLayoutStyle.articleLink}>
             <h2 className={categoryLayoutStyle.articleTitle}>
@@ -40,12 +50,24 @@ export default function CategoryLayout({ title, articles = [] }) {
       />
       <MenuHeader />
       <main>
-        <div className={categoryLayoutStyle.titleWrapper}>
+        <div
+          className={categoryLayoutStyle.titleWrapper}
+          style={{
+            backgroundImage: `url(${bannerUrl})`,
+            backgroundPosition: 'top right',
+            backgroundSize: 'cover',
+          }}
+        >
           <div className={categoryLayoutStyle.titleInner}>
             <Link to="/" className={categoryLayoutStyle.homeLink}>
               Home
             </Link>
-            <h1 className={categoryLayoutStyle.title}>{title}</h1>
+            <h1
+              className={categoryLayoutStyle.title}
+              style={{ color: titleColor }}
+            >
+              {title}
+            </h1>
           </div>
         </div>
         <SectionContainer>

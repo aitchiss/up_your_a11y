@@ -47,10 +47,29 @@ const categories = [
 
 class TopicsIndex extends React.Component {
   render() {
+    const { data } = this.props
+    const { react, fundamentals, structure, forms } = data
+
+    const backdropUrls = {
+      react: react.edges[0].node.publicURL,
+      fundamentals: fundamentals.edges[0].node.publicURL,
+      structure: structure.edges[0].node.publicURL,
+      forms: forms.edges[0].node.publicURL,
+    }
+    const siteTitle = data.site.siteMetadata.title
+    const siteImg = data.site.siteMetadata.image
+
     const categoryListItems = categories.map(category => {
       return (
         <li key={`category-${category.id}`}>
-          <div className={indexStyle.categoryTile}>
+          <div
+            className={indexStyle.categoryTile}
+            style={{
+              backgroundImage: `url(${backdropUrls[category.id]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'bottom right'
+            }}
+          >
             <Link className={indexStyle.categoryLink} to={category.path}>
               <h2
                 style={{ color: `var(${category.titleColorName})` }}
@@ -64,10 +83,6 @@ class TopicsIndex extends React.Component {
         </li>
       )
     })
-
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const siteImg = data.site.siteMetadata.image
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -104,6 +119,36 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         image
+      }
+    }
+    react: allFile(filter: { name: { eq: "react-backdrop-sm" } }) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+    fundamentals: allFile(
+      filter: { name: { eq: "fundamentals-backdrop-sm" } }
+    ) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+    structure: allFile(filter: { name: { eq: "structure-backdrop-sm" } }) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+    forms: allFile(filter: { name: { eq: "forms-backdrop-sm" } }) {
+      edges {
+        node {
+          publicURL
+        }
       }
     }
   }

@@ -34,7 +34,7 @@ const categoryTitleMapping = {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
-    const category = post.frontmatter.category
+    const { category, artUrl } = post.frontmatter
     const siteTitle = this.props.data.site.siteMetadata.title
     const postKeywords = post.frontmatter.keywords
     const baseKeywords = [
@@ -81,7 +81,14 @@ class BlogPostTemplate extends React.Component {
         <SectionContainer className={postStyle.takewayContainer}>
           {category !== 'demo' && (
             <div className={postStyle.titleWrapper}>
-              <div className={postStyle.titleColorBlock} />
+              <div
+                className={postStyle.titleColorBlock}
+                style={{
+                  backgroundImage: `url(${artUrl})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'bottom left',
+                }}
+              />
               <div className={postStyle.titleDetailWrapper}>
                 <h1>{post.frontmatter.displayTitle}</h1>
                 <ul className={postStyle.takeawaysList}>{previewListItems}</ul>
@@ -140,6 +147,7 @@ export const pageQuery = graphql`
         category
         accentColor
         keyTakeaways
+        artUrl
         readingList {
           url
           description

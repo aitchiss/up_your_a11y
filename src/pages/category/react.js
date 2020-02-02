@@ -14,8 +14,17 @@ const ReactCategory = () => {
       render={data => {
         const nodeData = data.allMdx.edges
         const categoryPages = filterToReact(nodeData)
+        const { banner } = data
+        const bannerUrl = banner.edges[0].node.publicURL
 
-        return <CategoryLayout title="react" articles={categoryPages} />
+        return (
+          <CategoryLayout
+            title="react"
+            articles={categoryPages}
+            bannerUrl={bannerUrl}
+            titleColor="var(--font-yellow)"
+          />
+        )
       }}
     />
   )
@@ -39,7 +48,16 @@ export const pageQuery = graphql`
             accentColor
             keyTakeaways
             description
+            artUrl
+            sortOrder
           }
+        }
+      }
+    }
+    banner: allFile(filter: { name: { eq: "react-banner" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
     }

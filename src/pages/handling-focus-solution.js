@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout'
+import SectionContainer from '../components/SectionContainer/SectionContainer'
 import solutionStyle from './handling-focus-solution.module.css'
 import './style.css'
 
@@ -14,24 +15,26 @@ class HandlingFocusSolution extends React.Component {
   render() {
     return (
       <Layout location={this.props.location}>
-        <h1
-          ref={this.headingRef}
-          className={solutionStyle.focusableHeader}
-          tabIndex="-1"
-        >
-          Hi again!
-        </h1>
-        <p>Do you notice anything different about this page?</p>
-        <p>What was announced as soon as you landed on the page?</p>
-        <p>
-          Did the route change leave you with a better understanding of the new
-          content?
-        </p>
-        <p>
-          And does tabbing to the link back to the article feel more logical and
-          follow normal convention?
-        </p>
-        <Link to="/handling-focus">Go back to the article</Link>
+        <SectionContainer>
+          <h1
+            ref={this.headingRef}
+            className={solutionStyle.focusableHeader}
+            tabIndex="-1"
+          >
+            Hi again!
+          </h1>
+          <p>Do you notice anything different about this page?</p>
+          <p>What was announced as soon as you landed on the page?</p>
+          <p>
+            Did the route change leave you with a better understanding of the
+            new content?
+          </p>
+          <p>
+            And does tabbing to the link back to the article feel more logical
+            and follow normal convention?
+          </p>
+          <Link to="/handling-focus">Go back to the article</Link>
+        </SectionContainer>
       </Layout>
     )
   }

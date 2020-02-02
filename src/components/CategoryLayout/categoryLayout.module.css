@@ -17,7 +17,7 @@
 
 .titleInner {
   max-width: 900px;
-  min-height: 175px;
+  min-height: 150px;
   margin: auto;
   width: 100%;
   display: flex;
@@ -31,7 +31,8 @@
 
 .title {
   margin: 0;
-  color: yellow;
+  font-size: 3rem;
+  font-weight: normal;
 }
 
 .articleList {

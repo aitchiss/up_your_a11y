@@ -5,7 +5,12 @@ import MenuHeader from '../MenuHeader'
 import SectionContainer from '../SectionContainer/SectionContainer'
 import SEO from '../seo'
 
-export default function CategoryLayout({ title, articles = [], artUrls = [] }) {
+export default function CategoryLayout({
+  title,
+  articles = [],
+  bannerUrl = '',
+  titleColor = '#000',
+}) {
   const categoryListItems = articles.map((article, index) => {
     const { frontmatter } = article
     console.warn(frontmatter)
@@ -45,12 +50,24 @@ export default function CategoryLayout({ title, articles = [], artUrls = [] }) {
       />
       <MenuHeader />
       <main>
-        <div className={categoryLayoutStyle.titleWrapper}>
+        <div
+          className={categoryLayoutStyle.titleWrapper}
+          style={{
+            backgroundImage: `url(${bannerUrl})`,
+            backgroundPosition: 'top right',
+            backgroundSize: 'cover',
+          }}
+        >
           <div className={categoryLayoutStyle.titleInner}>
             <Link to="/" className={categoryLayoutStyle.homeLink}>
               Home
             </Link>
-            <h1 className={categoryLayoutStyle.title}>{title}</h1>
+            <h1
+              className={categoryLayoutStyle.title}
+              style={{ color: titleColor }}
+            >
+              {title}
+            </h1>
           </div>
         </div>
         <SectionContainer>

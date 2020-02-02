@@ -14,9 +14,16 @@ const FormsCategory = () => {
       render={data => {
         const nodeData = data.allMdx.edges
         const categoryPages = filterToForms(nodeData)
+        const { banner } = data
+        const bannerUrl = banner.edges[0].node.publicURL
 
         return (
-          <CategoryLayout title="forms + inputs" articles={categoryPages} />
+          <CategoryLayout
+            title="forms + inputs"
+            articles={categoryPages}
+            bannerUrl={bannerUrl}
+            titleColor="var(--font-dark-green)"
+          />
         )
       }}
     />
@@ -44,6 +51,13 @@ export const pageQuery = graphql`
             sortOrder
             artUrl
           }
+        }
+      }
+    }
+    banner: allFile(filter: { name: { eq: "forms-banner" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
     }

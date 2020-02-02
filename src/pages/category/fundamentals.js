@@ -14,8 +14,17 @@ const Fundamentals = () => {
       render={data => {
         const nodeData = data.allMdx.edges
         const categoryPages = filterToFundamentals(nodeData)
+        const { banner } = data
+        const bannerUrl = banner.edges[0].node.publicURL
 
-        return <CategoryLayout title="fundamentals" articles={categoryPages} />
+        return (
+          <CategoryLayout
+            title="fundamentals"
+            articles={categoryPages}
+            bannerUrl={bannerUrl}
+            titleColor="var(--font-blue)"
+          />
+        )
       }}
     />
   )
@@ -42,6 +51,13 @@ export const pageQuery = graphql`
             sortOrder
             artUrl
           }
+        }
+      }
+    }
+    banner: allFile(filter: { name: { eq: "fundamentals-banner" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
     }

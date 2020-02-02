@@ -14,9 +14,16 @@ const StructureCategory = () => {
       render={data => {
         const nodeData = data.allMdx.edges
         const categoryPages = filterToStructure(nodeData)
+        const { banner } = data
+        const bannerUrl = banner.edges[0].node.publicURL
 
         return (
-          <CategoryLayout title="structure / layout" articles={categoryPages} />
+          <CategoryLayout
+            title="structure / layout"
+            articles={categoryPages}
+            bannerUrl={bannerUrl}
+            titleColor="var(--font-aqua)"
+          />
         )
       }}
     />
@@ -44,6 +51,13 @@ export const pageQuery = graphql`
             artUrl
             sortOrder
           }
+        }
+      }
+    }
+    banner: allFile(filter: { name: { eq: "structure-banner" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
     }

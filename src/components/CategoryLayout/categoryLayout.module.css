@@ -3,7 +3,7 @@
   padding-right: var(--default-container-padding-sides-mobile, 25px);
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: black;
+  background-color: lightgray;
 }
 
 @media only screen and (min-width: 768px) {
@@ -64,7 +64,7 @@
 .articleBullet {
   width: 100%;
   height: 150px;
-  background-color: black;
+  background-color: lightgray;
   margin-bottom: 25px;
   margin-top: 25px;
 }

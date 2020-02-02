@@ -16,6 +16,7 @@ import DecorativeImageExample from '../components/DecorativeImageExample/Decorat
 import '../pages/style.css'
 import postStyle from './postStyle.module.css'
 import SectionContainer from '../components/SectionContainer/SectionContainer'
+import BreadcrumbBar from '../components/BreadcrumbBar/BreadcrumbBar'
 
 const categoryUrlMapping = {
   fundamentals: '/category/fundamentals',
@@ -71,13 +72,10 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description}
           keywords={[...postKeywords, ...baseKeywords]}
         />
-        <div className={postStyle.breadcrumbContainer}>
-          <div className={postStyle.breadcrumbInner}>
-            <Link to={categoryUrlMapping[post.frontmatter.category]}>
-              {categoryTitleMapping[post.frontmatter.category]}
-            </Link>
-          </div>
-        </div>
+        <BreadcrumbBar
+          url={categoryUrlMapping[post.frontmatter.category]}
+          name={categoryTitleMapping[post.frontmatter.category]}
+        />
         <SectionContainer className={postStyle.takewayContainer}>
           {category !== 'demo' && (
             <div className={postStyle.titleWrapper}>

@@ -9,9 +9,13 @@ export default function BreadcrumbBar({ url, name }) {
       render={data => {
         const { chevron } = data
         return (
-          <div className={breadcrumbStyle.container}>
+          <nav
+            className={breadcrumbStyle.container}
+            aria-label="breadcrumb navigation"
+          >
             <div className={breadcrumbStyle.inner}>
               <Link
+                tabIndex="-1"
                 to={url}
                 aria-hidden="true"
                 className={breadcrumbStyle.chevronLink}
@@ -24,7 +28,7 @@ export default function BreadcrumbBar({ url, name }) {
               </Link>
               <Link to={url}>{name}</Link>
             </div>
-          </div>
+          </nav>
         )
       }}
     />

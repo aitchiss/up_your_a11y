@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 export default function Navigation() {
   return (
-    <nav>
+    <nav aria-label="main navigation">
       <ul className={navStyle.navList}>
         <li>
           <Link to="/#about" className={navStyle.navLink}>

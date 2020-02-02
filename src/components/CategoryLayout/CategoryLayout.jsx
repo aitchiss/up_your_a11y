@@ -3,6 +3,7 @@ import categoryLayoutStyle from './categoryLayout.module.css'
 import { Link } from 'gatsby'
 import MenuHeader from '../MenuHeader'
 import SectionContainer from '../SectionContainer/SectionContainer'
+import BreadcrumbBar from '../BreadcrumbBar/BreadcrumbBar'
 import SEO from '../seo'
 
 export default function CategoryLayout({
@@ -48,6 +49,7 @@ export default function CategoryLayout({
         keywords={['accessibility', 'a11y', 'web development', seoTitle]}
       />
       <MenuHeader />
+      <BreadcrumbBar url="/" name="home" />
       <main>
         <div
           className={categoryLayoutStyle.titleWrapper}
@@ -58,9 +60,6 @@ export default function CategoryLayout({
           }}
         >
           <div className={categoryLayoutStyle.titleInner}>
-            <Link to="/" className={categoryLayoutStyle.homeLink}>
-              Home
-            </Link>
             <h1
               className={categoryLayoutStyle.title}
               style={{ color: titleColor }}

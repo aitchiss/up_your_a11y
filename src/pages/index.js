@@ -105,7 +105,7 @@ class TopicsIndex extends React.Component {
         <About />
         <Contact />
         <Contribute />
-        <Copyright />
+        {/* <Copyright /> */}
       </Layout>
     )
   }

@@ -1,5 +1,6 @@
 import React from 'react'
 import MenuHeader from './MenuHeader'
+import Copyright from './Copyright/Copyright'
 import layoutStyle from './layoutStyle.module.css'
 
 class Layout extends React.Component {
@@ -19,6 +20,7 @@ class Layout extends React.Component {
         <main>
           <div className={layoutStyle.container}>{children}</div>
         </main>
+        <Copyright />
       </React.Fragment>
     )
   }

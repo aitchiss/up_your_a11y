@@ -1,13 +1,13 @@
 .footer {
-  background-color: var(--background-blue);
+  background-color: var(--brand-gray);
   color: var(--font-white);
   margin: 0;
-  padding: 15px 25px 15px 25px;
+  padding: 5px 25px 5px 25px;
 }
 
 @media only screen and (min-width: 768px) {
   .footer {
-    padding: 15px 50px 15px 50px;
+    padding: 5px 50px 5px 50px;
   }
 }
 

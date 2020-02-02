@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import MenuHeader from '../MenuHeader'
 import SectionContainer from '../SectionContainer/SectionContainer'
 import BreadcrumbBar from '../BreadcrumbBar/BreadcrumbBar'
+import Copyright from '../Copyright/Copyright'
 import SEO from '../seo'
 
 export default function CategoryLayout({
@@ -74,6 +75,7 @@ export default function CategoryLayout({
           </ul>
         </SectionContainer>
       </main>
+      <Copyright />
     </>
   )
 }

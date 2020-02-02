@@ -5,15 +5,20 @@ import MenuHeader from '../MenuHeader'
 import SectionContainer from '../SectionContainer/SectionContainer'
 import SEO from '../seo'
 
-export default function CategoryLayout({ title, articles = [] }) {
+export default function CategoryLayout({ title, articles = [], artUrls = [] }) {
   const categoryListItems = articles.map((article, index) => {
     const { frontmatter } = article
+    console.warn(frontmatter)
+    const { artUrl = '' } = frontmatter
     const { slug } = article.fields
 
     const key = `article-list-item-${index}`
     return (
       <li key={key} className={categoryLayoutStyle.articleListItem}>
-        <div className={categoryLayoutStyle.articleBullet} />
+        <div
+          className={categoryLayoutStyle.articleBullet}
+          style={{ backgroundImage: `url(${artUrl})`, backgroundSize: 'cover' }}
+        />
         <div className={categoryLayoutStyle.articleDetail}>
           <Link to={slug} className={categoryLayoutStyle.articleLink}>
             <h2 className={categoryLayoutStyle.articleTitle}>

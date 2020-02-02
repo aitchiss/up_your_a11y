@@ -41,6 +41,8 @@ export const pageQuery = graphql`
             accentColor
             keyTakeaways
             description
+            sortOrder
+            artUrl
           }
         }
       }

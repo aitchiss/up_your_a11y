@@ -34,26 +34,26 @@
 
 .titleColorBlock {
   display: none;
-  background-color: black;
+  background-color: lightgray;
 }
 
 @media only screen and (min-width: 768px) {
   .titleColorBlock {
     display: inline-block;
-    min-width: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: black;
+    min-width: 175px;
+    width: 175px;
+    height: 175px;
+    background-color: lightgray;
   }
 }
 
 @media only screen and (orientation: landscape) {
   .titleColorBlock {
     display: inline-block;
-    min-width: 100px;
-    width: 100px;
-    height: 100px;
-    background-color: black;
+    min-width: 175px;
+    width: 175px;
+    height: 175px;
+    background-color: lightgray;
   }
 }
 

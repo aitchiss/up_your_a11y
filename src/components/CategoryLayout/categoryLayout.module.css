@@ -62,7 +62,8 @@
 }
 
 .articleBullet {
-  width: 100%;
+  width: 50%;
+  align-self: flex-start;
   height: 150px;
   background-color: lightgray;
   margin-bottom: 25px;

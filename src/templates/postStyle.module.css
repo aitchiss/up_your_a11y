@@ -87,3 +87,8 @@
   background-color: var(--background-pink);
   color: var(--font-black);
 }
+
+.keyTakeawaysBlurb {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}

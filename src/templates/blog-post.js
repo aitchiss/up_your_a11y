@@ -89,6 +89,9 @@ class BlogPostTemplate extends React.Component {
               />
               <div className={postStyle.titleDetailWrapper}>
                 <h1>{post.frontmatter.displayTitle}</h1>
+                <p className={postStyle.keyTakeawaysBlurb}>
+                  For developers who want to:
+                </p>
                 <ul className={postStyle.takeawaysList}>{previewListItems}</ul>
               </div>
             </div>

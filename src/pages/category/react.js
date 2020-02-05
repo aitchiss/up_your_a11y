@@ -22,7 +22,7 @@ const ReactCategory = () => {
             title="a11y for React"
             articles={categoryPages}
             bannerUrl={bannerUrl}
-            titleColor="var(--font-dark-blue)"
+            titleColor="var(--font-black)"
           />
         )
       }}

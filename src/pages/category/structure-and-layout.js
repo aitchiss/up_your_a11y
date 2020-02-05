@@ -22,7 +22,7 @@ const StructureCategory = () => {
             title="structure / layout"
             articles={categoryPages}
             bannerUrl={bannerUrl}
-            titleColor="var(--font-dark-blue)"
+            titleColor="var(--font-black)"
           />
         )
       }}

@@ -26,7 +26,7 @@ const categories = [
     title: 'a11y for React',
     description:
       'overcoming common accessibility challenges in React applications',
-    titleColorName: '--font-dark-blue',
+    titleColorName: '--font-black',
   },
   {
     id: 'structure',
@@ -34,7 +34,7 @@ const categories = [
     title: 'structure / layout',
     description:
       'essentials for creating accessible page structures and using semantic HTML',
-    titleColorName: '--font-dark-blue',
+    titleColorName: '--font-black',
   },
   {
     id: 'forms',

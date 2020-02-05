@@ -1,34 +1,86 @@
+:root {
+  --background-gray: #e7e7e7;
+  --background-pink: #e9a6ba;
+  --background-purple: #9951bb;
+  --background-blue: #2557c2;
+  --background-white: #ffffff;
+  --background-yellow: #fdf46c;
+
+  --link-background-pink: rgba(233, 166, 186, 0.5);
+  --link-underline-teal: #3da1a7;
+
+  --brand-gray: #767575;
+  --brand-teal: #3DA1A7;
+  --form-color-gray: var(--brand-gray);
+
+  --font-black: #040000;
+  --font-blue: #2557c2;
+  --font-dark-blue: #1d4396;
+  --font-yellow: #fdf46c;
+  --font-aqua: #43feb7;
+  --font-dark-green: #407059;
+  --font-error-red: #cf202d;
+  --font-white: #ffffff;
+
+  --default-container-padding-sides-mobile: 25px;
+  --default-container-padding-sides-large: 50px;
+
+  --default-container-padding-mobile: 25px
+    var(--default-container-padding-sides-mobile) 50px
+    var(--default-container-padding-sides-mobile);
+  --default-container-padding-large: 25px
+    var(--default-container-padding-sides-large) 50px
+    var(--default-container-padding-sides-large);
+  --default-content-max-width: 900px;
+  --default-content-margin: auto;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
+  background-color: var(--background-gray);
+  color: var(--font-black);
 }
 
 a {
   text-decoration: none;
-  color: black;
-  border-bottom: 3px solid #fdbfaf;
+  padding: 5px;
+  padding-bottom: 2px;
+  color: var(--font-black);
+  border-bottom: 2px solid var(--link-underline-teal);
+}
+
+a:hover {
+  background-color: var(--link-underline-teal);
 }
 
 h1,
-h2 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 900;
-}
-
+h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: normal;
 }
 
 p {
+  line-height: 1.5rem;
+}
+
+li {
   line-height: 1.5rem;
 }
 

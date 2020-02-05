@@ -1,63 +1,88 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import About from '../components/About/About'
+import SectionContainer from '../components/SectionContainer/SectionContainer'
 import SEO from '../components/seo'
 import './style.css'
-import TopicCard from '../components/TopicCard/TopicCard'
+import indexStyle from './index.module.css'
 import HomePageAbout from '../components/HomePageAbout/HomePageAbout'
+import Contact from '../components/Contact/Contact'
+import Contribute from '../components/Contribute/Contribute'
+import Copyright from '../components/Copyright/Copyright'
 
-const CategoryListHeaders = {
-  fundamentals: 'Getting the Fundamentals Right',
-  reactPitfalls: 'Common Challenges in React & Single Page Applications',
-  lists: 'Structures and Layout',
-  forms: 'Forms and User Input',
-}
+const categories = [
+  {
+    id: 'fundamentals',
+    path: '/category/fundamentals',
+    title: 'fundamentals',
+    description:
+      'understand the who, what and why of accessibility, and set up your local environment and tooling',
+    titleColorName: '--font-white',
+  },
+  {
+    id: 'react',
+    path: '/category/react',
+    title: 'a11y for React',
+    description:
+      'overcoming common accessibility challenges in React applications',
+    titleColorName: '--font-black',
+  },
+  {
+    id: 'structure',
+    path: '/category/structure-and-layout',
+    title: 'structure / layout',
+    description:
+      'essentials for creating accessible page structures and using semantic HTML',
+    titleColorName: '--font-black',
+  },
+  {
+    id: 'forms',
+    path: '/category/forms-and-inputs',
+    title: 'forms + inputs',
+    description: 'create accessible forms, handling data validation and errors',
+    titleColorName: '--font-white',
+  },
+]
 
 class TopicsIndex extends React.Component {
-  static getListSections(posts) {
-    const categories = Object.keys(CategoryListHeaders)
-    const items = categories.map(category => {
-      const matchingPosts = posts.filter(({ node }) => {
-        const safeCategory = node.frontmatter.category || ''
-        return safeCategory === category
-      })
-
-      const listEntries = matchingPosts.map(({ node }) => {
-        const displayTitle = node.frontmatter.displayTitle || node.fields.slug
-        const accent = node.frontmatter.accentColor || ''
-        const description = node.frontmatter.description || ''
-        return (
-          <li key={`topic-list-item-${node.fields.slug}`}>
-            <TopicCard
-              key={node.fields.slug}
-              headingLevel="3"
-              accentColor={accent}
-              showButton
-              linkUrl={node.fields.slug}
-              linkAriaLabel={`Link to ${displayTitle}`}
-              topic={{
-                title: displayTitle,
-                description: description,
-              }}
-            />
-          </li>
-        )
-      })
-      return (
-        <React.Fragment key={`category-section-${category}`}>
-          <h2 className="topicHeader">{CategoryListHeaders[category]}</h2>
-          <ul className="plainList">{listEntries}</ul>
-        </React.Fragment>
-      )
-    })
-    return items
-  }
-
   render() {
     const { data } = this.props
+    const { react, fundamentals, structure, forms } = data
+
+    const backdropUrls = {
+      react: react.edges[0].node.publicURL,
+      fundamentals: fundamentals.edges[0].node.publicURL,
+      structure: structure.edges[0].node.publicURL,
+      forms: forms.edges[0].node.publicURL,
+    }
     const siteTitle = data.site.siteMetadata.title
     const siteImg = data.site.siteMetadata.image
-    const posts = data.allMdx.edges
+
+    const categoryListItems = categories.map(category => {
+      return (
+        <li key={`category-${category.id}`}>
+          <div
+            className={indexStyle.categoryTile}
+            style={{
+              backgroundImage: `url(${backdropUrls[category.id]})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            <Link className={indexStyle.categoryLink} to={category.path}>
+              <h2
+                style={{ color: `var(${category.titleColorName})` }}
+                className={indexStyle.categoryHeader}
+              >
+                {category.title}
+              </h2>
+            </Link>
+          </div>
+          <p>{category.description}</p>
+        </li>
+      )
+    })
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -73,8 +98,13 @@ class TopicsIndex extends React.Component {
             `blog`,
           ]}
         />
-        <HomePageAbout />
-        {TopicsIndex.getListSections(posts)}
+        <SectionContainer>
+          <HomePageAbout />
+          <ul className={indexStyle.plainList}>{categoryListItems}</ul>
+        </SectionContainer>
+        <About />
+        <Contact />
+        <Contribute />
       </Layout>
     )
   }
@@ -90,21 +120,33 @@ export const pageQuery = graphql`
         image
       }
     }
-    allMdx(sort: { order: ASC, fields: [frontmatter___sortOrder] }) {
+    react: allFile(filter: { name: { eq: "react-backdrop-sm" } }) {
       edges {
         node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            displayTitle
-            category
-            accentColor
-            keyTakeaways
-            description
-          }
+          publicURL
+        }
+      }
+    }
+    fundamentals: allFile(
+      filter: { name: { eq: "fundamentals-backdrop-sm" } }
+    ) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+    structure: allFile(filter: { name: { eq: "structure-backdrop-sm" } }) {
+      edges {
+        node {
+          publicURL
+        }
+      }
+    }
+    forms: allFile(filter: { name: { eq: "forms-backdrop-sm" } }) {
+      edges {
+        node {
+          publicURL
         }
       }
     }

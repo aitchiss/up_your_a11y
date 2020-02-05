@@ -1,19 +1,8 @@
-.container {
-  padding: 25px;
-  padding-bottom: 100px;
-  max-width: 850px;
-  margin: auto;
-}
 
-@media only screen and (min-width: 768px) {
-  .container {
-    padding: 25px 150px 100px 150px;
-  }
-}
 
 blockquote {
   padding: 5px 25px;
-  border-left: 8px solid #fdbfaf;
-  background: #f4f2f2;
+  border-left: 8px solid var(--brand-teal);
+  background: white;
   display: inline-block;
 }

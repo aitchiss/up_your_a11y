@@ -1,4 +1,5 @@
 .listSection {
+  display: flex;
   justify-content: center;
 }
 
@@ -34,7 +35,7 @@
 .issueLink {
   width: max-content;
   color: black;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 1.2rem;
   margin: 8px 15px 8px 15px;
@@ -60,6 +61,7 @@
 
 .issueCard {
   display: flex;
+  background-color: white;
   flex-direction: column;
   border: 2px solid black;
   border-top-width: 3px;

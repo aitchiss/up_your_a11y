@@ -1,6 +1,6 @@
 .header {
   height: 125px;
-  background-color: #fdbfaf;
+  background-color: white;
   display: flex;
   align-items: flex-end;
 }
@@ -16,12 +16,13 @@
   bottom: 0;
 }
 
-section h1 {
+.articleContent h1 {
   font-size: 2rem;
 }
 
 .headerLink {
-  padding: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
 }
 
 .nav {
@@ -35,7 +36,6 @@ section h1 {
 
 .sidePanel {
   padding: 25px;
-  width: 175px;
 }
 
 .sidePanelList {

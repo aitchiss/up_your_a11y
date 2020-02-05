@@ -1,29 +1,27 @@
-.errorAlertBox {
-  padding: 0 25px 5px 0;
-}
 
 .formWrapper {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
 }
 
 label {
-  font-weight: bold;
+  font-weight: normal;
   padding-top: 20px;
   padding-bottom: 10px;
 }
 
 input {
   min-height: 30px;
-  border: 1px solid black;
+  border: 3px solid var(--form-color-gray);
+  background-color: var(--background-gray);
   padding: 5px 10px 5px 10px;
   font-size: 1rem;
 }
 
 textarea {
   min-height: 150px;
-  border: 1px solid black;
+  border: 3px solid var(--form-color-gray);
+  background-color: var(--background-gray);
   padding: 5px 10px 5px 10px;
   font-size: 1rem;
 }
@@ -33,10 +31,10 @@ textarea:required {
 }
 
 button {
-  background-color: black;
+  font-weight: normal;
+  background-color: var(--form-color-gray);
   color: white;
   font-size: 1.2rem;
-  font-weight: bold;
   padding: 8px;
   width: 175px;
   margin-top: 25px;

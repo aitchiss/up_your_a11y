@@ -22,7 +22,7 @@ const FormsCategory = () => {
             title="forms + inputs"
             articles={categoryPages}
             bannerUrl={bannerUrl}
-            titleColor="var(--font-dark-green)"
+            titleColor="var(--font-white)"
           />
         )
       }}

@@ -18,7 +18,7 @@ const categories = [
     title: 'fundamentals',
     description:
       'understand the who, what and why of accessibility, and set up your local environment and tooling',
-    titleColorName: '--font-blue',
+    titleColorName: '--font-white',
   },
   {
     id: 'react',
@@ -26,7 +26,7 @@ const categories = [
     title: 'a11y for React',
     description:
       'overcoming common accessibility challenges in React applications',
-    titleColorName: '--font-yellow',
+    titleColorName: '--font-dark-blue',
   },
   {
     id: 'structure',
@@ -34,14 +34,14 @@ const categories = [
     title: 'structure / layout',
     description:
       'essentials for creating accessible page structures and using semantic HTML',
-    titleColorName: '--font-aqua',
+    titleColorName: '--font-dark-blue',
   },
   {
     id: 'forms',
     path: '/category/forms-and-inputs',
     title: 'forms + inputs',
     description: 'create accessible forms, handling data validation and errors',
-    titleColorName: '--font-dark-green',
+    titleColorName: '--font-white',
   },
 ]
 
@@ -67,7 +67,7 @@ class TopicsIndex extends React.Component {
             style={{
               backgroundImage: `url(${backdropUrls[category.id]})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'bottom right'
+              backgroundPosition: 'center'
             }}
           >
             <Link className={indexStyle.categoryLink} to={category.path}>

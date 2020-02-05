@@ -84,7 +84,7 @@ class BlogPostTemplate extends React.Component {
                 style={{
                   backgroundImage: `url(${artUrl})`,
                   backgroundSize: 'cover',
-                  backgroundPosition: 'bottom left',
+                  backgroundPosition: 'center',
                 }}
               />
               <div className={postStyle.titleDetailWrapper}>

@@ -22,7 +22,7 @@ const Fundamentals = () => {
             title="fundamentals"
             articles={categoryPages}
             bannerUrl={bannerUrl}
-            titleColor="var(--font-blue)"
+            titleColor="var(--font-white)"
           />
         )
       }}

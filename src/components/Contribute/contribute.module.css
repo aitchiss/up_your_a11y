@@ -1,6 +1,6 @@
 .sectionContainer {
-  background-color: var(--background-blue);
-  color: var(--font-aqua);
+  background-color: var(--background-pink);
+  color: var(--font-black);
 }
 
 .coffeeLink {
@@ -14,6 +14,4 @@
   width: 217px;
 }
 
-.sectionLink {
-  color: var(--font-white);
-}
+

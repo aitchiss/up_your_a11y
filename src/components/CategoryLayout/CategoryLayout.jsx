@@ -23,7 +23,11 @@ export default function CategoryLayout({
       <li key={key} className={categoryLayoutStyle.articleListItem}>
         <div
           className={categoryLayoutStyle.articleBullet}
-          style={{ backgroundImage: `url(${artUrl})`, backgroundSize: 'cover' }}
+          style={{
+            backgroundImage: `url(${artUrl})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         />
         <div className={categoryLayoutStyle.articleDetail}>
           <Link to={slug} className={categoryLayoutStyle.articleLink}>

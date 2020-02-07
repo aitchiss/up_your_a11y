@@ -10,6 +10,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
+        const socialTitle = title === 'Home' ? 'Up Your A11y' : title;
         return (
           <Helmet
             htmlAttributes={{ lang }}
@@ -17,7 +18,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             titleTemplate={`%s: ${data.site.siteMetadata.title}`}
             meta={[
               { name: `description`, content: metaDescription },
-              { property: `og:title`, content: title },
+              { property: `og:title`, content: socialTitle },
               { property: `og:description`, content: metaDescription },
               { property: `og:image`, content: data.site.siteMetadata.image },
               { property: `og:type`, content: `website` },
@@ -26,7 +27,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `twitter:creator`,
                 content: data.site.siteMetadata.author,
               },
-              { name: `twitter:title`, content: title },
+              { name: `twitter:title`, content: socialTitle },
               { name: `twitter:description`, content: description },
               { name: `twitter:image`, content: data.site.siteMetadata.image },
             ]

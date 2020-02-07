@@ -115,5 +115,6 @@ button {
 
 code {
   padding: 5px;
-  background-color: lightgray;
+  background-color: var(--background-pink);
+  font-weight: bold;
 }

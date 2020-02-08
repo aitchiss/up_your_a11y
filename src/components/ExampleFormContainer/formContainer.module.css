@@ -1,5 +1,6 @@
 .wrapper {
-  border: 1px solid lightgray;
+  background-color: white;
+  border: 1px solid var(--form-color-gray);
   border-radius: 3px;
   padding: 20px 10px;
 }

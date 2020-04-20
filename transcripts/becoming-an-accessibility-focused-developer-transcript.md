@@ -1,4 +1,6 @@
-Becoming an accessibility-focused developer. YouTube video: https://youtu.be/FzQBi2_TWo8
+# Becoming an accessibility-focused developer. 
+
+[View the YouTube video](https://youtu.be/FzQBi2_TWo8)
 
 00:00
 My name is Suzanne and this talk is called becoming an accessibility-focused developer - or it's at least about beginning on the journey towards becoming one. 

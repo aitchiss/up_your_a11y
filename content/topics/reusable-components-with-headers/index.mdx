@@ -23,15 +23,15 @@ keywords:
   - 'component'
 ---
 
-One of the key reasons React is so popular is the ability to define a component, pass it some simple props, and then re-use it in a variety of places without having to write duplicate HTML throughout your app. When creating a re-usable component, there are always a few things to consider, e.g. what should be customisable via props, and what should be an integral part of the component itself.
+One of the key reasons React is so popular is the ability to define a component, pass it some props, and then re-use it in a variety of places without having to write duplicate HTML throughout your app. When creating a re-usable component, there are always a few things to consider, e.g. what should be customisable via props, and what should be an integral part of the component itself.
 
 ## The problem with inflexible heading levels
 
-Consider a simple version of the TopicCard component used on this site in the topics list, and at the topic of each topic page:
+Consider a minimal version of the TopicCard component used on this site in the topics list, and at the topic of each topic page:
 
 <Gist url="https://gist.github.com/aitchiss/85de272b6e984f2d9986fd305ab8ec4b" />
 
-This simple version of the TopicCard component receives in props:
+This version of the TopicCard component receives in props:
 
 - The title for the card to display
 - The description content to display
@@ -39,13 +39,13 @@ This simple version of the TopicCard component receives in props:
 
 At first glance we have a nice reusable component that I can start placing throughout my app. However, we have one limiting problem - the ‘h2’ element.
 
-As discussed in <Link to="/why-accessibility">Accessibility 101</Link>, heading levels in HTML are not simply about sizing and styling your header text; they provide semantic information about the organisation and importance of your content. Heading levels should always increase in a logical order, and only by 1 step at a time.
+As discussed in <Link to="/why-accessibility">Accessibility 101</Link>, heading levels in HTML are not only about sizing and styling your header text; they provide semantic information about the organisation and importance of your content. Heading levels should always increase in a logical order, and only by 1 step at a time.
 
 The version of the TopicCard above defines an h2 element which will appear wherever I re-use this component. This means I can only use it on a page where there is already an ‘h1’ title, and where being an ‘h2’ makes logical sense for the flow of my page. Given the power of React is flexible re-use of components, some refactoring would be beneficial.
 
 ## Passing a heading level in props
 
-The problem can be easily solved with a simple trick that allows you to dynamically set the heading level according to the props passed in. See the upgraded version of the TopicCard:
+The problem can be solved with a little trick that allows you to dynamically set the heading level according to the props passed in. See the upgraded version of the TopicCard:
 
 <Gist url="https://gist.github.com/aitchiss/cdb5091a55af0cd0090bf746088b7f41" />
 
@@ -53,7 +53,7 @@ As you can see, the component now receives the heading level (e.g. 'h1') in prop
 
 ## Final tweaks and considerations
 
-While dynamically creating DOM elements based on props like this is very powerful, it could also yield some unwanted behaviour if the expected prop types aren’t passed in. I’d recommend when using this approach also making sure you complete some kind of props validation before attempting to create the Title element. There’s a variety of ways to achieve this, but a very simple implementation could be:
+While dynamically creating DOM elements based on props like this is very powerful, it could also yield some unwanted behaviour if the expected prop types aren’t passed in. I’d recommend when using this approach also making sure you complete some kind of props validation before attempting to create the Title element. There’s a variety of ways to achieve this, but a very minimal implementation could be:
 
 <Gist url="https://gist.github.com/aitchiss/6bb5fc90523d6ca299155eb95b12afef" />
 

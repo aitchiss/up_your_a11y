@@ -2,7 +2,7 @@
 title: 'Accessible Page Layouts'
 displayTitle: 'Accessible Page Layouts'
 category: 'structure'
-description: 'The structure of a given page is more than just a visual consideration. This topic explores how heading levels, semantic HTML, and the order in which you declare and label your elements can all be leveraged to improve the experience of your assistive technology users'
+description: 'The structure of a given page is more than only a visual consideration. This topic explores how heading levels, semantic HTML, and the order in which you declare and label your elements can all be leveraged to improve the experience of your assistive technology users'
 accentColor: '#F8F3A3'
 sortOrder: 1
 artUrl: '/structure-article-art-1.png'
@@ -28,7 +28,7 @@ keywords:
 
 ## Layout isn’t only visual
 
-It’s easy to find yourself focusing purely on the visual when creating the basic structure of your page content. After all, in the majority of cases the task at hand is recreating a beautiful design that you’ve either taken time and thought to create yourself, or have received from a client or your design team. Depending on the design, it’s also often a very challenging task to make it look just right. However, to make sure our content is readable and accessible for everbody, we also need to consider how keyboard and screen reader users will interpret our efforts.
+It’s common to find yourself focusing purely on the visual when creating the basic structure of your page content. After all, in the majority of cases the task at hand is recreating a beautiful design that you’ve either taken time and thought to create yourself, or have received from a client or your design team. Depending on the design, it’s also often a very challenging task to make it look just right. However, to make sure our content is readable and accessible for everbody, we also need to consider how keyboard and screen reader users will interpret our efforts.
 
 As a quick recap from <Link to="/screen-reader-keyboard-navigation">Getting Started With Keyboard Navigation and Screen Readers</Link>, at a minimum we should consider what happens when we:
 
@@ -38,7 +38,7 @@ As a quick recap from <Link to="/screen-reader-keyboard-navigation">Getting Star
 
 ## Our starting point
 
-In this article we’re going to step through a very simple layout, re-organise it to make it more accessible, and then finally add some extra enhancements with HTML5 semantic elements.
+In this article we’re going to step through a very minimal layout, re-organise it to make it more accessible, and then finally add some extra enhancements with HTML5 semantic elements.
 
 Our starting point is a very basic page, which you can visit via the link below. Visit the page, tab through the interactive items, and then read through the page with the screen reader on. Make a note of the issues you find, and what you think might be causing them.
 
@@ -46,7 +46,7 @@ Our starting point is a very basic page, which you can visit via the link below.
 
 **Our demo page can be considered in four basic sections:**
 
-- A header section with a simple navigation link
+- A header section with a navigation link
 - The main content area
 - A side panel with some supplementary links
 - A footer
@@ -82,17 +82,17 @@ Adding the correct heading element makes sure it’s included when screen reader
 
 ### Our side panel link boxes can be converted into an unordered list
 
-This fixes problem 4, and CSS can be easily used to remove any default list styling so the look is the same.
+This fixes problem 4, and CSS can be used to remove any default list styling so the look is the same.
 
 <Gist url="https://gist.github.com/aitchiss/21bd3990bfaf343137f6ef3c5ca3cada" />
 
 ### And as a final step
 
-We can change the header and footer elements from a div to their corresponding HTML5 tags, to clearly mark them out to screen readers, and similarly our main content can be wrapped in the appropriate main tag.
+We can change the header and footer elements from a div to their corresponding HTML5 tags, to surface them to screen readers, and similarly our main content can be wrapped in the appropriate main tag.
 
 <Gist url="https://gist.github.com/aitchiss/e67d4fa86bcda52d7866ab121945eccc" />
 
-Visit the resulting page via the link below and follow the same steps you took on the starter page. See how the experience has been improved with just these simple tweaks.
+Visit the resulting page via the link below and follow the same steps you took on the starter page. See how the experience has been improved with these tweaks.
 
 <Link to="/page-layouts-reorganised">
   Go to the reorganised version of the demo page

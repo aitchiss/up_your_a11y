@@ -2,7 +2,7 @@
 title: 'Accessible Forms 101'
 displayTitle: 'Accessible Forms 101'
 category: 'forms'
-description: 'This topic introduces the key concepts to creating simple, accessible forms including labelling, describing and organising your inputs.'
+description: 'This topic introduces the key concepts to creating accessible forms including labelling, describing and organising your inputs.'
 accentColor: '#FFE1F4'
 artUrl: '/forms-article-art-1.png'
 sortOrder: 1
@@ -27,7 +27,7 @@ keywords:
 
 ## Accessible forms don't need to be difficult
 
-Form accessibility can sometimes seem like a daunting task, especially when faced with a complicated design, or fields that require complex validations. This topic covers the core basics, and by following these simple four steps you can create accessible forms for a wide range of standard use cases. Once you've mastered the basics, hop on over to <Link to="handling-form-errors">Handling Validation Errors in Forms</Link> for some more tips, and keep an eye out on Up Your A11y for some future topics that deal with more complex form UIs.
+Form accessibility can sometimes seem like a daunting task, especially when faced with a complicated design, or fields that require complex validations. This topic covers the core basics, and by following these four steps you can create accessible forms for a wide range of standard use cases. Once you've mastered the basics, hop on over to <Link to="handling-form-errors">Handling Validation Errors in Forms</Link> for some more tips, and keep an eye out on Up Your A11y for some future topics that deal with more complex form UIs.
 
 ## Step 1: Make sure your inputs are labelled
 
@@ -48,7 +48,7 @@ Getting back to basics, the most fundamental building block of an accessible for
   </form>
 </ExampleFormContainer>
 
-You will notice that although this looks OK on the page, when you tab to the input there is very little information provided; on VoiceOver it simply says "edit text, blank". This can easily be remedied by using the appropriate label element, and ‘for’ tag, as in the code example below. By adding this label, VoiceOver will now announce "First name, edit text". The form input rendered by this example is also included below so you can turn on your screen reader and hear the difference:
+You will notice that although this looks OK on the page, when you tab to the input there is very little information provided; on VoiceOver it announces "edit text, blank". This can be remedied by using the appropriate label element, and ‘for’ tag, as in the code example below. By adding this label, VoiceOver will now announce "First name, edit text". The form input rendered by this example is also included below so you can turn on your screen reader and hear the difference:
 
 <Gist url="https://gist.github.com/aitchiss/80cbc9724601f3c42b36df7644cfa767" />
 
@@ -93,7 +93,7 @@ It is often the case that you may want to use the placeholder attribute to commu
 
 If you switch on your screen reader and tab to the above input, you’ll notice that the placeholder text is read aloud, so it may seem like this is enough for screen reader users. However as soon as you have entered text into the field, the placeholder disappears and there is no longer any label or information about what the text field is for (go ahead - try using the screen reader to focus on the above input after you've entered text in it).
 
-The above effect can easily be achieved accessibly, by either positioning a label hidden off-screen using CSS, or more simply by using the aria-label attribute:
+The above effect can be achieved accessibly, by either positioning a label hidden off-screen using CSS, or by using the aria-label attribute:
 
 <Gist url="https://gist.github.com/aitchiss/8ab191b55bfb991d847ad7f20c30a6e7" />
 
@@ -117,7 +117,7 @@ Turning on your screen reader and tabbing to the input below will show that the 
 
 ## Step 2: Take the guess-work out wherever possible
 
-Labels clearly communicate to the user what kind of information is expected in a given input, but often we have other requirements that might not be immediately obvious, for example:
+Labels communicate to the user what kind of information is expected in a given input, but often we have other requirements that might not be immediately obvious, for example:
 
 - A field that is required
 - A maximum or minimum length on a text input
@@ -126,11 +126,11 @@ Labels clearly communicate to the user what kind of information is expected in a
 
 While it can be easier for sighted users to quickly consume validation error messages and correct mistakes, it is better user experience for everyone to have the information upfront to avoid errors in the first place.
 
-For required fields, you can simply add the “required” attribute to your input which lets screen readers know to inform the user this field must be completed:
+For required fields, you can add the “required” attribute to your input which lets screen readers know to inform the user this field must be completed:
 
 <Gist url="https://gist.github.com/aitchiss/091b96e9a70d9d48f044395d1bfc0bcb" />
 
-Consider also adding descriptive text alongside your label/input communicating clearly any special requirements for the user input. For example:
+Consider also adding descriptive text alongside your label/input communicating any special requirements for the user input. For example:
 
 <Gist url="https://gist.github.com/aitchiss/a56bb0a5f21e0561233bcce389ff6c87" />
 
@@ -193,15 +193,15 @@ While each input has its own label describing the value of the radio button, all
 
 <Gist url="https://gist.github.com/aitchiss/16bcc40c5bbbc3f6657551637caefe50" />
 
-## Step 4: Keep it simple
+## Step 4: Keep it minimal
 
-A simple form is always going to be easier for users to complete with minimal effort, and it’s therefore worth considering carefully before adding any extra bells and whistles. For example, many form designs include the use of tooltips instead of placing descriptive text clearly on the page (as in Step 2 above).
+A minimal form is always going to be easier for users to complete with minimal effort, and it’s therefore worth considering carefully before adding any extra bells and whistles. For example, many form designs include the use of tooltips instead of placing descriptive text clearly on the page (as in Step 2 above).
 
 Tooltips might be visually appealing (although the question is open as to whether your sighted users would actually prefer not to have to hover over an element for details), but if you add them to your form you will need to ensure:
 
 - The tooltip is keyboard accessible - i.e. a user can trigger the appearance of the tooltip text by focusing the item with the keyboard instead of hovering with the mouse
-- Your screen reader users can easily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedby attribute as per Step 2 above.
+- Your screen reader users can readily access the same information, e.g. you could position some text off-screen using CSS and set the aria-describedby attribute as per Step 2 above.
 
 ## Next steps
 
-Now you have the basics in place, check out <Link to="/handling-form-errors">Handling Validation Errors in Forms</Link>, which will give you some tips on how to handle failed input validation and errors. Keep an eye out for more advanced Form topics on Up Your A11y coming soon, and in the meantime, check out the further reading suggestions below.
+Now you have the basics in place, check out <Link to="/handling-form-errors">Handling Validation Errors in Forms</Link>, which will give you some tips on how to handle invalid inputs and errors. Keep an eye out for more advanced Form topics on Up Your A11y coming soon, and in the meantime, check out the further reading suggestions below.

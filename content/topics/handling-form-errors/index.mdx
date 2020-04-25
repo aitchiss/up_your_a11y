@@ -8,7 +8,7 @@ artUrl: '/forms-article-art-2.png'
 sortOrder: 2
 keyTakeaways:
   - 'Consider the challenges faced by screen reader users when filling out forms'
-  - 'Implement a simple feedback list on form submission to communicate mistakes to your users'
+  - 'Implement a minimal feedback list on form submission to communicate mistakes to your users'
   - 'Provide immediate feedback to users when they tab away from a given input'
   - 'Understand the difference between disabled and aria-disabled on a form submission button'
 readingList:
@@ -35,7 +35,7 @@ keywords:
 
 As covered in the topic <Link to="/accessible-forms">Accessible Forms 101</Link>, we can take some steps to make sure any requirements for a given form input are as clear as possible. This includes:
 
-- Labelling inputs clearly
+- Labelling inputs
 - Marking fields as “required” when appropriate
 - Utilising the “aria-describedby” property to provide more detailed information about expected input types, patterns, and validations
 
@@ -53,7 +53,7 @@ Keeping in mind that screen reader users are likely to complete forms by tabbing
 
 The problem is that feedback is provided visually (red highlight, error message) but is not announced to the user.
 
-This simple example has only one input, with a very simple validation, but you can easily imagine the confusion faced by a user if they have completed multiple form inputs and then receive no feedback after clicking Submit, and no indication of where or what any error is.
+This minimal example has only one input, with a very straight-forward validation, but you can imagine the confusion faced by a user if they have completed multiple form inputs and then receive no feedback after clicking Submit, and no indication of where or what any error is.
 
 In this topic we’ll cover two methods of handling this situation with improved accessibility.
 
@@ -67,7 +67,7 @@ In this approach, we will:
 
 The key to getting this approach right for screen reader users is to utilise the “alert” role on the element with our error list. Form validation is a very common use case for the “alert” role, and it ensures that as soon as a message is placed inside the element it will be announced to the user (without any need to add focus to it).
 
-**A simple implementation for this approach would be:**
+**A minimal implementation for this approach would be:**
 
 <ExampleFormContainer>
   <ErrorFormWithList />
@@ -75,7 +75,7 @@ The key to getting this approach right for screen reader users is to utilise the
 
 Using your screen reader, try tabbing to and clicking the submit button with no input in the email field. You should notice that the list of errors is immediately announced, and if you return to the email input you have an indication that the current input value is invalid.
 
-The code for this simple implementation is below:
+The code for this implementation is below:
 
 <Gist url="https://gist.github.com/aitchiss/e0e76cfe370aba14ca41f7c4f1400e7f" />
 
@@ -93,7 +93,7 @@ The code for this simple implementation is below:
 Based on these pros and cons, the ‘error list’ approach might be appropriate in use cases where:
 
 - Either the total number of form inputs is small, or the form can be broken down into smaller sections that can be validated together before proceeding
-- Input validation rules can be easily understood without repetition, or are clearly present elsewhere in the form, e.g. referenced by “aria-describedby” attributes
+- Input validation rules can be understood without repetition, or are readily findable elsewhere in the form, e.g. referenced by “aria-describedby” attributes
 
 ## Approach 2: Immediate feedback
 
@@ -118,7 +118,7 @@ This approach also makes use of the “alert” role, but on an input-by-input b
 - The same validation needs to take place when the submit button is clicked, as input-by-input validation takes place in the ‘onBlur’ event and most users (especially those not using a screen-reader) may click submit before the final input is blurred
 - The "aria-disabled" attribute is used on the submit button rather than “disabled”, for reasons covered in the final section of this topic
 
-The code for this simple implementation is:
+The code for this implementation is:
 
 <Gist url="https://gist.github.com/aitchiss/c81486f13cf81a94542f572adeb74c65" />
 

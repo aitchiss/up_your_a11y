@@ -1,0 +1,90 @@
+---
+title: 'Accessibility-first Integration Tests'
+displayTitle: 'Accessibility-first Integration Tests'
+category: 'react'
+description: "Increase your confidence in your app's accessibility by writing React tests that focus on elements perceivable by the widest range of users."
+accentColor: '#BFE3D2'
+artUrl: '/react-article-art-4.png'
+sortOrder: 4
+keyTakeaways:
+  - 'Write tests that better reflect real user interactions'
+  - 'Catch accessibility bugs in their React tests'
+  - 'Understand some best practices in targeting DOM elements in tests'
+  - 'Choose a testing library that will support the above'
+readingList:
+  - url: 'https://testing-library.com/docs/react-testing-library/intro'
+    description: 'React Testing Library'
+  - url: 'https://webaim.org/articles/pour/'
+    description: 'WebAIM: Constructing a POUR website'
+keywords:
+  - 'react'
+  - 'testing'
+  - 'testing library'
+  - 'enzyme'
+---
+
+
+Often when we talk about accessibility testing we focus on either:
+
+- Browser extension linting tools (like [Axe](https://chrome.google.com/webstore/detail/axe-web-accessibility-tes/lhdoppojpmngadmnindnejefpokejbdd) and [Wave](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh))
+- Manual testing, e.g. with screen readers
+
+However it is possible to take an accessibility-focused approach in your integration tests too, and for React devs, I would recommend [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) as the perfect tool for the job.
+
+## Why choose React Testing Library over Enzyme?
+
+[Enzyme](https://airbnb.io/enzyme/) is a very popular library for integration testing in React. However, tests in Enzyme replicate the developer's worldview, not the end user's.
+
+Generally speaking, Enzyme tests work by testing the **implementation** of a component, rather than the user experience. We assert that expected items are rendered by their parent, and that props are present and correct. We invoke callback functions directly and verify the expected updates in state, etc.
+
+Testing the implementation like this has a few major downsides:
+
+1. Developer oversight is less likely to be caught - when we test our own implementation of a component, we are liable to repeat any assumptions or errors we made in that implementation
+
+2. We fail to test the path of user interaction completely. We may have checked that X many items are rendered on the screen, but we haven't truly checked that those items are perceivable and operable. Being Perceivable and Operable are two of the core requirements for an accessible app (find out more about POUR via this WebAim article: [Constructing a POUR Website](https://webaim.org/articles/pour/))
+
+## React Testing Library: Accessibility First
+
+![Tweet from Kent C. Dodds, stating the more your tests resemble the way your software is used, the more confidence they can give you. Dated 23 March 2018](./KentDoddsTweet.png)
+
+React Testing Library adopts a different mindset to Enzyme, and it can be hard to adjust to when you first make the switch. The approach can be summed up as:
+
+- Test real interactions
+- Verify the perceivable results
+
+### Test high up the component tree
+
+To truly focus on real user interactions, we should limit how much we test individual low-level components in isolation. Instead, we should ask ourselves:
+
+> How much of the page do I need to render to test a genuine set of user interactions?
+
+For some apps, the answer might be the entire page. For others, it may only be a sub-section. Thinking about it visually can help: if you were to hand off your app to a colleague to manually test a given set of features - what section(s) of the page would you need them look at?
+
+### Queries that test items are perceivable
+
+React Testing Library exposes several queries we can use to locate and verify rendered items, including: `getByLabelText`, `getByAltText`, and so on. They have a great FAQ on which query to use, ranking them in order of preference: [Which query should I use?](https://testing-library.com/docs/guide-which-query#priority). 
+
+This is where the accessibility-first approach really shines.
+
+Instead of querying the DOM by some property that can't be perceived by a user (e.g. classname), you instead use queries that will highlight gaps in your accessibility. 
+
+For example, `getByLabelText` is the preferred query for checking an input field. If you can't get a handle to your input field this way, a very important accessibility issue is brought to your attention via the testing process.
+
+### Actions that test items are operable
+
+Once you have a handle to an element, you can use the `fireEvent` API to execute clicks and other user interactions. Although the `fireEvent` API doesn't *exactly* replicate the same user interaction (a neat explanation to this can be found in the docs: [Interactions vs Events](https://testing-library.com/docs/guide-events)), it does allow us to verify that the element could be found, responds to a click event, and is therefore operable.
+
+Instead of verifying click events by monitoring some internal state or prop change (as we might with Enzyme), we can verify that the user has received the appropriate feedback from the event. For example, if an "add to basket" button has been clicked, we can verify that eventually the basket count icon has changed from '0' to '1', or that a message appears confirming "continue to checkout". We measure the success of an action by the perceivable results.
+
+## To sum up
+
+Overall, React Testing Library is designed to give our testing a user-centred worldview. Even better, its queries are designed to place accessibility at the heart of that worldview. The main takeaway, whether you choose to work with React Testing Library or not, is that our React tests can help us with accessibility if we focus on:
+- Testing as close to genuine user interactions as possible
+- Targeting elements by properties that are perceivable to **all** users
+- Asserting success based on an outcome perceivable to end users
+
+
+
+
+  
+

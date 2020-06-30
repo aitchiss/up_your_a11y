@@ -30,6 +30,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               { name: `twitter:title`, content: socialTitle },
               { name: `twitter:description`, content: description },
               { name: `twitter:image`, content: data.site.siteMetadata.image },
+              {
+                name: `monetization`,
+                content: '$ilp.uphold.com/GknddD8mjdAR',
+              },
             ]
               .concat(
                 keywords.length > 0
@@ -38,7 +42,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               )
               .concat(meta)}
           >
-            <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet" />
+            <link
+              href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap"
+              rel="stylesheet"
+            />
           </Helmet>
         )
       }}

@@ -8,7 +8,7 @@ The site is created and maintained by me - Suzanne - a software developer based 
 
 ## Contributing
 
-I'm currently working on a re-design for the site, and hoping to take a more open source approach to Up Your A11y once this is complete. I'd love to have your help in future, so look out for the 'help wanted' label starting to appear on issues soon!
+I'd be delighted to have your contribution to Up Your A11y! Please check out the [Contributing guidelines](./contributing.md), and look out for the "Help wanted" and "Good first issue" labels on open issues.
 
 ### Running the code
 

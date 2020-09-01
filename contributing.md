@@ -1,4 +1,4 @@
-# Welcome!
+# Contributing guidelines
 
 If you're thinking of contributing to Up Your A11y - thank you so much! I'd love to have your contribution, whether it's your first pull request or your thousandth.
 

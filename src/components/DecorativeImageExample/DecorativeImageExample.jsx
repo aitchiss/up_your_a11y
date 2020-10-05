@@ -2,21 +2,17 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import decorativeStyle from './decorativeImage.module.css'
 
-class DecorativeImageExample extends React.Component {
-  render() {
-    const { caption } = this.props
-    return (<StaticQuery 
-      query={decorativeImageQuery}
-      render={data => {
-        const { decorative } = data
-        return <div className={decorativeStyle.wrapper}>
-            <img src={decorative.edges[0].node.publicURL} alt="A slice of cherry pie" className={decorativeStyle.decorativeImage} />
-            <p className={decorativeStyle.tagline}>{caption}</p>
-          </div>
-      }}
-    />)
-  }
-
+export default function DecorativeImageExample({ caption }) {
+  return (<StaticQuery 
+    query={decorativeImageQuery}
+    render={data => {
+      const { decorative } = data
+      return <div className={decorativeStyle.wrapper}>
+          <img src={decorative.edges[0].node.publicURL} alt="A slice of cherry pie" className={decorativeStyle.decorativeImage} />
+          <p className={decorativeStyle.tagline}>{caption}</p>
+        </div>
+    }}
+  />)
 }
 
 const decorativeImageQuery = graphql`
@@ -30,5 +26,3 @@ const decorativeImageQuery = graphql`
     }
   }
 `
-
-export default DecorativeImageExample

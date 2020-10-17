@@ -6,7 +6,6 @@ import SEO from '../components/seo'
 import ButtonBox from '../components/ButtonBox/ButtonBox'
 import Gist from 'super-react-gist'
 import ReadingList from '../components/ReadingList/ReadingList'
-import TopicCard from '../components/TopicCard/TopicCard'
 import ErrorForm from '../components/ErrorForm/ErrorForm'
 import ErrorFormWithList from '../components/ErrorForm/ErrorFormWithList'
 import ErrorFormInlineError from '../components/ErrorForm/ErrorFormInlineError'
@@ -103,7 +102,6 @@ class BlogPostTemplate extends React.Component {
               ButtonBox,
               Gist,
               ReadingList,
-              TopicCard,
               Link,
               ExampleFormContainer,
               ErrorForm,

@@ -5,7 +5,7 @@ export default function Copyright() {
   return (
     <footer className={copyrightStyle.footer}>
       <div className={copyrightStyle.innerContainer}>
-        <p>&copy; Suzanne Aitchison 2020</p>
+        <p>&copy; Suzanne Aitchison 2022</p>
       </div>
     </footer>
   )
